@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Ding&#39;s Coding Forge</title>
-    <link>https://dings-things.github.io/blog/posts/</link>
-    <description>Recent content in Posts on Ding&#39;s Coding Forge</description>
+    <title>Python on Ding&#39;s Coding Forge</title>
+    <link>https://dings-things.github.io/blog/tags/python/</link>
+    <description>Recent content in Python on Ding&#39;s Coding Forge</description>
     <image>
       <title>Ding&#39;s Coding Forge</title>
       <url>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -11,15 +11,8 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
-    <atom:link href="https://dings-things.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[Go] Go Good Practice</title>
-      <link>https://dings-things.github.io/blog/posts/go-convention/</link>
-      <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
-      <guid>https://dings-things.github.io/blog/posts/go-convention/</guid>
-      <description>효율적인 Go Project Structure Guide</description>
-    </item>
+    <lastBuildDate>Thu, 22 Jun 2023 13:42:16 +0900</lastBuildDate>
+    <atom:link href="https://dings-things.github.io/blog/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Python] FastAPI Good Practice</title>
       <link>https://dings-things.github.io/blog/posts/fastapi-convention/</link>

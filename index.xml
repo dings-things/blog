@@ -11,7 +11,28 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
     <atom:link href="https://dings-things.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Go] Go Good Practice</title>
+      <link>https://dings-things.github.io/blog/posts/go-convention/</link>
+      <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
+      <guid>https://dings-things.github.io/blog/posts/go-convention/</guid>
+      <description>효율적인 Go Project Structure Guide</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>https://dings-things.github.io/blog/about/</link>
+      <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/about/</guid>
+      <description>Who am I</description>
+    </item>
+    <item>
+      <title>[Python] FastAPI Good Practice</title>
+      <link>https://dings-things.github.io/blog/posts/fastapi-convention/</link>
+      <pubDate>Thu, 22 Jun 2023 13:42:16 +0900</pubDate>
+      <guid>https://dings-things.github.io/blog/posts/fastapi-convention/</guid>
+      <description>클래스 기반의 FastAPI Structure Guide</description>
+    </item>
   </channel>
 </rss>
