@@ -34,7 +34,7 @@ params:
   hidemeta: false
   hideSummary: false
   ShowToc: true
-  TocOpen: false
+  TocOpen: true
 
   assets:
     favicon: "favicon.ico"
