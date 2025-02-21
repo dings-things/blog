@@ -1,0 +1,128 @@
+baseURL: "https://dings-things.github.io/blog-posts/"
+languageCode: "en-us"
+title: "Ding's Coding Forge"
+theme: "PaperMod"
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+pygmentsUseClasses: true
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  TocSide: "left"
+  env: "production"
+  title: "Ding's Things"
+  description: "Go Developer Backend & DataOps"
+  keywords: ["Blog", "Portfolio", "PaperMod"]
+  author: "Dingyu"
+  images: ["<link or path of image for opengraph, twitter-cards>"]
+  DateFormat: "January 2, 2006"
+  defaultTheme: "auto"
+  disableThemeToggle: false
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: false
+  hidemeta: false
+  hideSummary: false
+  ShowToc: true
+  TocOpen: false
+
+  assets:
+    favicon: "favicon.ico"
+    favicon16x16: "favicon-16x16.png"
+    favicon32x32: "favicon-32x32.png"
+    apple_touch_icon: "apple-touch-icon.png"
+    safari_pinned_tab: "<link / abs url>"
+
+  label:
+    text: "Ding's Coding Forge"
+    icon: "apple-touch-icon.png"
+    iconHeight: 35
+
+  profileMode:
+    buttons:
+      - name: "Posts"
+        url: "posts"
+      - name: "Tags"
+        url: "tags"
+
+  homeInfoParams:
+    Title: "딩위의 코드 공방"
+    Content: "기술에 매몰되지 않고 문제 해결에 초점을 맞추어 알맞은 기술을 사용하자!"
+
+  socialIcons:
+    - name: "email"
+      url: "wjddn3711@gmail.com"
+    - name: "linkedin"
+      url: "https://www.linkedin.com/in/jung-woo-lee-841950301/"
+    - name: "github"
+      url: "https://github.com/dings-things"
+
+  analytics:
+    google:
+      SiteVerificationTag: "XYZabc"
+    bing:
+      SiteVerificationTag: "XYZabc"
+    yandex:
+      SiteVerificationTag: "XYZabc"
+
+  cover:
+    hidden: false
+    hiddenInList: false
+    hiddenInSingle: false
+
+  editPost:
+    URL: "https://github.com/dings-things/blog-posts/tree/main/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "content", "tags"]
+
+menu:
+  main:
+    - identifier: "home"
+      name: "🏠"
+      url: "/"
+      weight: 1
+    - identifier: "about"
+      name: "About"
+      url: "/about/"
+      weight: 10
+    - identifier: "categories"
+      name: "Categories"
+      url: "/categories/"
+      weight: 20
+    - identifier: "tags"
+      name: "Tags"
+      url: "/tags/"
+      weight: 30
+    - identifier: "archives"
+      name: "Archives"
+      url: "/archives/"
+      weight: 40
+    - identifier: "search"
+      name: "🔍"
+      url: "/search/"
+      weight: 50
+
+markup:
+  highlight:
+    noClasses: false
+
+mainSections: ["posts"]
