@@ -8,6 +8,9 @@
     <loc>https://dings-things.github.io/blog/categories/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
+    <loc>https://dings-things.github.io/blog/tags/convention/</loc>
+    <lastmod>2025-02-20T13:43:14+09:00</lastmod>
+  </url><url>
     <loc>https://dings-things.github.io/blog/categories/convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
@@ -25,6 +28,51 @@
   </url><url>
     <loc>https://dings-things.github.io/blog/about/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/posts/coffee-pal/</loc>
+    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/tags/coffee-chat/</loc>
+    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/categories/dx/</loc>
+    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/tags/slack-bot/</loc>
+    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/posts/sentry/</loc>
+    <lastmod>2024-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/tags/sentry/</loc>
+    <lastmod>2024-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/categories/third-party/</loc>
+    <lastmod>2024-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/posts/k8s-zero-downtime/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/categories/infra/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/tags/k8s/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/tags/zero-downtime/</loc>
+    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/posts/redis-transaction/</loc>
+    <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/categories/db/</loc>
+    <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/tags/redis/</loc>
+    <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dings-things.github.io/blog/tags/transaction/</loc>
+    <lastmod>2024-01-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dings-things.github.io/blog/posts/fastapi-convention/</loc>
     <lastmod>2023-06-22T13:42:16+09:00</lastmod>

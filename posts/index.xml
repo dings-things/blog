@@ -14,14 +14,42 @@
     <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
     <atom:link href="https://dings-things.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Go] Go Good Practice</title>
+      <title>[Go] Go Convention</title>
       <link>https://dings-things.github.io/blog/posts/go-convention/</link>
       <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
       <guid>https://dings-things.github.io/blog/posts/go-convention/</guid>
       <description>효율적인 Go Project Structure Guide</description>
     </item>
     <item>
-      <title>[Python] FastAPI Good Practice</title>
+      <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
+      <link>https://dings-things.github.io/blog/posts/coffee-pal/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/posts/coffee-pal/</guid>
+      <description>나 개발잔데 옆에 사람이랑 슬랙으로 대화한다.. 우리 이제 친해져요</description>
+    </item>
+    <item>
+      <title>[Third-Party] Sentry 연동</title>
+      <link>https://dings-things.github.io/blog/posts/sentry/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/posts/sentry/</guid>
+      <description>APM과 에러 스테이스가 가능한 툴이 있다?</description>
+    </item>
+    <item>
+      <title>[Infra] 쿠버네틱스 무중단 배포 설정하기</title>
+      <link>https://dings-things.github.io/blog/posts/k8s-zero-downtime/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/posts/k8s-zero-downtime/</guid>
+      <description>간헐적으로 발생하는 502와 504.. 왜 발생하고 어떻게 예방할까</description>
+    </item>
+    <item>
+      <title>[DB] Redis Transaction</title>
+      <link>https://dings-things.github.io/blog/posts/redis-transaction/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/posts/redis-transaction/</guid>
+      <description>Redis는 락이 없는데 어떻게 트랜잭션을 보장하죠?</description>
+    </item>
+    <item>
+      <title>[Python] FastAPI Convention</title>
       <link>https://dings-things.github.io/blog/posts/fastapi-convention/</link>
       <pubDate>Thu, 22 Jun 2023 13:42:16 +0900</pubDate>
       <guid>https://dings-things.github.io/blog/posts/fastapi-convention/</guid>
