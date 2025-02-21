@@ -20,5 +20,33 @@
       <guid>https://dings-things.github.io/blog/categories/convention/</guid>
       <description></description>
     </item>
+    <item>
+      <title>Dx</title>
+      <link>https://dings-things.github.io/blog/categories/dx/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/categories/dx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Third-Party</title>
+      <link>https://dings-things.github.io/blog/categories/third-party/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/categories/third-party/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infra</title>
+      <link>https://dings-things.github.io/blog/categories/infra/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/categories/infra/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Db</title>
+      <link>https://dings-things.github.io/blog/categories/db/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/categories/db/</guid>
+      <description></description>
+    </item>
   </channel>
 </rss>

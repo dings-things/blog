@@ -20,5 +20,12 @@
       <guid>https://dings-things.github.io/blog/posts/go-convention/</guid>
       <description>효율적인 Go Project Structure Guide</description>
     </item>
+    <item>
+      <title>[Third-Party] Sentry 연동</title>
+      <link>https://dings-things.github.io/blog/posts/sentry/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dings-things.github.io/blog/posts/sentry/</guid>
+      <description>APM과 에러 스테이스가 가능한 툴이 있다?</description>
+    </item>
   </channel>
 </rss>
