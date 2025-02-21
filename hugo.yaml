@@ -12,6 +12,9 @@ minify:
   disableXML: true
   minifyOutput: true
 
+outputs:
+  home: ["HTML", "RSS", "JSON"]
+
 params:
   TocSide: "left"
   env: "production"
