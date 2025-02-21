@@ -4,8 +4,9 @@ author: dingyu
 draft: false
 tags:
 - python
+- convention
 categories: ["convention"]
-title: '[Python] FastAPI Good Practice'
+title: '[Python] FastAPI Convention'
 cover:
     image: img/fastapi.png
     relative: true
@@ -14,7 +15,7 @@ summary: 클래스 기반의 FastAPI Structure Guide
 
 # FastAPI Convention에 관하여
 ## FastAPI란?
-![](/img/fastapi-graph.png)
+![](fastapi-graph.png)
 
 ## FastAPI의 장점
 - 의존성 주입
@@ -36,7 +37,7 @@ summary: 클래스 기반의 FastAPI Structure Guide
    - FastAPI 는 `Pydantic` 을 매우 사랑한다. 간단하게 직렬화, 타입검사 경로 변수 읽기 등등 장점이 수두룩 한데 이는 나중에 더 자세히 다루겠다.
 
 ## 특징
-![](https://velog.velcdn.com/images/wjddn3711/post/507836bd-1d86-4b50-81fa-7c2dd9006181/image.png)
+![](image.png)
 
 가장 큰 것이 사실상의 표준(de facto standard) 가 없다는 것이다. 여타 프레임워크들과 다르게 역사도 길지 않고 FastAPI의 모토가 자유롭고 경량의 프레임워크를 지향하기에 어쩔수 없게도 코딩 스탠다드가 존재하지 않는다. 좋게 말하면 자유도 높인 프레임워크이지만 어떻게 보면 근본이 없다 보일 수 있을 것이다.
 

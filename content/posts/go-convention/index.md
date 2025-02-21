@@ -5,7 +5,8 @@ author: dingyu
 categories: ["convention"]
 tags:
 - go
-title: '[Go] Go Good Practice'
+- convention
+title: '[Go] Go Convention'
 summary: 효율적인 Go Project Structure Guide
 cover:
     image: img/go-thumbnail.png
@@ -106,7 +107,7 @@ SomeAPI
 └── *README.md                    // 프로젝트에 대한 배경, 유즈케이스, 설치 방법 기술
 ```
 
-![](/img/layered-architecture.png)
+![](layered-architecture.png)
 
 | 구분                               | 필수 여부 | 설명                                                                                                                                                                                | 예시                                                                                 |
 | -------------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
