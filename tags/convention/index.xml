@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on Ding&#39;s Coding Forge</title>
-    <link>https://dings-things.github.io/blog/posts/</link>
-    <description>Recent content in Posts on Ding&#39;s Coding Forge</description>
+    <title>Convention on Ding&#39;s Coding Forge</title>
+    <link>https://dings-things.github.io/blog/tags/convention/</link>
+    <description>Recent content in Convention on Ding&#39;s Coding Forge</description>
     <image>
       <title>Ding&#39;s Coding Forge</title>
       <url>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
-    <atom:link href="https://dings-things.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dings-things.github.io/blog/tags/convention/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Go] Go Convention</title>
       <link>https://dings-things.github.io/blog/posts/go-convention/</link>

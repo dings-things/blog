@@ -14,14 +14,14 @@
     <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
     <atom:link href="https://dings-things.github.io/blog/categories/convention/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Go] Go Good Practice</title>
+      <title>[Go] Go Convention</title>
       <link>https://dings-things.github.io/blog/posts/go-convention/</link>
       <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
       <guid>https://dings-things.github.io/blog/posts/go-convention/</guid>
       <description>효율적인 Go Project Structure Guide</description>
     </item>
     <item>
-      <title>[Python] FastAPI Good Practice</title>
+      <title>[Python] FastAPI Convention</title>
       <link>https://dings-things.github.io/blog/posts/fastapi-convention/</link>
       <pubDate>Thu, 22 Jun 2023 13:42:16 +0900</pubDate>
       <guid>https://dings-things.github.io/blog/posts/fastapi-convention/</guid>
