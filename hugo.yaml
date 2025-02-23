@@ -1,4 +1,4 @@
-baseURL: "https://dings-things.github.io/blog/"
+baseURL: "https://dingyu.dev/"
 languageCode: "en-us"
 title: "Ding's Coding Forge"
 theme: "PaperMod"
@@ -73,7 +73,7 @@ params:
 
   analytics:
     google:
-      SiteVerificationTag: "dSzoBYDIksNJ_5c8VsHY894jSrlA9U_sODKL7XpFCQ0"
+      SiteVerificationTag: "8XY1hI6NVxQIrN7bQbnX-9TG9HHFw5HOQmlb6vcsFdQ"
     bing:
       SiteVerificationTag: "XYZabc"
     yandex:
