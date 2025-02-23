@@ -416,5 +416,3 @@ func (rm *sentryRecoverMiddleware) Register(originalHandler http.Handler) http.H
 ```
 
 비용적인 문제가 있지만 `APM`과 `Error Capture`측면에서는 관리적인 편의성을 제공해주는 Sentry!
-
-개발자에게는 한줄기 빛이 될 수 있겠죠?
