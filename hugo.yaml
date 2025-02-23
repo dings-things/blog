@@ -73,7 +73,7 @@ params:
 
   analytics:
     google:
-      SiteVerificationTag: "8XY1hI6NVxQIrN7bQbnX-9TG9HHFw5HOQmlb6vcsFdQ"
+      SiteVerificationTag: "8XY1hI6NVxQIrN7bQbnX-9TG9HHFw5HOQmlb6vcsFdQ" 
     bing:
       SiteVerificationTag: "XYZabc"
     yandex:
