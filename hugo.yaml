@@ -18,7 +18,7 @@ outputs:
 params:
   TocSide: "left"
   env: "production"
-  googleAnalytics: "G-7CCS6HFQX4"
+  googleAnalytics: "G-RHVV4SSERE"
   title: "Ding's Things"
   description: "Go Developer Backend & DataOps"
   keywords: ["Blog", "Portfolio", "PaperMod"]
