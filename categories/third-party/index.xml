@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Third-Party on Ding&#39;s Coding Forge</title>
-    <link>https://dings-things.github.io/blog/categories/third-party/</link>
+    <link>https://dingyu.dev/categories/third-party/</link>
     <description>Recent content in Third-Party on Ding&#39;s Coding Forge</description>
     <image>
       <title>Ding&#39;s Coding Forge</title>
-      <url>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 11 Sep 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dings-things.github.io/blog/categories/third-party/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dingyu.dev/categories/third-party/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Third-Party] Sentry 연동</title>
-      <link>https://dings-things.github.io/blog/posts/sentry/</link>
+      <link>https://dingyu.dev/posts/sentry/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://dings-things.github.io/blog/posts/sentry/</guid>
+      <guid>https://dingyu.dev/posts/sentry/</guid>
       <description>APM과 에러 스테이스가 가능한 툴이 있다?</description>
     </item>
   </channel>
