@@ -2,86 +2,86 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dings-things.github.io/blog/posts/go-convention/</loc>
+    <loc>https://dingyu.dev/posts/go-convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/categories/</loc>
+    <loc>https://dingyu.dev/categories/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/convention/</loc>
+    <loc>https://dingyu.dev/tags/convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/categories/convention/</loc>
+    <loc>https://dingyu.dev/categories/convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/</loc>
+    <loc>https://dingyu.dev/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/go/</loc>
+    <loc>https://dingyu.dev/tags/go/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/posts/</loc>
+    <loc>https://dingyu.dev/posts/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/</loc>
+    <loc>https://dingyu.dev/tags/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/about/</loc>
+    <loc>https://dingyu.dev/about/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/posts/coffee-pal/</loc>
+    <loc>https://dingyu.dev/posts/coffee-pal/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/coffee-chat/</loc>
+    <loc>https://dingyu.dev/tags/coffee-chat/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/categories/dx/</loc>
+    <loc>https://dingyu.dev/categories/dx/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/slack-bot/</loc>
+    <loc>https://dingyu.dev/tags/slack-bot/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/posts/sentry/</loc>
+    <loc>https://dingyu.dev/posts/sentry/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/sentry/</loc>
+    <loc>https://dingyu.dev/tags/sentry/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/categories/third-party/</loc>
+    <loc>https://dingyu.dev/categories/third-party/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/posts/k8s-zero-downtime/</loc>
+    <loc>https://dingyu.dev/posts/k8s-zero-downtime/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/categories/infra/</loc>
+    <loc>https://dingyu.dev/categories/infra/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/k8s/</loc>
+    <loc>https://dingyu.dev/tags/k8s/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/zero-downtime/</loc>
+    <loc>https://dingyu.dev/tags/zero-downtime/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/posts/redis-transaction/</loc>
+    <loc>https://dingyu.dev/posts/redis-transaction/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/categories/db/</loc>
+    <loc>https://dingyu.dev/categories/db/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/redis/</loc>
+    <loc>https://dingyu.dev/tags/redis/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/transaction/</loc>
+    <loc>https://dingyu.dev/tags/transaction/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/posts/fastapi-convention/</loc>
+    <loc>https://dingyu.dev/posts/fastapi-convention/</loc>
     <lastmod>2023-06-22T13:42:16+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/tags/python/</loc>
+    <loc>https://dingyu.dev/tags/python/</loc>
     <lastmod>2023-06-22T13:42:16+09:00</lastmod>
   </url><url>
-    <loc>https://dings-things.github.io/blog/archives/</loc>
+    <loc>https://dingyu.dev/archives/</loc>
   </url><url>
-    <loc>https://dings-things.github.io/blog/search/</loc>
+    <loc>https://dingyu.dev/search/</loc>
   </url>
 </urlset>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Coffee-Chat on Ding&#39;s Coding Forge</title>
-    <link>https://dings-things.github.io/blog/tags/coffee-chat/</link>
+    <link>https://dingyu.dev/tags/coffee-chat/</link>
     <description>Recent content in Coffee-Chat on Ding&#39;s Coding Forge</description>
     <image>
       <title>Ding&#39;s Coding Forge</title>
-      <url>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dings-things.github.io/blog/tags/coffee-chat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dingyu.dev/tags/coffee-chat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
-      <link>https://dings-things.github.io/blog/posts/coffee-pal/</link>
+      <link>https://dingyu.dev/posts/coffee-pal/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dings-things.github.io/blog/posts/coffee-pal/</guid>
+      <guid>https://dingyu.dev/posts/coffee-pal/</guid>
       <description>나 개발잔데 옆에 사람이랑 슬랙으로 대화한다.. 우리 이제 친해져요</description>
     </item>
   </channel>

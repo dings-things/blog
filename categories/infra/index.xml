@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Infra on Ding&#39;s Coding Forge</title>
-    <link>https://dings-things.github.io/blog/categories/infra/</link>
+    <link>https://dingyu.dev/categories/infra/</link>
     <description>Recent content in Infra on Ding&#39;s Coding Forge</description>
     <image>
       <title>Ding&#39;s Coding Forge</title>
-      <url>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dings-things.github.io/blog/categories/infra/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dingyu.dev/categories/infra/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Infra] 쿠버네틱스 무중단 배포 설정하기</title>
-      <link>https://dings-things.github.io/blog/posts/k8s-zero-downtime/</link>
+      <link>https://dingyu.dev/posts/k8s-zero-downtime/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://dings-things.github.io/blog/posts/k8s-zero-downtime/</guid>
+      <guid>https://dingyu.dev/posts/k8s-zero-downtime/</guid>
       <description>간헐적으로 발생하는 502와 504.. 왜 발생하고 어떻게 예방할까</description>
     </item>
   </channel>
