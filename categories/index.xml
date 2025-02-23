@@ -2,50 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on Ding&#39;s Coding Forge</title>
-    <link>https://dingyu.dev/categories/</link>
+    <link>https://dings-things.github.io/blog/categories/</link>
     <description>Recent content in Categories on Ding&#39;s Coding Forge</description>
     <image>
       <title>Ding&#39;s Coding Forge</title>
-      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dings-things.github.io/blog/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
-    <atom:link href="https://dingyu.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dings-things.github.io/blog/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Convention</title>
-      <link>https://dingyu.dev/categories/convention/</link>
+      <link>https://dings-things.github.io/blog/categories/convention/</link>
       <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
-      <guid>https://dingyu.dev/categories/convention/</guid>
+      <guid>https://dings-things.github.io/blog/categories/convention/</guid>
       <description></description>
     </item>
     <item>
       <title>Dx</title>
-      <link>https://dingyu.dev/categories/dx/</link>
+      <link>https://dings-things.github.io/blog/categories/dx/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/categories/dx/</guid>
+      <guid>https://dings-things.github.io/blog/categories/dx/</guid>
       <description></description>
     </item>
     <item>
       <title>Third-Party</title>
-      <link>https://dingyu.dev/categories/third-party/</link>
+      <link>https://dings-things.github.io/blog/categories/third-party/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/categories/third-party/</guid>
+      <guid>https://dings-things.github.io/blog/categories/third-party/</guid>
       <description></description>
     </item>
     <item>
       <title>Infra</title>
-      <link>https://dingyu.dev/categories/infra/</link>
+      <link>https://dings-things.github.io/blog/categories/infra/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/categories/infra/</guid>
+      <guid>https://dings-things.github.io/blog/categories/infra/</guid>
       <description></description>
     </item>
     <item>
       <title>Db</title>
-      <link>https://dingyu.dev/categories/db/</link>
+      <link>https://dings-things.github.io/blog/categories/db/</link>
       <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/categories/db/</guid>
+      <guid>https://dings-things.github.io/blog/categories/db/</guid>
       <description></description>
     </item>
   </channel>
