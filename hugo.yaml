@@ -1,4 +1,4 @@
-baseURL: "https://dings-things.github.io/blog-posts/"
+baseURL: "https://dingyu.dev/"
 languageCode: "en-us"
 title: "Ding's Coding Forge"
 theme: "PaperMod"
@@ -12,9 +12,13 @@ minify:
   disableXML: true
   minifyOutput: true
 
+outputs:
+  home: ["HTML", "RSS", "JSON"]
+
 params:
   TocSide: "left"
   env: "production"
+  googleAnalytics: "G-RHVV4SSERE"
   title: "Ding's Things"
   description: "Go Developer Backend & DataOps"
   keywords: ["Blog", "Portfolio", "PaperMod"]
@@ -34,7 +38,7 @@ params:
   hidemeta: false
   hideSummary: false
   ShowToc: true
-  TocOpen: false
+  TocOpen: true
 
   assets:
     favicon: "favicon.ico"
@@ -69,7 +73,7 @@ params:
 
   analytics:
     google:
-      SiteVerificationTag: "XYZabc"
+      SiteVerificationTag: "8XY1hI6NVxQIrN7bQbnX-9TG9HHFw5HOQmlb6vcsFdQ" 
     bing:
       SiteVerificationTag: "XYZabc"
     yandex:
@@ -81,7 +85,7 @@ params:
     hiddenInSingle: false
 
   editPost:
-    URL: "https://github.com/dings-things/blog-posts/tree/main/content"
+    URL: "https://github.com/dings-things/blog/tree/main/content"
     Text: "Suggest Changes"
     appendFilePath: true
 
