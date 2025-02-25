@@ -42,6 +42,27 @@
       <description>This post explores dynamic rule-based stream processing using Apache Flink for real-time fraud detection. It covers key topics such as dynamic key partitioning, broadcast state for rule updates, and custom window processing to efficiently evaluate transactions without redeploying jobs. The implementation ensures low-latency fraud detection by minimizing shuffle overhead, dynamically applying grouping keys, and leveraging stateful processing. Additionally, it discusses event retention strategies, performance considerations, and architecture trade-offs for building a scalable, high-performance fraud detection system.</description>
     </item>
     <item>
+      <title>[Go] Gophercon 2024 - Building Minimalistic Backend Microservice in Go</title>
+      <link>https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/</guid>
+      <description>불필요한 프레임워크는 이제 그만&amp;hellip; 튜닝의 끝은 순정일세~ 바닐라 Go를 통해 미니멀리스틱 App 개발하는 법</description>
+    </item>
+    <item>
+      <title>[Go] Gophercon 2024 - 고언어 프로젝트 가이드 A-Z</title>
+      <link>https://dingyu.dev/posts/gopher-con-2024-go-project-guide/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/gopher-con-2024-go-project-guide/</guid>
+      <description>Spring과 같이 규격화 되어 있지 않은 Go 언어에서 프로젝트를 구성하는 방법.. 피쳐 단위 개발 그리고 엔터프라이즈 App까지 설계에 대한 개략적인 사례를 소개함</description>
+    </item>
+    <item>
+      <title>[Go] Gophercon 2024 - 쿠버네티스 플랫폼 프로그래밍</title>
+      <link>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</guid>
+      <description>go 기반으로 k8s API를 사용하는 법&amp;hellip; 오퍼레이터로 배포하는 애플리케이션</description>
+    </item>
+    <item>
       <title>[Go] Worker Pool과 비동기 작업의 성능 프로파일링</title>
       <link>https://dingyu.dev/posts/worker-pool-async/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
