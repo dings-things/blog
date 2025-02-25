@@ -11,6 +11,7 @@ summary: 효율적인 Go Project Structure Guide
 cover:
     image: img/go-thumbnail.png
     relative: true
+comments: true
 ---
 
 # 배경

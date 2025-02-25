@@ -11,6 +11,7 @@ summary: APM과 에러 스테이스가 가능한 툴이 있다?
 cover:
     image: img/sentry.png
     relative: true
+comments: true
 ---
 
 # 배경

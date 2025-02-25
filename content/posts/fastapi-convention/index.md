@@ -11,6 +11,7 @@ cover:
     image: img/fastapi.png
     relative: true
 summary: 클래스 기반의 FastAPI Structure Guide
+comments: true
 ---
 
 # FastAPI Convention에 관하여

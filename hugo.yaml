@@ -45,6 +45,20 @@ params:
   ShowToc: true
   TocOpen: true
 
+  giscus:
+    repo: "dings-things/blog"
+    repoID: "R_kgDON9IuAw"
+    category: "Announcements"
+    categoryID: "DIC_kwDON9IuA84CnTai"
+    mapping: "og:title"
+    dataStrict: "0"
+    reactionsEnabled: "1"
+    emitMetadata: "0"
+    inputPosition: "bottom"
+    theme: "preferred_color_scheme"
+    lang: "ko"
+    loading: "lazy"
+
   assets:
     favicon: "favicon.ico"
     favicon16x16: "favicon-16x16.png"

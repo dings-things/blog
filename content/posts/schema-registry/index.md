@@ -14,6 +14,7 @@ summary: 이벤트 스키마의 하위/상위 호환성 어떻게 지켜질까?
 cover:
     image: img/kafka.png
     relative: true
+comments: true
 ---
 
 # 들어가기에 앞서...

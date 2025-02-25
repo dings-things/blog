@@ -11,6 +11,7 @@ summary: 나 개발잔데 옆에 사람이랑 슬랙으로 대화한다.. 우리
 cover:
     image: img/coffeepal.png
     relative: true
+comments: true
 ---
 
 > 소스 코드 : https://github.com/dings-things/coffee_pal

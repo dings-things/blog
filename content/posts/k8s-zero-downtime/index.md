@@ -11,6 +11,7 @@ summary: 간헐적으로 발생하는 502와 504.. 왜 발생하고 어떻게 �
 cover:
     image: img/kubernetes.png
     relative: true
+comments: true
 ---
 
 # 배경

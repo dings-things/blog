@@ -11,6 +11,7 @@ summary: Redis는 락이 없는데 어떻게 트랜잭션을 보장하죠?
 cover:
     image: img/redis.png
     relative: true
+comments: true
 ---
 
 # 목적
