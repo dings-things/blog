@@ -100,10 +100,6 @@ params:
 
 menu:
   main:
-    - identifier: "home"
-      name: "🏠"
-      url: "/"
-      weight: 1
     - identifier: "about"
       name: "About"
       url: "/about/"
