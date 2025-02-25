@@ -1,5 +1,5 @@
 ---
-date: "2025-02-20T13:43:14+09:00"
+date: "2025-01-12"
 draft: false
 author: dingyu
 categories: ["convention"]

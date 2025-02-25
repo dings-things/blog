@@ -1,5 +1,5 @@
 ---
-date: "2023-06-22T13:42:16+09:00"
+date: "2023-06-22"
 author: dingyu
 draft: false
 tags:
