@@ -2,19 +2,20 @@
 date: "2025-02-24"
 draft: false
 author: dingyu
-categories: ["kafka"]
+categories: ["eda"]
 tags:
 - kafka
 - avro
 - protobuf
 - json
 - schema registry
-title: '[Kafka] Schema Registry'
+title: '[EDA] Schema Registry'
 summary: 이벤트 스키마의 하위/상위 호환성 어떻게 지켜질까?
 cover:
     image: img/kafka.png
     relative: true
 comments: true
+comments: People often underestimate the importance of documenting schemas before starting to code, especially when working with stream processing. In this post, I’ll explain why using a schema registry is essential and why designing schemas upfront is crucial before diving into coding.
 ---
 
 # 들어가기에 앞서...

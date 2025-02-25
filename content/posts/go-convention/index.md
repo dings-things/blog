@@ -12,6 +12,7 @@ cover:
     image: img/go-thumbnail.png
     relative: true
 comments: true
+description: There aren’t many Go developers in Korea, and major IT companies using Go are as rare as unicorns. At my company, we have accumulated our own know-how over the years while developing with Go. Here, I’d like to suggest some key conventions that I believe are useful for maintaining services in the long run.
 ---
 
 # 배경

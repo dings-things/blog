@@ -12,6 +12,7 @@ cover:
     image: img/redis.png
     relative: true
 comments: true
+description: Unlike RDBMS, Redis doesn’t have a traditional transaction mechanism. It primarily operates as a single-threaded cache, but transactions can still be made atomic using TX pipelines or Lua scripts. This post focuses on comparing the pros and cons of Lua scripts vs. TX pipelines.
 ---
 
 # 목적

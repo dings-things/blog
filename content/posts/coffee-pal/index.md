@@ -12,6 +12,7 @@ cover:
     image: img/coffeepal.png
     relative: true
 comments: true
+description: Developers often work alone, deeply diving into specific techniques. However, as members of a company, we need a space to discuss and brainstorm together. Inspired by the spirit of Ubuntu, I created my own Slack app Slack Bolt Coffee Chat, Coffee Pal
 ---
 
 > 소스 코드 : https://github.com/dings-things/coffee_pal

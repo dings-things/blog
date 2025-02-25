@@ -12,6 +12,7 @@ cover:
     image: img/kubernetes.png
     relative: true
 comments: true
+description: During our migration from IDC to EKS, we encountered numerous challenges—including security configurations, network settings, databases, and ultimately, application deployments. After each deployment, we frequently faced 502 and 504 errors without a clear solution. Since minimizing downtime was critical, I’ll share how we overcame these 502 and 504 issues.
 ---
 
 # 배경

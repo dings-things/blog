@@ -11,6 +11,7 @@ cover:
     image: img/fastapi.png
     relative: true
 summary: 클래스 기반의 FastAPI Structure Guide
+description: People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i'll suggest class based fastapi best practice
 comments: true
 ---
 
