@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Avro on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/tags/avro/</link>
+    <description>Recent content in Avro on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/tags/avro/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Kafka] Schema Registry</title>
+      <link>https://dingyu.dev/posts/schema-registry/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/schema-registry/</guid>
+      <description>이벤트 스키마의 하위/상위 호환성 어떻게 지켜질까?</description>
+    </item>
+  </channel>
+</rss>

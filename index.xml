@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Kafka] Schema Registry</title>
+      <link>https://dingyu.dev/posts/schema-registry/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/schema-registry/</guid>
+      <description>이벤트 스키마의 하위/상위 호환성 어떻게 지켜질까?</description>
+    </item>
     <item>
       <title>[Go] Go Convention</title>
       <link>https://dingyu.dev/posts/go-convention/</link>

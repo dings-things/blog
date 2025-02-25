@@ -2,10 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dingyu.dev/posts/go-convention/</loc>
-    <lastmod>2025-02-20T13:43:14+09:00</lastmod>
+    <loc>https://dingyu.dev/posts/schema-registry/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/tags/avro/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dingyu.dev/categories/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/tags/json/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/tags/kafka/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/categories/kafka/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/posts/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/tags/protobuf/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/tags/schema-registry/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/tags/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dingyu.dev/posts/go-convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
     <loc>https://dingyu.dev/tags/convention/</loc>
@@ -14,16 +44,7 @@
     <loc>https://dingyu.dev/categories/convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
-    <loc>https://dingyu.dev/</loc>
-    <lastmod>2025-02-20T13:43:14+09:00</lastmod>
-  </url><url>
     <loc>https://dingyu.dev/tags/go/</loc>
-    <lastmod>2025-02-20T13:43:14+09:00</lastmod>
-  </url><url>
-    <loc>https://dingyu.dev/posts/</loc>
-    <lastmod>2025-02-20T13:43:14+09:00</lastmod>
-  </url><url>
-    <loc>https://dingyu.dev/tags/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
   </url><url>
     <loc>https://dingyu.dev/about/</loc>
