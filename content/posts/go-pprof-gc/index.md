@@ -2,11 +2,12 @@
 date: "2024-09-13"
 draft: false
 author: dingyu
-categories: ["go"]
+categories: ["optimization"]
 tags:
 - go
 - pprof
-- 
+- profile
+- gc tuning
 title: '[Go] pprof로 GC 튜닝하기'
 summary: 티끌모아 태산이라도 들어보았나? 병목 구간을 확인하여 최적화 하거나... Memory Alloc을 최소화하여 GC의 부담을 덜어줌이 더해져 성능 최적화된 애플리케이션을 만든다!
 cover:
