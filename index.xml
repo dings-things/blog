@@ -49,6 +49,13 @@
       <description>Developers often work alone, deeply diving into specific techniques. However, as members of a company, we need a space to discuss and brainstorm together. Inspired by the spirit of Ubuntu, I created my own Slack app Slack Bolt Coffee Chat, Coffee Pal</description>
     </item>
     <item>
+      <title>[Go] pprof로 GC 튜닝하기</title>
+      <link>https://dingyu.dev/posts/go-pprof-gc/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/go-pprof-gc/</guid>
+      <description>This post explores how to use pprof for profiling and optimizing Go applications, focusing on heap allocation, GC tuning, and performance bottleneck identification. It covers profiling setup with Gin, analyzing Flame Graphs and heap dumps, and optimizing memory allocations by addressing inefficient context usage and logging overhead. Additionally, it discusses GC tuning strategies (GOMEMLIMIT, GOGC) and best practices like pointer usage, slice capacity preallocation, and benchmarking techniques to improve application efficiency and reduce Stop-The-World (STW) latency.</description>
+    </item>
+    <item>
       <title>[Third-Party] Sentry 연동</title>
       <link>https://dingyu.dev/posts/sentry/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>

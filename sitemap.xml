@@ -127,6 +127,21 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://dingyu.dev/posts/go-pprof-gc/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/categories/go/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/pprof/</loc>
+    <lastmod>2024-09-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://dingyu.dev/posts/sentry/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
