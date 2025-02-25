@@ -18,14 +18,14 @@
       <link>https://dingyu.dev/posts/go-convention/</link>
       <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
       <guid>https://dingyu.dev/posts/go-convention/</guid>
-      <description>효율적인 Go Project Structure Guide</description>
+      <description>There aren’t many Go developers in Korea, and major IT companies using Go are as rare as unicorns. At my company, we have accumulated our own know-how over the years while developing with Go. Here, I’d like to suggest some key conventions that I believe are useful for maintaining services in the long run.</description>
     </item>
     <item>
       <title>[Python] FastAPI Convention</title>
       <link>https://dingyu.dev/posts/fastapi-convention/</link>
       <pubDate>Thu, 22 Jun 2023 13:42:16 +0900</pubDate>
       <guid>https://dingyu.dev/posts/fastapi-convention/</guid>
-      <description>클래스 기반의 FastAPI Structure Guide</description>
+      <description>People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i&amp;#39;ll suggest class based fastapi best practice</description>
     </item>
   </channel>
 </rss>

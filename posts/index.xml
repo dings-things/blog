@@ -14,7 +14,7 @@
     <lastBuildDate>Mon, 24 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Kafka] Schema Registry</title>
+      <title>[EDA] Schema Registry</title>
       <link>https://dingyu.dev/posts/schema-registry/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/schema-registry/</guid>
@@ -25,42 +25,49 @@
       <link>https://dingyu.dev/posts/go-convention/</link>
       <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
       <guid>https://dingyu.dev/posts/go-convention/</guid>
-      <description>효율적인 Go Project Structure Guide</description>
+      <description>There aren’t many Go developers in Korea, and major IT companies using Go are as rare as unicorns. At my company, we have accumulated our own know-how over the years while developing with Go. Here, I’d like to suggest some key conventions that I believe are useful for maintaining services in the long run.</description>
+    </item>
+    <item>
+      <title>[EDA] Flink Dynamic Job Case Study</title>
+      <link>https://dingyu.dev/posts/flink-dynamic-job/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/flink-dynamic-job/</guid>
+      <description>This post explores dynamic rule-based stream processing using Apache Flink for real-time fraud detection. It covers key topics such as dynamic key partitioning, broadcast state for rule updates, and custom window processing to efficiently evaluate transactions without redeploying jobs. The implementation ensures low-latency fraud detection by minimizing shuffle overhead, dynamically applying grouping keys, and leveraging stateful processing. Additionally, it discusses event retention strategies, performance considerations, and architecture trade-offs for building a scalable, high-performance fraud detection system.</description>
     </item>
     <item>
       <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
       <link>https://dingyu.dev/posts/coffee-pal/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/coffee-pal/</guid>
-      <description>나 개발잔데 옆에 사람이랑 슬랙으로 대화한다.. 우리 이제 친해져요</description>
+      <description>Developers often work alone, deeply diving into specific techniques. However, as members of a company, we need a space to discuss and brainstorm together. Inspired by the spirit of Ubuntu, I created my own Slack app Slack Bolt Coffee Chat, Coffee Pal</description>
     </item>
     <item>
       <title>[Third-Party] Sentry 연동</title>
       <link>https://dingyu.dev/posts/sentry/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/sentry/</guid>
-      <description>APM과 에러 스테이스가 가능한 툴이 있다?</description>
+      <description>This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go&amp;#39;s pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.</description>
     </item>
     <item>
       <title>[Infra] 쿠버네틱스 무중단 배포 설정하기</title>
       <link>https://dingyu.dev/posts/k8s-zero-downtime/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/k8s-zero-downtime/</guid>
-      <description>간헐적으로 발생하는 502와 504.. 왜 발생하고 어떻게 예방할까</description>
+      <description>During our migration from IDC to EKS, we encountered numerous challenges—including security configurations, network settings, databases, and ultimately, application deployments. After each deployment, we frequently faced 502 and 504 errors without a clear solution. Since minimizing downtime was critical, I’ll share how we overcame these 502 and 504 issues.</description>
     </item>
     <item>
       <title>[DB] Redis Transaction</title>
       <link>https://dingyu.dev/posts/redis-transaction/</link>
       <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/redis-transaction/</guid>
-      <description>Redis는 락이 없는데 어떻게 트랜잭션을 보장하죠?</description>
+      <description>Unlike RDBMS, Redis doesn’t have a traditional transaction mechanism. It primarily operates as a single-threaded cache, but transactions can still be made atomic using TX pipelines or Lua scripts. This post focuses on comparing the pros and cons of Lua scripts vs. TX pipelines.</description>
     </item>
     <item>
       <title>[Python] FastAPI Convention</title>
       <link>https://dingyu.dev/posts/fastapi-convention/</link>
       <pubDate>Thu, 22 Jun 2023 13:42:16 +0900</pubDate>
       <guid>https://dingyu.dev/posts/fastapi-convention/</guid>
-      <description>클래스 기반의 FastAPI Structure Guide</description>
+      <description>People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i&amp;#39;ll suggest class based fastapi best practice</description>
     </item>
   </channel>
 </rss>

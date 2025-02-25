@@ -22,17 +22,17 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://dingyu.dev/categories/eda/</loc>
+    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://dingyu.dev/tags/json/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/kafka/</loc>
-    <lastmod>2025-02-24T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url><url>
-    <loc>https://dingyu.dev/categories/kafka/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -79,6 +79,31 @@
   </url><url>
     <loc>https://dingyu.dev/about/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/posts/flink-dynamic-job/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/apache/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/dynamic-job/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/fds/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/flink/</loc>
+    <lastmod>2024-12-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>

@@ -18,7 +18,7 @@
       <link>https://dingyu.dev/posts/sentry/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/sentry/</guid>
-      <description>APM과 에러 스테이스가 가능한 툴이 있다?</description>
+      <description>This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go&amp;#39;s pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.</description>
     </item>
   </channel>
 </rss>

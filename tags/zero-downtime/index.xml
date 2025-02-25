@@ -18,7 +18,7 @@
       <link>https://dingyu.dev/posts/k8s-zero-downtime/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/k8s-zero-downtime/</guid>
-      <description>간헐적으로 발생하는 502와 504.. 왜 발생하고 어떻게 예방할까</description>
+      <description>During our migration from IDC to EKS, we encountered numerous challenges—including security configurations, network settings, databases, and ultimately, application deployments. After each deployment, we frequently faced 502 and 504 errors without a clear solution. Since minimizing downtime was critical, I’ll share how we overcame these 502 and 504 issues.</description>
     </item>
   </channel>
 </rss>
