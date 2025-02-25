@@ -4,105 +4,175 @@
   <url>
     <loc>https://dingyu.dev/posts/schema-registry/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/avro/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/categories/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/json/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/kafka/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/categories/kafka/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/posts/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/protobuf/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/schema-registry/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/posts/go-convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/categories/convention/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/go/</loc>
     <lastmod>2025-02-20T13:43:14+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/about/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/posts/coffee-pal/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/coffee-chat/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/categories/dx/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/slack-bot/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/posts/sentry/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/sentry/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/categories/third-party/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/posts/k8s-zero-downtime/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/categories/infra/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/k8s/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/zero-downtime/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/posts/redis-transaction/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/categories/db/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/redis/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/transaction/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/posts/fastapi-convention/</loc>
     <lastmod>2023-06-22T13:42:16+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/tags/python/</loc>
     <lastmod>2023-06-22T13:42:16+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/archives/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url><url>
     <loc>https://dingyu.dev/search/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
   </url>
 </urlset>
