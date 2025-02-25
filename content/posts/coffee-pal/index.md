@@ -9,7 +9,7 @@ tags:
 title: '[DX] 사내 커피 챗 슬랙 봇 개발기'
 summary: 나 개발잔데 옆에 사람이랑 슬랙으로 대화한다.. 우리 이제 친해져요
 cover:
-    image: img/coffeepal.png
+    image: img/slack.png
     relative: true
 comments: true
 description: Developers often work alone, deeply diving into specific techniques. However, as members of a company, we need a space to discuss and brainstorm together. Inspired by the spirit of Ubuntu, I created my own Slack app Slack Bolt Coffee Chat, Coffee Pal
