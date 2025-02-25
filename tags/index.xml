@@ -51,14 +51,14 @@
     <item>
       <title>Convention</title>
       <link>https://dingyu.dev/tags/convention/</link>
-      <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/tags/convention/</guid>
       <description></description>
     </item>
     <item>
       <title>Go</title>
       <link>https://dingyu.dev/tags/go/</link>
-      <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/tags/go/</guid>
       <description></description>
     </item>
@@ -198,8 +198,36 @@
     <item>
       <title>Python</title>
       <link>https://dingyu.dev/tags/python/</link>
-      <pubDate>Thu, 22 Jun 2023 13:42:16 +0900</pubDate>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Buster</title>
+      <link>https://dingyu.dev/tags/buster/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/buster/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C#</title>
+      <link>https://dingyu.dev/tags/c%23/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/c%23/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Recaptcha</title>
+      <link>https://dingyu.dev/tags/recaptcha/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/recaptcha/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Selenium</title>
+      <link>https://dingyu.dev/tags/selenium/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/selenium/</guid>
       <description></description>
     </item>
   </channel>

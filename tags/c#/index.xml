@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>C# on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/tags/c%23/</link>
+    <description>Recent content in C# on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 29 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Crawler] Recaptcha Solver</title>
+      <link>https://dingyu.dev/posts/crawling-selenium-solver/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/crawling-selenium-solver/</guid>
+      <description>This post explores bypassing Google Recaptcha using Selenium and Chrome Extensions for automated web scraping and login automation. It covers setting up ChromeDriver, integrating the Buster Recaptcha Solver extension, and analyzing Recaptcha behavior using browser DevTools and network monitoring. The post also walks through developing a Recaptcha-solving bot in C# using Selenium, handling iframe navigation, token extraction, and retry mechanisms. Additionally, it discusses the limitations of automated Recaptcha solving, Google’s detection mechanisms, and the challenges of scaling such solutions.</description>
+    </item>
+  </channel>
+</rss>

@@ -23,7 +23,7 @@
     <item>
       <title>Convention</title>
       <link>https://dingyu.dev/categories/convention/</link>
-      <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/categories/convention/</guid>
       <description></description>
     </item>
@@ -60,6 +60,13 @@
       <link>https://dingyu.dev/categories/db/</link>
       <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/categories/db/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crawler</title>
+      <link>https://dingyu.dev/categories/crawler/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/categories/crawler/</guid>
       <description></description>
     </item>
   </channel>

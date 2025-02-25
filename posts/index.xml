@@ -23,7 +23,7 @@
     <item>
       <title>[Go] Go Convention</title>
       <link>https://dingyu.dev/posts/go-convention/</link>
-      <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/go-convention/</guid>
       <description>There aren’t many Go developers in Korea, and major IT companies using Go are as rare as unicorns. At my company, we have accumulated our own know-how over the years while developing with Go. Here, I’d like to suggest some key conventions that I believe are useful for maintaining services in the long run.</description>
     </item>
@@ -86,9 +86,16 @@
     <item>
       <title>[Python] FastAPI Convention</title>
       <link>https://dingyu.dev/posts/fastapi-convention/</link>
-      <pubDate>Thu, 22 Jun 2023 13:42:16 +0900</pubDate>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/fastapi-convention/</guid>
       <description>People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i&amp;#39;ll suggest class based fastapi best practice</description>
+    </item>
+    <item>
+      <title>[Crawler] Recaptcha Solver</title>
+      <link>https://dingyu.dev/posts/crawling-selenium-solver/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/crawling-selenium-solver/</guid>
+      <description>This post explores bypassing Google Recaptcha using Selenium and Chrome Extensions for automated web scraping and login automation. It covers setting up ChromeDriver, integrating the Buster Recaptcha Solver extension, and analyzing Recaptcha behavior using browser DevTools and network monitoring. The post also walks through developing a Recaptcha-solving bot in C# using Selenium, handling iframe navigation, token extraction, and retry mechanisms. Additionally, it discusses the limitations of automated Recaptcha solving, Google’s detection mechanisms, and the challenges of scaling such solutions.</description>
     </item>
   </channel>
 </rss>
