@@ -91,6 +91,27 @@
       <description></description>
     </item>
     <item>
+      <title>Async</title>
+      <link>https://dingyu.dev/tags/async/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pprof</title>
+      <link>https://dingyu.dev/tags/pprof/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/pprof/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sync</title>
+      <link>https://dingyu.dev/tags/sync/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/sync/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Coffee-Chat</title>
       <link>https://dingyu.dev/tags/coffee-chat/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
@@ -105,10 +126,17 @@
       <description></description>
     </item>
     <item>
-      <title>Pprof</title>
-      <link>https://dingyu.dev/tags/pprof/</link>
+      <title>Gc Tuning</title>
+      <link>https://dingyu.dev/tags/gc-tuning/</link>
       <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/tags/pprof/</guid>
+      <guid>https://dingyu.dev/tags/gc-tuning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Profile</title>
+      <link>https://dingyu.dev/tags/profile/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/profile/</guid>
       <description></description>
     </item>
     <item>

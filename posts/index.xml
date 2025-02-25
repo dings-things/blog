@@ -35,6 +35,13 @@
       <description>This post explores dynamic rule-based stream processing using Apache Flink for real-time fraud detection. It covers key topics such as dynamic key partitioning, broadcast state for rule updates, and custom window processing to efficiently evaluate transactions without redeploying jobs. The implementation ensures low-latency fraud detection by minimizing shuffle overhead, dynamically applying grouping keys, and leveraging stateful processing. Additionally, it discusses event retention strategies, performance considerations, and architecture trade-offs for building a scalable, high-performance fraud detection system.</description>
     </item>
     <item>
+      <title>[Go] Worker Pool과 비동기 작업의 성능 프로파일링</title>
+      <link>https://dingyu.dev/posts/worker-pool-async/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/worker-pool-async/</guid>
+      <description>This post explores profiling and optimizing worker pools vs. asynchronous execution in Go using pprof. It analyzes the performance impact of concurrent HTTP requests, comparing sync worker pools (10 vs. 100 workers) and a single async worker in terms of throughput, CPU overhead, and memory allocation. Profiling results reveal that worker pools suffer from high concurrency overhead, while asynchronous execution significantly improves throughput with minimal memory cost. Additionally, the post discusses when to use worker pools vs. async processing, highlighting key trade-offs for IO-bound vs. CPU-bound tasks.</description>
+    </item>
+    <item>
       <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
       <link>https://dingyu.dev/posts/coffee-pal/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>

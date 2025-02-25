@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Go on Ding&#39;s Coding Forge</title>
-    <link>https://dingyu.dev/tags/go/</link>
-    <description>Recent content in Go on Ding&#39;s Coding Forge</description>
+    <title>Optimization on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/categories/optimization/</link>
+    <description>Recent content in Optimization on Ding&#39;s Coding Forge</description>
     <image>
       <title>Ding&#39;s Coding Forge</title>
       <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -11,15 +11,8 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 20 Feb 2025 13:43:14 +0900</lastBuildDate>
-    <atom:link href="https://dingyu.dev/tags/go/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>[Go] Go Convention</title>
-      <link>https://dingyu.dev/posts/go-convention/</link>
-      <pubDate>Thu, 20 Feb 2025 13:43:14 +0900</pubDate>
-      <guid>https://dingyu.dev/posts/go-convention/</guid>
-      <description>There aren’t many Go developers in Korea, and major IT companies using Go are as rare as unicorns. At my company, we have accumulated our own know-how over the years while developing with Go. Here, I’d like to suggest some key conventions that I believe are useful for maintaining services in the long run.</description>
-    </item>
+    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/categories/optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Go] Worker Pool과 비동기 작업의 성능 프로파일링</title>
       <link>https://dingyu.dev/posts/worker-pool-async/</link>
@@ -33,13 +26,6 @@
       <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/go-pprof-gc/</guid>
       <description>This post explores how to use pprof for profiling and optimizing Go applications, focusing on heap allocation, GC tuning, and performance bottleneck identification. It covers profiling setup with Gin, analyzing Flame Graphs and heap dumps, and optimizing memory allocations by addressing inefficient context usage and logging overhead. Additionally, it discusses GC tuning strategies (GOMEMLIMIT, GOGC) and best practices like pointer usage, slice capacity preallocation, and benchmarking techniques to improve application efficiency and reduce Stop-The-World (STW) latency.</description>
-    </item>
-    <item>
-      <title>[Third-Party] Sentry 연동</title>
-      <link>https://dingyu.dev/posts/sentry/</link>
-      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/posts/sentry/</guid>
-      <description>This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go&amp;#39;s pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.</description>
     </item>
   </channel>
 </rss>
