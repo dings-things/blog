@@ -20,10 +20,13 @@ minify:
 outputs:
   home: ["HTML", "RSS", "JSON"]
 
+services:
+  googleAnalytics:
+    id: G-XH8830R9KK
+
 params:
   TocSide: "left"
   env: "production"
-  googleAnalytics: "G-XH8830R9KK"
   title: "Ding's Things"
   description: "Go Developer Backend & DataOps"
   keywords: ["Blog", "Portfolio", "PaperMod"]
