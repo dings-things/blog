@@ -18,7 +18,7 @@
       <link>https://dingyu.dev/posts/schema-registry/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/schema-registry/</guid>
-      <description>이벤트 스키마의 하위/상위 호환성 어떻게 지켜질까?</description>
+      <description>People often underestimate the importance of documenting schemas before starting to code, especially when working with stream processing. In this post, I’ll explain why using a schema registry is essential and why designing schemas upfront is crucial before diving into coding.</description>
     </item>
     <item>
       <title>About</title>
@@ -26,6 +26,13 @@
       <pubDate>Thu, 20 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/about/</guid>
       <description>Who am I</description>
+    </item>
+    <item>
+      <title>[Protocol] RPC... 그리고 GRPC 톺아보기</title>
+      <link>https://dingyu.dev/posts/grpc/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/grpc/</guid>
+      <description>흔히들 (나만 그럴지도..?) rpc 통신을 한다 하면&amp;hellip; HTTP/2 기반의 protocol Buffer를 사용하겠구나~ (grpc 구나) 라고 생각하기 마련이다. rpc는 무엇이고 grpc는 어째서 빠를까? 그리고 왜 사용할까?</description>
     </item>
     <item>
       <title>[Go] Go Convention</title>

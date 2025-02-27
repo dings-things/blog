@@ -18,7 +18,7 @@
       <link>https://dingyu.dev/posts/schema-registry/</link>
       <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/schema-registry/</guid>
-      <description>이벤트 스키마의 하위/상위 호환성 어떻게 지켜질까?</description>
+      <description>People often underestimate the importance of documenting schemas before starting to code, especially when working with stream processing. In this post, I’ll explain why using a schema registry is essential and why designing schemas upfront is crucial before diving into coding.</description>
     </item>
   </channel>
 </rss>
