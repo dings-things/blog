@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lgtm on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/categories/lgtm/</link>
+    <description>Recent content in Lgtm on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/categories/lgtm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[LGTM] Elasticsearch to Loki 전환기</title>
+      <link>https://dingyu.dev/posts/es-to-loki/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/es-to-loki/</guid>
+      <description>People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i&amp;#39;ll suggest class based fastapi best practice</description>
+    </item>
+  </channel>
+</rss>

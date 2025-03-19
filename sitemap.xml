@@ -107,6 +107,36 @@
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url><url>
+    <loc>https://dingyu.dev/posts/es-to-loki/</loc>
+    <lastmod>2025-01-04T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/grafana/</loc>
+    <lastmod>2025-01-04T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/lgtm/</loc>
+    <lastmod>2025-01-04T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/categories/lgtm/</loc>
+    <lastmod>2025-01-04T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/loki/</loc>
+    <lastmod>2025-01-04T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/monitoring/</loc>
+    <lastmod>2025-01-04T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
     <loc>https://dingyu.dev/posts/flink-dynamic-job/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
