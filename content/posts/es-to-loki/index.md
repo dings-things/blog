@@ -13,7 +13,7 @@ cover:
     image: img/lgtm.png
     relative: true
 summary: 단순 애플리케이션 모니터링 목적을 두고 보았을 때.. 과연 Elasticsearch 처럼 무거운 서비스를 사용해야할까? Loki로 전환하면서 겪은 시행착오를 소개합니다
-description: People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i'll suggest class based fastapi best practice
+description: This article explores the transition from Elasticsearch to Loki for cost-efficient log management, highlighting key differences in storage, indexing, and query performance. It covers best practices for optimizing Loki's labeling strategy, managing chunk storage, and handling high-cardinality data. Additionally, it provides a step-by-step guide to configuring Grafana dashboards for efficient log analysis, including Raw Logs, Error Logs, TPS (P50/P99), Log Distributions, and Table Views.
 comments: true
 ---
 
