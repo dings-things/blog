@@ -69,8 +69,8 @@ live-plex-private-archive
 ### 로그 메시지와 메타데이터 분리
 Label은 Raw Log를 식별할 수 있는 "Tag"와 가까움.. 라벨은 메타데이터로만 활용, 실제 동적인 값은 로그 메시지 본문에 포함
 - example
-    - **Good 😊: label:func="RestrictionsService" line:member_sn ="12341512321", message="restricted member"**
-    - **Bad 😥: **label:member_sn="12341512321" line:message ="restricted member", func="RestrictionsService"**
+    - **Good 😊: label:func="RestrictionsService" line:member_id ="12341512321", message="restricted member"**
+    - **Bad 😥: **label:member_id="12341512321" line:message ="restricted member", func="RestrictionsService"**
 
 ### 라벨 개수 제한
 Label 자체를 많이 설정한 경우.. 이 또한 고 카디널리티로 인덱스 효율이 비효율적이다
@@ -91,7 +91,7 @@ Chunk 크기가 너무 작으면 → 성능이 저하되고, 너무 크면 → �
 - chunk_target_size: 1MB~2MB (case by case)
 
 ## 대시보드 구성하기
-1. Variable 설정하기
+### 1. Variable 설정하기
 Variable의 경우, 전체 로그에서 필터를 적용해줘야 하는 번거로움이 있지만... 미래에 모니터링을 하고 있을 자신에게 선사하는 작은 선물이다
 
 Application 로그의 경우, 주로 `raw log`를 기반으로 쿼리하기 때문에 빠르게 필터링 할 수 있는 label을 Variable로 두는 것이 좋다
@@ -100,7 +100,7 @@ Application 로그의 경우, 주로 `raw log`를 기반으로 쿼리하기 때�
 
 ![](image-1.png)
 
-2. raw log 구성하기
+### 2. raw log 구성하기
 앱 전역에서 남기는 로그를 쉽게 확인해보기 위해 모든 로그를 한눈에 볼 수 있는 `Logs Visualization`으로 시작해보자
 
 example
@@ -108,7 +108,7 @@ example
 {_type="loki"} |= `$filter`
 ```
 
-3. log level에 따른 error log 구성하기
+### 3. log level에 따른 error log 구성하기
 `raw log`에서 duplicate를 통해 error인 로그만 남겨보자
 > 비즈니스 로직에 따라 에러임에도 에러로 처리하지 않는 예외 케이스가 존재한다. 이를 유의하여 log level을 미리 지정하자
 
@@ -117,7 +117,7 @@ example
 {level="error"}
 ```
 
-4. TPS 구성하기
+### 4. TPS 구성하기
 극한의 완성도는 속도에서 들어나는 법.. 대시보드 구성시 P50, P99는 매번 챙기는 지표이다
 
 Gauge Visualization으로 `quantile_over_time`을 사용하여 PXX를 확인해보자.
@@ -131,7 +131,7 @@ example
 quantile_over_time(0.50, {func="LogMiddleware.Log"} |= `$filter` | json | unwrap latency [$__range]) by (func)
 ```
 
-5. Label에 따른 Distribution 구성하기
+### 5. Label에 따른 Distribution 구성하기
 `Piechart`는 전반적인 분포도를 조사하기에 알맞다. 단, Label이 지정되어야 하기에 Unique한 Label의 분포일 경우에만 구성하자
 
 example
@@ -139,7 +139,7 @@ example
 sum by(method) (count_over_time({func="LogMiddleware.Log"} |= `$filter` [$__auto]))
 ```
 
-6. Table을 통해 Distribution 및 필터링 구성하기
+### 6. Table을 통해 Distribution 및 필터링 구성하기
 `Table`은 시각적으로 한눈에 분포를 확인할 수 있으며 아래와 같이 구성할 경우, 클릭을 통해 해당 라벨에 대한 로그를 필터링 할 수 있다
 
 example
