@@ -87,7 +87,7 @@ params:
 
   socialIcons:
     - name: "email"
-      url: "wjddn3711@gmail.com"
+      url: "mailto:wjddn3711@gmail.com"
     - name: "linkedin"
       url: "https://www.linkedin.com/in/jung-woo-lee-841950301/"
     - name: "github"
