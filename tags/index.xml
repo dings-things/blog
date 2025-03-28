@@ -11,20 +11,48 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Burrow</title>
-      <link>https://dingyu.dev/tags/burrow/</link>
-      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/tags/burrow/</guid>
+      <title>Bitnami</title>
+      <link>https://dingyu.dev/tags/bitnami/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/bitnami/</guid>
       <description></description>
     </item>
     <item>
       <title>Kafka</title>
       <link>https://dingyu.dev/tags/kafka/</link>
-      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/tags/kafka/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kafka Ui</title>
+      <link>https://dingyu.dev/tags/kafka-ui/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/kafka-ui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Local Test</title>
+      <link>https://dingyu.dev/tags/local-test/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/local-test/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sasl</title>
+      <link>https://dingyu.dev/tags/sasl/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/sasl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Burrow</title>
+      <link>https://dingyu.dev/tags/burrow/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/tags/burrow/</guid>
       <description></description>
     </item>
     <item>
