@@ -1,6 +1,6 @@
 ---
 aliases:
-- contact
+  - contact
 author: dingyu
 date: "2025-02-20"
 description: Who am I
@@ -15,5 +15,6 @@ class Me:
         self.MBTI = "ENTP"
         self.location = "Seoul, Korea"
         self.school = "Tsinghua University"
+        self.major = "automation"
         self.interests = ["BE", "DevOps", "MLOps", "Go", "Kafka", "TDD", "Automation"]
 ```
