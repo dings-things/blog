@@ -178,7 +178,7 @@ services:
       - kafka-2
 ```
 
-### 어쨰서 bitnami?
+### 어째서 bitnami?
 1. 환경 변수 기반의 간편한 사용자 등록
 Bitnami Kafka는 다음과 같은 환경 변수만 설정하면 자동으로 SASL 사용자 등록을 수행
 ```env
