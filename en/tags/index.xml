@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tags on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/en/tags/</link>
+    <description>Recent content in Tags on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bitnami</title>
+      <link>https://dingyu.dev/en/tags/bitnami/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/bitnami/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kafka</title>
+      <link>https://dingyu.dev/en/tags/kafka/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/kafka/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kafka Ui</title>
+      <link>https://dingyu.dev/en/tags/kafka-ui/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/kafka-ui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Local Test</title>
+      <link>https://dingyu.dev/en/tags/local-test/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/local-test/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sasl</title>
+      <link>https://dingyu.dev/en/tags/sasl/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/sasl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Burrow</title>
+      <link>https://dingyu.dev/en/tags/burrow/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/burrow/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lag</title>
+      <link>https://dingyu.dev/en/tags/lag/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/lag/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>https://dingyu.dev/en/tags/monitoring/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prometheus</title>
+      <link>https://dingyu.dev/en/tags/prometheus/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Thanos</title>
+      <link>https://dingyu.dev/en/tags/thanos/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/thanos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Avro</title>
+      <link>https://dingyu.dev/en/tags/avro/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/avro/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Json</title>
+      <link>https://dingyu.dev/en/tags/json/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/json/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Protobuf</title>
+      <link>https://dingyu.dev/en/tags/protobuf/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/protobuf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Schema Registry</title>
+      <link>https://dingyu.dev/en/tags/schema-registry/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/schema-registry/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grpc</title>
+      <link>https://dingyu.dev/en/tags/grpc/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/grpc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HTTP2.0</title>
+      <link>https://dingyu.dev/en/tags/http2.0/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/http2.0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rpc</title>
+      <link>https://dingyu.dev/en/tags/rpc/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/rpc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Convention</title>
+      <link>https://dingyu.dev/en/tags/convention/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/convention/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Go</title>
+      <link>https://dingyu.dev/en/tags/go/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/go/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grafana</title>
+      <link>https://dingyu.dev/en/tags/grafana/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/grafana/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lgtm</title>
+      <link>https://dingyu.dev/en/tags/lgtm/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/lgtm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Loki</title>
+      <link>https://dingyu.dev/en/tags/loki/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/loki/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Apache</title>
+      <link>https://dingyu.dev/en/tags/apache/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/apache/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dynamic Job</title>
+      <link>https://dingyu.dev/en/tags/dynamic-job/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/dynamic-job/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fds</title>
+      <link>https://dingyu.dev/en/tags/fds/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/fds/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Flink</title>
+      <link>https://dingyu.dev/en/tags/flink/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/flink/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Good Practice</title>
+      <link>https://dingyu.dev/en/tags/good-practice/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/good-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://dingyu.dev/en/tags/kubernetes/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Project Guide</title>
+      <link>https://dingyu.dev/en/tags/project-guide/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/project-guide/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Async</title>
+      <link>https://dingyu.dev/en/tags/async/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pprof</title>
+      <link>https://dingyu.dev/en/tags/pprof/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/pprof/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sync</title>
+      <link>https://dingyu.dev/en/tags/sync/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/sync/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Coffee-Chat</title>
+      <link>https://dingyu.dev/en/tags/coffee-chat/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/coffee-chat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Slack-Bot</title>
+      <link>https://dingyu.dev/en/tags/slack-bot/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/slack-bot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gc Tuning</title>
+      <link>https://dingyu.dev/en/tags/gc-tuning/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/gc-tuning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Profile</title>
+      <link>https://dingyu.dev/en/tags/profile/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/profile/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Sentry</title>
+      <link>https://dingyu.dev/en/tags/sentry/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/sentry/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K8s</title>
+      <link>https://dingyu.dev/en/tags/k8s/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/k8s/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zero-Downtime</title>
+      <link>https://dingyu.dev/en/tags/zero-downtime/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/zero-downtime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Aws</title>
+      <link>https://dingyu.dev/en/tags/aws/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/aws/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Best Practice</title>
+      <link>https://dingyu.dev/en/tags/best-practice/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/best-practice/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Well Architected</title>
+      <link>https://dingyu.dev/en/tags/well-architected/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/well-architected/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Redis</title>
+      <link>https://dingyu.dev/en/tags/redis/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/redis/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Transaction</title>
+      <link>https://dingyu.dev/en/tags/transaction/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/transaction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Txpipeline</title>
+      <link>https://dingyu.dev/en/tags/txpipeline/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/txpipeline/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://dingyu.dev/en/tags/python/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Buster</title>
+      <link>https://dingyu.dev/en/tags/buster/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/buster/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>C#</title>
+      <link>https://dingyu.dev/en/tags/c%23/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/c%23/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Recaptcha</title>
+      <link>https://dingyu.dev/en/tags/recaptcha/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/recaptcha/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Selenium</title>
+      <link>https://dingyu.dev/en/tags/selenium/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/selenium/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

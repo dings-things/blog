@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Lgtm on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/en/tags/lgtm/</link>
+    <description>Recent content in Lgtm on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 04 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/en/tags/lgtm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[LGTM] Elasticsearch to Loki Migration Story</title>
+      <link>https://dingyu.dev/en/posts/es-to-loki/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/posts/es-to-loki/</guid>
+      <description>This article explores the transition from Elasticsearch to Loki for cost-efficient log management, highlighting key differences in storage, indexing, and query performance. It covers best practices for optimizing Loki&amp;#39;s labeling strategy, managing chunk storage, and handling high-cardinality data. Additionally, it provides a step-by-step guide to configuring Grafana dashboards for efficient log analysis, including Raw Logs, Error Logs, TPS (P50/P99), Log Distributions, and Table Views.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Grpc on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/en/tags/grpc/</link>
+    <description>Recent content in Grpc on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 06 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/en/tags/grpc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Protocol] Exploring RPC... and GRPC in Depth</title>
+      <link>https://dingyu.dev/en/posts/grpc/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/posts/grpc/</guid>
+      <description>When we hear &amp;#34;RPC communication,&amp;#34; many (maybe just me?) might immediately think of Protocol Buffers over HTTP/2 — in other words, gRPC. But what is RPC really, and why is gRPC considered fast? And when should we use it?</description>
+    </item>
+  </channel>
+</rss>

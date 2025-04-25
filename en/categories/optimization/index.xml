@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Optimization on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/en/categories/optimization/</link>
+    <description>Recent content in Optimization on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/en/categories/optimization/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Go] Profiling Worker Pool vs. Async Processing</title>
+      <link>https://dingyu.dev/en/posts/worker-pool-async/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/posts/worker-pool-async/</guid>
+      <description>This post explores profiling and optimizing worker pools vs. asynchronous execution in Go using pprof. It analyzes the performance impact of concurrent HTTP requests, comparing sync worker pools (10 vs. 100 workers) and a single async worker in terms of throughput, CPU overhead, and memory allocation. Profiling results reveal that worker pools suffer from high concurrency overhead, while asynchronous execution significantly improves throughput with minimal memory cost. Additionally, the post discusses when to use worker pools vs. async processing, highlighting key trade-offs for IO-bound vs. CPU-bound tasks.</description>
+    </item>
+    <item>
+      <title>[Go] Tuning GC with pprof</title>
+      <link>https://dingyu.dev/en/posts/go-pprof-gc/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/posts/go-pprof-gc/</guid>
+      <description>This post explores how to use pprof for profiling and optimizing Go applications, focusing on heap allocation, GC tuning, and performance bottleneck identification. It covers profiling setup with Gin, analyzing Flame Graphs and heap dumps, and optimizing memory allocations by addressing inefficient context usage and logging overhead. Additionally, it discusses GC tuning strategies (GOMEMLIMIT, GOGC) and best practices like pointer usage, slice capacity preallocation, and benchmarking techniques to improve application efficiency and reduce Stop-The-World (STW) latency.</description>
+    </item>
+  </channel>
+</rss>

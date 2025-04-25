@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dynamic Job on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/en/tags/dynamic-job/</link>
+    <description>Recent content in Dynamic Job on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 06 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/en/tags/dynamic-job/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[EDA] Flink Dynamic Job Case Study</title>
+      <link>https://dingyu.dev/en/posts/flink-dynamic-job/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/posts/flink-dynamic-job/</guid>
+      <description>This post explores dynamic rule-based stream processing using Apache Flink for real-time fraud detection. It covers key topics such as dynamic key partitioning, broadcast state for rule updates, and custom window processing to efficiently evaluate transactions without redeploying jobs. The implementation ensures low-latency fraud detection by minimizing shuffle overhead, dynamically applying grouping keys, and leveraging stateful processing. Additionally, it discusses event retention strategies, performance considerations, and architecture trade-offs for building a scalable, high-performance fraud detection system.</description>
+    </item>
+  </channel>
+</rss>
