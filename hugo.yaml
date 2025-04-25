@@ -143,6 +143,21 @@ menu:
       url: "/search/"
       weight: 50
 
+defaultContentLanguage: ko
+defaultContentLanguageInSubdir: false
+
+languages:
+  ko:
+    languageName: 한국어
+    weight: 1
+    params:
+      mainSections: ["posts"]
+  en:
+    languageName: English
+    weight: 2
+    params:
+      mainSections: ["posts"]
+
 markup:
   highlight:
     noClasses: false
