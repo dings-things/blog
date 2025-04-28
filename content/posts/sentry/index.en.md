@@ -12,159 +12,204 @@ cover:
 comments: true
 description: This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.
 ---
+# Background
 
-## Why Sentry?
+- Developers were manually monitoring logs for incident response.
+- However, there were limitations with log monitoring:
+  - **Elasticsearch field mapping errors** due to **field type mismatches** causing **log event drops**.
+  - If system logs were required (e.g., for stack traces), developers had to request them separately from the system engineers (SE), resulting in operational overhead.
 
-- Traditional log monitoring has limitations such as:
-  - Elasticsearch field mapping errors causing dropped log events
-  - Need to request system logs from SEs to retrieve stack traces
+# Goal
 
-Sentry provides a centralized, visual, and automated error tracking and performance monitoring solution.
+- Establish a common Sentry integration standard for Go-based projects.
+- Provide feature specifications and guidelines for Sentry usage.
+- Build a stable service foundation through faster incident response after Sentry adoption.
 
-## What Sentry Provides
+> This document assumes that a Sentry account and a Sentry project are already set up.
 
-1. **Exception Capture**: Automatically detects and logs application errors with stack trace and context.
-2. **Transaction Monitoring**: Tracks API/web request performance metrics.
-3. **Tracing**: Visualizes end-to-end latency across services and components.
-4. **Alerting**: Integrates with tools like Slack, email to notify devs of issues.
-5. **Release Tracking**: Monitors how errors correlate to new application releases.
+# About Sentry
 
-![](img/1.png)
+1. **Capture Exception**
 
-### Alert Rule Examples
+Automatically detects and records exceptions and errors in applications. Sentry provides stack traces and environment information at the time of error occurrence, making it easier to identify root causes.
 
-- **Issues**: Trigger alerts based on type of exception or service.
-- **Number of Errors**: Trigger when a particular error exceeds a threshold.
-- **Users Experiencing Errors**: Notify when errors affect multiple users, e.g. 100 users hitting login errors.
+2. **Transaction Monitoring**
 
-![](img/2.png)
-![](img/3.png)
-![](img/4.png)
-![](img/5.png)
+Monitors application performance by tracking transactions such as web requests or API calls, providing response times, success rates, and error rates.
 
-## Client Configuration
+3. **Tracing**
 
-- **DSN**: Unique key per project for event ingestion.
-  - [Settings → Projects → Client Keys]
-  - ![](img/6.png)
-- **Environment**: Differentiate between `production`, `staging`, etc.
-- **Release**: Tag errors by release version.
-- **SampleRate / TracesSampleRate**: Control event sampling to optimize cost and performance.
-- **BeforeSend**: Hook to redact sensitive data or conditionally send events.
-- **AttachStacktrace**: Attach stack traces even for non-errors.
-- **ServerName**: Identify source server.
-- **Transport**: Custom HTTP config for timeouts and retries.
+Tracks transactions in detail, analyzing service-to-service calls and database queries to identify bottlenecks.
 
-### Init Best Practice
+4. **Alerts**
+
+Manages issues and notifies via email, Slack, etc., when problems arise. Developers can be assigned to issues and collaborate on resolutions.
+
+5. **Release Tracking**
+
+Tracks application versions and analyzes the impact of new releases on error rates, helping detect problems introduced by recent deployments.
+
+### Sentry Alerts
+
+Set up Sentry alerts integrated with collaboration tools for easy developer response.
+
+#### Setup Step-by-Step
+
+Dashboard > Alerts > Create Alert
+
+![](1.png)
+
+**Trigger Setup**
+
+- **Issues**: Trigger alerts based on stacktrace patterns (e.g., API HTTP status code-based, service category-based).
+- **Number of Errors**: Trigger alerts based on error occurrence counts.
+- **Users Experiencing Errors**: Trigger alerts when a threshold number of users experience errors (e.g., 100 users failing to log in).
+
+![](2.png)
+
+**Detailed Conditions**
+
+- WHEN: Define when the alert should trigger (any vs. all conditions).
+- IF: Specify detailed conditions like tags, frequency, or categories.
+
+![](3.png)
+![](4.png)
+
+**Action Selection**
+
+- Send notifications to Email, Slack, Teams, etc.
+
+![](5.png)
+
+# Development
+
+### Client Options
+
+- **DSN**: Unique string identifying the Sentry project.
+- **Environment**: Specify the runtime environment (e.g., production, staging, development).
+- **Release**: Track the application version where the error occurred.
+- **SampleRate**: Control the proportion of reported events (e.g., 0.1 means 10% sampling).
+- **TracesSampleRate**: Similar to SampleRate but for performance data.
+- **BeforeSend**: Callback to modify/filter events before reporting.
+- **AttachStacktrace**: Include stack traces in logs.
+- **ServerName**: Specify server name for better error grouping.
+- **Integrations**: Set additional integrations with frameworks and libraries.
+- **Transport**: Customize event transport, including timeout settings.
+
+![](6.png)
+
+### Initialize
+
+Best practice is to call `sentry.Init()` at the application's entry point (`main.go`).
+
 ```go
-err := sentry.Init(sentry.ClientOptions{
-  Dsn:              config.Sentry.DSN,
-  SampleRate:       config.Sentry.SampleRate,
-  EnableTracing:    config.Sentry.EnableTrace,
-  Debug:            config.Sentry.Debug,
-  TracesSampleRate: config.Sentry.TracesSampleRate,
-  Environment:      config.Sentry.Environment,
-  AttachStacktrace: true,
-  Transport: &sentry.HTTPSyncTransport{ Timeout: config.Sentry.Timeout },
-})
+err := sentry.Init(
+    sentry.ClientOptions{
+        Dsn:              config.Sentry.DSN,
+        SampleRate:       config.Sentry.SampleRate,
+        EnableTracing:    config.Sentry.EnableTrace,
+        Debug:            config.Sentry.Debug,
+        TracesSampleRate: config.Sentry.TracesSampleRate,
+        Environment:      config.Sentry.Environment,
+        AttachStacktrace: true,
+        Transport: &sentry.HTTPSyncTransport{
+            Timeout: config.Sentry.Timeout,
+        },
+    },
+)
 ```
 
-## Error Capturing
+### Capture Exception
 
-### Capture with Context
+Capture and track exceptions automatically:
+
 ```go
 hub := sentry.GetHubFromContext(ctx)
 if hub == nil {
-  hub = sentry.CurrentHub().Clone()
-  ctx = sentry.SetHubOnContext(ctx, hub)
+    hub = sentry.CurrentHub().Clone()
+    ctx = sentry.SetHubOnContext(ctx, hub)
 }
 hub.CaptureException(err)
 ```
 
-### Standard vs. pkg/errors
+#### Stack Trace Differences: Go `errors` vs `pkg/errors`
 
-- `errors.New`: no stack trace
-- `pkg/errors.Wrap`: includes full stack trace
+- **errors package**: Does **not** capture stack traces.
+- **github.com/pkg/errors**: **Includes stack traces** automatically.
 
-![](img/7.png)
+Test example:
 
-## Contextual Scopes
+```go
+return pkgErr.Wrap(PkgErr1, PkgErr2.Error())
+```
+
+---
+
+# Scope()
+
+Scope allows attaching contextual metadata (e.g., request parameters) to events.
+
 ```go
 hub := sentry.GetHubFromContext(r.Context())
 if hub == nil {
-  hub = sentry.CurrentHub().Clone()
-  r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub))
+    hub = sentry.CurrentHub().Clone()
+    r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub))
 }
 hub.Scope().SetRequest(r)
 ```
 
-## Singleton Initialization
+---
+
+# Sentry Advancement
+
+### SentryInitializer
+
+Manages singleton initialization of the Sentry client:
+
 ```go
 type SentryInitializer struct {
-  conf *Config
-  enabled bool
-  mutex sync.RWMutex
+    conf    *Config
+    enabled bool
+    mutex   sync.RWMutex
 }
 
-func (si *SentryInitializer) Init() error {
-  si.mutex.Lock()
-  defer si.mutex.Unlock()
-  err := sentry.Init(...)
-  si.enabled = true
-  return err
-}
+func (si *SentryInitializer) Init() error { ... }
+func (si *SentryInitializer) Enabled() bool { ... }
 ```
 
-## Capturing via Interface
-![](img/8.png)
+Manages concurrent access safely with mutex.
+
+### ErrorCapturer
+
+Captures exceptions through the Sentry Hub:
+
+![](7.png)
+
 ```go
 type ErrorCapturer interface {
-  CaptureError(ctx context.Context, err error)
-}
-
-func (ec *sentryErrorCapturer) CaptureError(ctx context.Context, err error) {
-  if err == nil { return }
-  if !ec.Enabled() { ec.Init() }
-  hub := sentry.GetHubFromContext(ctx)
-  if hub == nil {
-    hub = sentry.CurrentHub().Clone()
-    ctx = sentry.SetHubOnContext(ctx, hub)
-  }
-  hub.CaptureException(err)
+    CaptureError(ctx context.Context, err error)
 }
 ```
 
-## Panic Recovery Middleware
-![](img/9.png)
+Handles Hub setup and error capture internally.
+
+### RecoverMiddleware
+
+Handles panics and automatically logs to Sentry:
+
+![](8.png)
+
 ```go
-func (rm *RecoverMiddleware) Register(h http.Handler) http.Handler {
-  return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-    hub := sentry.GetHubFromContext(r.Context())
-    if hub == nil {
-      hub = sentry.CurrentHub().Clone()
-      r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub))
-    }
-    hub.Scope().SetRequest(r)
-
-    defer func() {
-      if err := recover(); err != nil {
+defer func() {
+    if err := recover(); err != nil {
         hub.RecoverWithContext(r.Context(), err)
-        // log stack trace, respond 500
-      }
-    }()
-
-    h.ServeHTTP(w, r)
-  })
-}
+        // Log stack trace
+    }
+}()
 ```
 
-## Summary
+Even in panic scenarios, proper logging and Sentry reporting is ensured.
 
-Sentry simplifies APM and error tracking for Go applications:
-- Automatic stack trace
-- Release correlation
-- Slack/email alerts
-- Low overhead
+---
 
-It’s a powerful ally for ensuring observability and reliability in production.
-
+> Despite its cost, **Sentry** offers great convenience for both APM and error capture management!

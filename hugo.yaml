@@ -82,8 +82,8 @@ params:
         url: "tags"
 
   homeInfoParams:
-    Title: "딩위의 코드 공방"
-    Content: "기술에 매몰되지 않고 문제 해결에 초점을 맞추어 알맞은 기술을 사용하자!"
+    Title: "Problem Solver"
+    Content: "Beyond a programmer — a problem solver without boundaries"
 
   socialIcons:
     - name: "email"
@@ -123,40 +123,84 @@ params:
 menu:
   main:
     - identifier: "about"
-      name: "About"
+      name: "소개"
       url: "/about/"
       weight: 10
     - identifier: "categories"
-      name: "Categories"
+      name: "카테고리"
       url: "/categories/"
       weight: 20
     - identifier: "tags"
-      name: "Tags"
+      name: "태그"
       url: "/tags/"
       weight: 30
     - identifier: "archives"
-      name: "Archives"
+      name: "아카이브"
       url: "/archives/"
       weight: 40
     - identifier: "search"
-      name: "🔍"
+      name: "검색"
       url: "/search/"
       weight: 50
 
-defaultContentLanguage: ko
-defaultContentLanguageInSubdir: false
-
 languages:
   ko:
+    languageAltTitle: 한국어
     languageName: 한국어
     weight: 1
     params:
       mainSections: ["posts"]
+    menu:
+      main:
+        - identifier: "about"
+          name: "소개"
+          url: "/about/"
+          weight: 10
+        - identifier: "categories"
+          name: "카테고리"
+          url: "/categories/"
+          weight: 20
+        - identifier: "tags"
+          name: "태그"
+          url: "/tags/"
+          weight: 30
+        - identifier: "archives"
+          name: "아카이브"
+          url: "/archives/"
+          weight: 40
+        - identifier: "search"
+          name: "검색"
+          url: "/search/"
+          weight: 50
+
   en:
+    languageAltTitle: English
     languageName: English
     weight: 2
     params:
       mainSections: ["posts"]
+    menu:
+      main:
+        - identifier: "about"
+          name: "About"
+          url: "/en/about/"
+          weight: 10
+        - identifier: "categories"
+          name: "Categories"
+          url: "/en/categories/"
+          weight: 20
+        - identifier: "tags"
+          name: "Tags"
+          url: "/en/tags/"
+          weight: 30
+        - identifier: "archives"
+          name: "Archives"
+          url: "/en/archives/"
+          weight: 40
+        - identifier: "search"
+          name: "Search"
+          url: "/en/search/"
+          weight: 50
 
 markup:
   highlight:

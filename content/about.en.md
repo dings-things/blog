@@ -5,6 +5,8 @@ author: dingyu
 date: "2025-02-20"
 description: Who am I
 title: About
+layout: "page"
+url: "/en/about/"
 ---
 
 ```python

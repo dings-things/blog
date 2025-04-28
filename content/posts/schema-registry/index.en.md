@@ -12,125 +12,178 @@ cover:
 comments: true
 description: People often underestimate the importance of documenting schemas before starting to code, especially when working with stream processing. In this post, I’ll explain why using a schema registry is essential and why designing schemas upfront is crucial before diving into coding.
 ---
+# Introduction
 
-## Why Schema First?
+- In Event-Driven Architecture (EDA) that aims for loose coupling and high scalability, paradoxically, **event schemas** create a strong contract between `Producers` and `Consumers`.
+- Why do we use schemas and Schema Registry in the first place?
 
-While EDA promotes loose coupling, event schemas inherently form a **tight contract** between `producers` and `consumers`. Let’s explore why this contract matters and how a **Schema Registry** helps maintain compatibility.
+# Purpose of Event Schema
 
-## Purpose of Event Schemas
-- Define structure and format of event data.
-- Enforce data consistency between producers and consumers.
-- Enable validation, compatibility, and documentation.
+- Defines the structure of data, standardizes message formats, and ensures **data consistency** between `Producers` and `Consumers`.
+- Maintains **compatibility** between `Producers` and `Consumers`.
+- Enables data validation.
 
-If you're familiar with REST APIs, this is similar to defining OpenAPI contracts between services:
+Consider the familiar REST API as an analogy!
 
-![](img/image.png)
+![](image.png)
 
-Event streams function the same way—producers emit events conforming to predefined schemas; consumers process them based on those expectations.
+When services communicate, they agree on an interface — typically documented using OpenAPI or similar specifications — describing required input and expected output.
 
-### Bad Example
+The same applies to event streams: 
+
+When a `Producer` publishes a pre-defined event, the `Consumer` processes it based on the agreed schema.
+
+**Example 1** — Suppose a schema was agreed as follows:
+
 ```json
 {
-  "user_id": 123,
-  "user_action": 1
-} // action code instead of expected string
+    "user_id": number,
+    "user_action": "string"
+}
 ```
 
-![](img/kafka-event-mismatch.png)
+However, the `Producer` mistakenly emits `user_action` as a code rather than a string:
 
-Even with agreed-upon schemas, schema drift can occur—leading to broken consumers. Much like skipping ERD when designing databases, **skipping event schemas is risky** in EDA.
+![](kafka-event-mismatch.png)
 
-## Common Schema Formats
+(This triggers the Consumer's rage 🤢)
 
-| Format     | Pros                                                                                   | Cons                                                       |
-|------------|-------------------------------------------------------------------------------------------|------------------------------------------------------------|
-| **JSON**   | Human-readable, widely supported                                                        | Large size, lacks strong validation                        |
-| **Protobuf** | Compact, fast, schema-enforced                                                         | Hard to debug, needs precompiled schema                    |
-| **Avro**   | Compact binary, supports schema evolution                                                | Less widely adopted, tooling gaps in some ecosystems       |
+Just like you wouldn't insert records into a database without designing an ERD, schema design is **mandatory** in EDA.
 
-Text formats like JSON are appealing for debugging. But size and speed matter in stream processing.
+# Event Schema Formats
 
-### JSON Suitability Checklist
-Use JSON **only if**:
-- ✅ Messages are small.
-- ✅ You can tolerate slow (de)serialization.
-- ✅ Strong type validation isn’t required.
-- ✅ You don’t need a schema registry.
-- ✅ Volume of messages will remain low.
-- ✅ Debugging via raw payload is helpful.
+Choosing a schema format? Here's a comparison:
 
-### Advantages of Avro / Protobuf
-- Strong typing and schema enforcement
-- Fast (de)serialization
-- Built-in **backward/forward compatibility**
+| Format         | Advantages | Disadvantages |
+|----------------|------------|---------------|
+| **JSON** (JavaScript Object Notation) | Human-readable text format. Widely supported across languages. | Large message size. No enforced schema, risking data integrity. |
+| **Protobuf** (Protocol Buffers) | Compact binary format by Google. Strong typing with enforced schemas. Faster parsing, smaller messages compared to JSON. | Not human-readable. Requires predefined schemas. Smaller ecosystem than JSON. |
+| **Avro** | Schema-based, compact binary format. Supports Schema Evolution without breaking existing programs. | Less popular than JSON/Protobuf. Tooling/library support may be limited. |
 
-![](img/image-1.png)
+Since event streams involve network transmission, **data size matters**.
 
-Even small messages show over 2x performance gains in binary formats. The difference increases with message size.
+If you're used to writing API specs, JSON might feel natural — but should you really default to it?
 
-### Impact on Kafka
-- Text-based formats like JSON consume more **storage** and **network bandwidth**.
-- High volume = performance degradation at produce/consume phases.
+# Checklist for Choosing JSON ("Die-Hard JSON Fan")
 
-## What Is a Schema Registry?
+If you answer "yes" to all below, JSON could still be a good fit:
 
-A Schema Registry stores and version-controls data schemas.
+- [x] Is the data size small?
+- [x] Can you tolerate serialization/deserialization overhead?
+- [x] Is strong type validation unnecessary?
+- [x] No plans to use Schema Registry?
+- [x] No expected major growth in data volume?
+- [x] Need for human-readable debugging?
 
-Benefits:
-- Enforces compatibility
-- Enables schema evolution (backward/forward)
-- Minimizes payload size by referencing schemas via ID
-- Centralized schema governance
+# Advantages of Avro / Protobuf
 
-### Schema Evolution in Action
-![](img/image-2.png)
-![](img/image-5.png)
+- **Strong Type Validation**
+    - Serialization fails if fields do not match specified types (e.g., ENUM, float).
+- **High Serialization/Deserialization Performance**
+    - Binary formats like Avro and Protobuf require no parsing, unlike text-based JSON.
+- **Schema Evolution Support**
+    - New fields can be ignored by older consumers without issues.
 
-1. Producer publishes an event with schema v2.
-2. Consumer detects version mismatch and fetches v2 from registry.
-3. Consumer proceeds with updated schema.
+![](image-1.png)
 
-No coordination required. Zero downtime schema upgrades!
+**Benchmark:** Even for small payloads, JSON lags behind Avro/Protobuf by more than 2x in performance.
 
-## Schema Registry vs. Schemaless
+**And the performance gap widens as payload size grows.**
 
-| Format     | With Schema Registry                                          | Without Schema Registry                                  |
-|------------|---------------------------------------------------------------|-----------------------------------------------------------|
-| JSON       | ❌ Schemaless, can't validate or evolve                       | ✅ Easy to debug, but lacks structure                     |
-| Protobuf   | ✅ Strong schema + evolution support                         | ❌ Needs .proto file everywhere                          |
-| Avro       | ✅ Compact, evolvable binary format                          | ❌ Schema must be embedded in each message               |
+# Impact of Data Size on Performance
 
-![](img/image-3.png)
-![](img/image-4.png)
+Since JSON is stored as **text** instead of **binary**, it consumes more space:
 
-Using a Schema Registry with schema **ID** avoids inflating messages with repeated schema data. This helps keep message sizes small.
+- Larger Kafka volumes
+- Degraded produce/consume performance
+  - Larger data costs more during ISR (in-sync replication)
+  - Larger payloads cause slower fetches during consumption
 
-### Central Schema vs. Shared Code
-- Registry = Central governance, live updates.
-- Submodule `.proto` = Tight coupling, manual versioning.
+# Schema Registry
+
+Summarizing the core benefits of event schemas:
+- Consistency
+- Performance
+- Compatibility
+
+A **Schema Registry** centrally manages and validates Kafka message schemas, ensuring compatibility between producers and consumers.
+
+## Schema Evolution and Compatibility
+
+**Example 2:** Think of moving from v1 API to v2 API.
+- Keep backward compatibility initially.
+- Gradually migrate clients.
+- Eventually deprecate the old API.
+
+In event streams, updating schemas means notifying `Consumers` about changes. But which should update first, `Producer` or `Consumer`?
+
+Fortunately, Schema Registry solves this:
+
+![](image-2.png)
+
+- `Producer` publishes events using the new v2 schema.
+- `Consumer` detects schema changes and fetches the new version dynamically.
+
+Thus enabling **smooth schema evolution without service disruptions**.
+
+## Efficient Event Management
+
+Is using a Schema Registry mandatory?
+
+No. **Choosing the right tool depends on your needs.**
+
+### Schema Awareness in Kafka Streams
+
+For Avro/Protobuf (binary formats), schemas are essential because raw binary data isn't self-describing:
+
+![](image-3.png)
+
+### Event Size Considerations
+
+While Avro/Protobuf compress data well, embedding full schema info in each event would negate their size advantage:
+
+![](image-4.png)
+
+Using **schema IDs** instead (with Schema Registry) minimizes event size while preserving compatibility.
+
+**Note:**
+- If both `Producer` and `Consumer` share identical `.proto` files, they can theoretically skip embedding schemas.
+- But this approach has downsides:
+  - Tight coupling between producer/consumer.
+  - No dynamic schema updates.
+  - Requires redeploying both producer and consumer on schema changes.
 
 ## AWS Glue vs. Confluent Schema Registry
 
-| Feature                    | AWS Glue Registry               | Confluent Schema Registry        |
-|----------------------------|----------------------------------|----------------------------------|
-| Schema versioning         | ✅ Supported                     | ✅ Supported                     |
-| URL persistence           | ✅ ARN-based                     | ✅ REST endpoint-based            |
-| Auto upgrade for consumer | ❌ Needs explicit fetch         | ✅ Auto fetch                     |
-| Kafka support             | ✅ MSK                          | ✅ Confluent Kafka                |
+| Feature | AWS Glue Schema Registry | Confluent Schema Registry |
+|---------|---------------------------|---------------------------|
+| Schema Updates | Adds as new version | Adds as new version |
+| URL Stability | ✅ (ARN-based) | ✅ (REST API-based) |
+| Auto-use of Latest Version | ❌ (Needs config) | ✅ (Automatic) |
+| Kafka Compatibility | ✅ (Works with AWS MSK) | ✅ (Works with Confluent Kafka) |
 
-## Why Use a Schema Registry?
+# Why Use Schema Registry?
 
-1. **Guarantee Compatibility**: Prevent mismatched producer-consumer schemas.
-2. **Support Evolution**: Add/remove fields without breaking clients.
-3. **Centralized Governance**: No more shared `.proto` headaches.
-4. **Smaller Messages**: Send schema ID, not full schema.
-5. **Schema Validation**: Prevent invalid data from entering the stream.
-6. **Dynamic Updates**: Auto-fetch new schemas at runtime.
-7. **Compatibility Policies**: Enforce forward/backward rules.
-8. **Schema Auditing**: View changes via REST API or UI.
+1. **Maintains Data Consistency**
+   - Ensures producer messages match consumer expectations.
+   - Prevents business logic errors.
+2. **Supports Schema Evolution**
+   - Add/change fields without breaking existing consumers.
+3. **Centralized Schema Management**
+   - No need for manual schema file syncing.
+4. **Minimizes Kafka Message Size**
+   - Sends lightweight schema IDs instead of full schemas.
+5. **Provides Schema Validation**
+   - Catches invalid payloads early.
+6. **Enables Real-time Schema Updates**
+   - Consumers fetch updated schemas dynamically.
+7. **Configurable Compatibility Modes**
+   - Prevents breaking changes.
+8. **Versioned Schema History and Easy Rollbacks**
+   - Retrieve or roll back to any historical schema version.
 
-## References
-- [Confluent Blog: Schemas and Compatibility](https://www.confluent.io/blog/schemas-contracts-compatibility/)
-- [Oliveyoung B2B MSK Case](https://oliveyoung.tech/2023-10-04/oliveyoung-b2b-msk-connect-introduction/)
-- [Kafka Serialization Overview](https://www.linkedin.com/pulse/exploring-data-serialization-apache-kafka-json-protobuf-joe-z-tb2fc/)
+# References
 
+- [Confluent](https://www.confluent.io/blog/schemas-contracts-compatibility/)
+- [Oliveyoung Tech Blog](https://oliveyoung.tech/2023-10-04/oliveyoung-b2b-msk-connect-introduction/)
+- [Exploring Data Serialization in Apache Kafka](https://www.linkedin.com/pulse/exploring-data-serialization-apache-kafka-json-protobuf-joe-z-tb2fc/)

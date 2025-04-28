@@ -13,68 +13,79 @@ comments: true
 description: This post explores profiling and optimizing worker pools vs. asynchronous execution in Go using pprof. It analyzes the performance impact of concurrent HTTP requests, comparing sync worker pools (10 vs. 100 workers) and a single async worker in terms of throughput, CPU overhead, and memory allocation. Profiling results reveal that worker pools suffer from high concurrency overhead, while asynchronous execution significantly improves throughput with minimal memory cost. Additionally, the post discusses when to use worker pools vs. async processing, highlighting key trade-offs for IO-bound vs. CPU-bound tasks.
 ---
 
-![](img/image.png)
-> For how to apply `pprof`, refer to [Tuning GC with pprof](https://velog.io/@wjddn3711/pprof%EB%A1%9C-GC-%ED%8A%9C%EB%8B%9D%ED%95%98%EA%B8%B0)
+# Background
 
-## Background
+> **Service server** refers to a server performing business-specific operations.
 
-Our service server was performing one HTTP request per event—triggered frequently and handled asynchronously. However, the more requests we sent, the more linear the delay became.
+## [AS-IS]
 
-![](img/image-1.png)
+The service server was publishing individual HTTP events for each occurrence.
+
+Although asynchronous HTTP requests were used, the batch loader's response time increased linearly with the number of HTTP requests.
+
+![](image-1.png)
 
 ### Problems
-1. **Excessive network requests** on every event
-2. **Increased latency** due to queuing
-3. **Lack of scalability** — implementation differences between services caused repeated maintenance issues
 
-## Architecture Improvement
+1. **Excessive Network Traffic**: Every event triggered an HTTP request, overwhelming the network as event frequency increased.
+2. **Increased Latency**: More requests led to queuing and response delays.
+3. **Lack of Scalability**: Each service implemented batch loading differently. Moving to event streaming would require repetitive changes across servers.
 
-![](img/image-2.png)
+## [TO-BE]
+
+![](image-2.png)
 
 ### Solutions
-1. Queue events locally and send batch requests when either buffer size or interval is exceeded.
-2. Reduce latency via batching.
-3. Build a common library with loose coupling between service servers and the batch loader.
 
-## Design Decisions
+1. **Reduce Network Traffic**: Buffer events internally and batch-send them based on buffer limit or interval.
+2. **Reduce Latency**: Gathered events are sent at fixed intervals, solving the queuing delay.
+3. **Increase Scalability**: Use a shared library to minimize repetitive changes and maintain **loose coupling** with the batch loader server.
 
-We decided to build a shared module called **Batch Processor** to manage event queues.
+---
+
+# Solution
+
+> A shared library was designed, called **"Batch Processor"**, to buffer and batch-send events.
 
 ### Requirements
-- Optimize for **IO-bound tasks**
-- Manage goroutine lifecycle cleanly
+- Minimize **IO-bound tasks**.
+- **Control goroutine lifecycle** explicitly.
 
-### Option 1: Worker Pool (Sync IO)
+### Option 1: Worker Pool
 
-![](img/image-3.png)
+![](image-3.png)
+
+Multiple workers buffer internally and synchronously send batched events.
 
 #### Pros
-- Avoids deep copy overhead
-- Tunable performance via pool size
+- No deep copy overhead.
+- Performance tuning possible by adjusting worker pool size.
 
 #### Cons
-- Potentially multiple HTTP requests per interval
-- Hard to tune optimal pool size for every service
+- Up to N HTTP requests every interval (where N = number of workers).
+- Tuning required to find the optimal "magic number" of workers.
 
 ### Option 2: Single Worker + Async HTTP
 
-![](img/image-4.png)
+![](image-4.png)
 
 #### Pros
-- Only one HTTP request per interval
-- Simpler integration without tuning
+- Only one HTTP request per interval.
+- No worker tuning necessary.
 
 #### Cons
-- Minor CPU/memory overhead from deep copy
-- GC pressure may increase due to heap allocations
+- Potential CPU and memory load from deep copies.
+- Memory overhead may trigger GC, leading to "Stop the World" delays.
 
-Given the trade-offs, we opted for **Option 2**, but needed to validate that deep copy overhead wouldn’t impact performance.
+**Option 2** was selected due to superior usability despite potential deep copy overheads.
 
-## Profiling Goals
+# Profiling
 
-- Measure **throughput** at 2000 RPS
-- Quantify **memory impact** of `deepCopy()`
-- Analyze **GC overhead** from buffer copies
+## Goals
+
+- **Throughput**: Handle 2000 RPS for 1 minute.
+- **Memory Usage**: Measure overhead from `deepCopy()`.
+- **GC Overhead**: Check GC impact during memory copy.
 
 ```go
 func deepCopy[T any](src []T) []T {
@@ -87,68 +98,76 @@ func deepCopy[T any](src []T) []T {
 }
 ```
 
-## Methodology
+## Method
 
-Compare 3 implementations:
-- **10 Workers + Sync IO**
-- **100 Workers + Sync IO**
-- **1 Worker + Async IO**
+Compare **10/100 Worker Pool + Sync IO** vs **1 Worker + Async IO**.
 
-Track:
-- Throughput via logs
-- Heap profile with:
-```bash
-curl {endpoint}/debug/pprof/heap?seconds=30 --output {output_path}
+- CPU profiling enabled.
+- Count processed events by logging inside the API send function.
+
+```go
+func (q *BatchProcessor) send(payload []byte, traceIDs []string) {
+    response, err := q.client.Do(request)
+    q.logger.Info().Int("count", len(traceIDs)).Send()
+}
 ```
 
-Log parsing example:
-```text
-2024-10-14T05:11:06Z INF count=1020
-2024-10-14T05:11:07Z INF count=1000
-2024-10-14T05:11:07Z INF stopping BatchProcessor...
-```
+## CPU Profile
 
-## CPU Profiling
+> **selectgo**: Go runtime's internal event selection from multiple channels.
 
-### 100 Workers + Sync IO
-![](img/image-5.png)
-- 85% of time spent on `sellock` and `acquireSudog`
-- High contention on channel access
+#### 100 Worker Pool + Sync IO
 
-### 10 Workers + Sync IO
-![](img/image-6.png)
-- Lock contention reduced to 66%
+![](image-5.png)
 
-### 1 Worker + Async IO
-![](img/image-7.png)
-- Deep copy overhead ~10ms
-- 50% time split between API calls and deep copy
+- `runWithSync()` analysis:
+  - Overhead from channel locking (`sellock`) and scheduling (`acquireSudog`) **85%**.
 
-## Heap Profiling
+#### 10 Worker Pool + Sync IO
 
-### Worker Pool
-![](img/image-8.png)
-- ~8.2MB total, ~7.7MB from HTTP
-- No deep copy impact
+![](image-6.png)
 
-### 1 Worker + Async IO
-![](img/image-9.png)
-- ~12.2MB total, ~11.4MB from HTTP
-- Deep copy impact: 150kB (~1.22%) — negligible
+- Overhead reduced to **66%**.
 
-## Results
+#### 1 Worker + Async IO
 
-| Setup              | Throughput/min | CPU Overhead | Memory Overhead |
-|-------------------|----------------|--------------|-----------------|
-| 10 Workers        | 83,663         | 66%          | 0%              |
-| 100 Workers       | 84,042         | 85%          | 0%              |
-| 1 Worker + Async  | 119,720        | 50%          | 1.22%           |
+![](image-7.png)
 
-## Conclusion
+- `deepCopy()` overhead (runtime.memmove) only 10ms.
+- Runtime and deep copy overhead **50%**.
 
-- Worker pools introduce significant concurrency overhead
-- Increasing worker count doesn’t scale linearly
-- **Async execution outperforms worker pools** for IO-bound tasks
-- Worker pools remain ideal for CPU-bound tasks
-- When order matters, prefer worker pool even for IO-bound jobs
+## Heap Profile
 
+> Focused on deep copy impact during execution.
+
+#### Worker Pool
+
+![](image-8.png)
+
+- No measurable deep copy overhead.
+- 7.7MB out of 8.2MB used for HTTP requests.
+
+#### Single Worker + Async IO
+
+![](image-9.png)
+
+- 11.4MB out of 12.21MB used for HTTP requests.
+- Deep copy overhead is **150kB (1.22%)**, negligible.
+
+# Test Results
+
+| Setup               | Throughput (per minute) | CPU Overhead | Memory Overhead |
+|---------------------|--------------------------|--------------|-----------------|
+| 10 Worker           | 83,663                   | 66%          | 0%              |
+| 100 Worker          | 84,042                   | 85%          | 0%              |
+| 1 Worker + Async IO | 119,720                  | 50%          | 1.22%           |
+
+## Summary
+
+- Worker Pool introduces significant synchronization overhead.
+- Increasing workers does not linearly increase throughput.
+- **Async IO is significantly more efficient for IO-bound tasks.**
+- **Worker Pools** are better for CPU-bound tasks or when strict request ordering is needed.
+
+> **pprof integration:**  
+> For pprof-based GC tuning, refer to [pprof tuning article](https://dingyu.dev/posts/go-pprof-gc/).

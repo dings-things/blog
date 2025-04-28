@@ -18,7 +18,7 @@ description: This post explores profiling and optimizing worker pools vs. asynch
 ---
 ![](image.png)
 > **pprof 적용**은
-> [pprof로 GC 튜닝하기](https://velog.io/@wjddn3711/pprof%EB%A1%9C-GC-%ED%8A%9C%EB%8B%9D%ED%95%98%EA%B8%B0)를 참고 해주세요
+> [pprof로 GC 튜닝하기](https://dingyu.dev/posts/go-pprof-gc/)를 참고 해주세요
 
 # 배경
 ---

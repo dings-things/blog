@@ -13,37 +13,60 @@ comments: true
 description: Unlike RDBMS, Redis doesn’t have a traditional transaction mechanism. It primarily operates as a single-threaded cache, but transactions can still be made atomic using TX pipelines or Lua scripts. This post focuses on comparing the pros and cons of Lua scripts vs. TX pipelines.
 ---
 
-## Purpose
+# Purpose
 
-Unlike traditional RDBMS, which implement transactions through isolation levels and mechanisms like rollback and commit, Redis has no native transactional locking system. This post discusses how to isolate a transaction and preserve **all-or-nothing atomicity** in Redis using available tools.
+For typical RDB transactions, we rely on isolation levels, rollback, and commit mechanisms.
 
-## Options
+But what about **Redis**?
+
+Redis does not offer clear options to ensure data consistency and atomicity out-of-the-box. 
+
+This document records the approach to **isolate a transaction** and achieve **All-or-Nothing atomicity** in Redis.
+
+---
+
+# Options
 
 1. Redis TxPipeline
 2. Lua Script
 
+---
+
 ## Redis TxPipeline
 
-A natural first approach is to use **Pipelines**, which send multiple commands in batch. However, Pipelines alone don’t ensure atomicity—commands can still be interleaved with others from different clients.
+When handling multiple commands in Redis, Pipeline is a natural choice.
+
+Pipeline allows sending multiple commands to the Redis server in a batch and receiving multiple responses at once.
+
+However, **standard Pipeline does NOT guarantee transactional integrity**.  
+During execution, data might still be modified by other commands, resulting in inconsistencies.
 
 ### Edge Cases
-1. **Network Delay**: Commands and responses may arrive out of sync.
-2. **Multithreaded Clients**: Multiple clients using pipelines simultaneously can cause inconsistent ordering.
-3. **Replica Configuration**: Data consistency may not be guaranteed when replication settings like `slaveof` are active.
 
-This is where **TxPipeline** shines.
+1. **Network Latency**: Command and response order may mismatch due to network delay.
+2. **Multi-threaded Environment**: Redis allows concurrent client requests, making command execution order non-deterministic.
+3. **Redis Server Configuration**: Replication settings (e.g., `slaveof`) can impact consistency.
+
+**TxPipeline** solves these issues.
 
 ### Pros
-- **Atomic batch execution** via `MULTI`/`EXEC`.
-- **Improved performance** by reducing round trips.
-- **Transactional consistency** when used with `WATCH`.
+
+- **Transactional Guarantee**: Commands are treated as one atomic transaction.
+- **Performance Boost**: Reduces network overhead by batching commands.
+- **Atomicity**: All commands succeed or fail together (but no rollback).
 
 ### Cons
-- **Memory overhead**: All commands and responses are buffered.
-- **Complexity**: Mixed usage with normal pipelines may cause unintended behavior.
 
-### Testing Example
-![](img/2.png)
+- **Memory Usage**: Large transactions consume significant memory.
+- **Complexity**: Careful management is needed, especially when mixing with regular pipelines.
+
+### Test
+
+![](2.png)
+
+> Using `WATCH` ensures monitored keys are checked for changes. If any change occurs, the transaction fails.
+
+Example Transaction:
 
 ```bash
 MULTI
@@ -53,73 +76,130 @@ SET key3 value3
 EXEC
 ```
 
-If `SET key2 value2` fails:
-- `OOM`: Out of memory
-- `WRONGTYPE`: Type mismatch on key
+If an error occurs at `SET key2`:
 
-Even with `WATCH`, if the connection drops mid-transaction, rollback is not guaranteed. TxPipeline **ensures consistency**, but not full rollback support.
+- **Memory Exhaustion Case**:
+
+```bash
+OOM command not allowed when used memory > 'maxmemory'
+```
+
+- **Wrong Type Error**:
+
+```bash
+WRONGTYPE Operation against a key holding the wrong kind of value
+```
+
+The most common realistic failure is client disconnection.
+
+Even if you attempt rollback manually after disconnection, it would likely fail —
+thus **TxPipeline guarantees consistency but not perfect atomicity**.
 
 ---
 
 ## Lua Script
 
-Use Lua to execute multiple Redis commands **atomically**.
+Execute multiple Redis commands atomically inside a Lua script.
 
 ### Edge Cases
-1. Script transmission failure due to network issues.
-2. Post-execution result fetch failures on the client side.
+
+1. **Network Failure During Script Upload**: Script might never reach the server.
+2. **Network Failure During Response Reception**: Script executes but the client may not receive the result.
 
 ### Pros
-- **Lightweight and fast**
-- **Atomic**: Entire script runs as one unit
-- **Embedded scripting** for customization
+
+- **Lightweight and Fast**: Lua scripts execute efficiently.
+- **Built-in Scripting**: Extends Redis functionality (like raw SQL vs ORM).
+- **Readable Syntax**: Clean, easy-to-understand language.
 
 ### Cons
-- Smaller ecosystem
-- Fewer data types
-- Tougher concurrency and threading
 
-### Testing
-Scripts cannot be rolled back either. Worst case? Network cut-off during the process.
+- **Smaller Ecosystem**: Fewer libraries and community support.
+- **Limited Data Types**: Integer/floating point distinctions are loose.
+- **Strict Syntax**: Steeper learning curve for beginners.
+- **Threading Limitations**: Lua is fundamentally single-threaded.
+
+### Test
+
+Lua scripts also **do NOT support rollback**.
+
+Worst-case scenario remains: network disconnection during execution.
+
+**Example**: Insert key1 ~ key5, simulate error at key3.
 
 ```go
-luaScript := `
-  for i = 1, #KEYS do
-    if KEYS[i] == 'key3' then
-      error('error on key3')
-    else
-      redis.call('SET', KEYS[i], ARGV[i])
+package main
+
+import (
+	"context"
+	"fmt"
+	"github.com/go-redis/redis/v8"
+)
+
+var ctx = context.Background()
+
+func main() {
+	rdb := redis.NewClient(&redis.Options{
+		Addr: "localhost:6379",
+	})
+
+	luaScript := `
+    for i = 1, #KEYS do
+        if KEYS[i] == 'key3' then
+            error('Error on setting key3')
+        else
+            redis.call('SET', KEYS[i], ARGV[i])
+        end
     end
-  end
-`
+    `
+
+	keys := []string{"key1", "key2", "key3", "key4", "key5"}
+	values := []interface{}{"value1", "value2", "value3", "value4", "value5"}
+
+	err := rdb.Eval(ctx, luaScript, keys, values...).Err()
+	if err != nil {
+		fmt.Printf("Lua script execution error: %v\n", err)
+		return
+	}
+
+	fmt.Println("Lua script executed successfully")
+}
 ```
 
-Keys: key1 to key5 → `key3` triggers error.
+[Result]
 
-![](img/1.png)
+![](1.png)
 
 ---
 
-## Summary
+# Summary
 
-|               | TxPipeline                                                                 | Lua Script                                                            |
-|---------------|----------------------------------------------------------------------------|------------------------------------------------------------------------|
-| **Overview**  | Redis-like syntax, optimistic locking via `WATCH`, consistent             | Full atomic block via Lua, less intuitive for some users             |
-| **Rollback**  | ❌ No rollback                                                             | ❌ No rollback                                                        |
-| **Drawbacks** | Slightly slower than Lua, potential complexity                            | Extra script management, steeper learning curve                      |
+## Pros & Cons
 
-- Both methods ensure **data consistency**, not rollback.
-- Client-side validation is crucial.
-- Network errors remain the weakest link.
+|                | TxPipeline | Lua Script |
+| -------------- | ------------------------------------------------------------ | ---------------------------------------------------------------- |
+| **Key Features** | - Standard Redis syntax<br>- Ensures data integrity<br>- Optimistic lock (`WATCH`) prevents conflict | - Requires Lua scripting<br>- Ensures data integrity<br>- Executes script as a single unit |
+| **Transaction Rollback** | Not supported | Not supported |
+| **Drawbacks** | - Slightly lower performance than Lua<br>- Complexity increases with large transactions | - Management overhead for Lua scripts<br>- Learning curve |
+
+---
+
+- Both options guarantee **data integrity**, but neither supports rollback after failure.
+- **Validation before insertion** reduces chances of runtime errors.
+- **Worst-case scenario**:
+  - Redis client connection drops during transaction.
+  - Cannot roll back manually if disconnected.
+- Consider Redis Sentinel if high availability edge cases need to be addressed.
 
 ## Benchmark
-Setting 1,000 keys:
 
-| Method        | Runs | Avg Time (ms) |
-|---------------|------|----------------|
-| Lua Script    | 1424 | 0.83           |
-| TxPipeline    | 460  | 2.56           |
-| Basic Pipeline| 506  | 2.34           |
+Testing 1,000 key insertions into Redis:
 
-While not dramatic, Lua is slightly faster—**but choose based on structure and consistency needs**.
+| Test Item | Test Count | Avg Execution Time (ms) |
+| --------- | ---------- | ----------------------- |
+| Lua Script | 1424 | 0.83 |
+| TxPipeline | 460 | 2.56 |
+| Pipeline | 506 | 2.34 |
 
+- Performance differences are not critical.
+- **TxPipeline or Lua Script is recommended** to ensure data consistency.
