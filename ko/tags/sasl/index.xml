@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sasl on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/ko/tags/sasl/</link>
+    <description>Recent content in Sasl on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/ko/tags/sasl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[EDA] Local SASL SCRAM Mechanism Kafka Docker compose 구성하기</title>
+      <link>https://dingyu.dev/ko/posts/local-sasl-kafka/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/local-sasl-kafka/</guid>
+      <description>This post documents how to build a local Kafka cluster using Docker Compose that supports both SCRAM-SHA-256 and SCRAM-SHA-512 SASL authentication mechanisms, enabling secure, production-like testing for applications like event dispatchers—all without modifying code or relying on external infrastructure.</description>
+    </item>
+  </channel>
+</rss>

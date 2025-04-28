@@ -10,7 +10,7 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>ko</language>
+    <language>en</language>
     <lastBuildDate>Thu, 22 Jun 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -18,7 +18,7 @@
       <link>https://dingyu.dev/posts/fastapi-convention/</link>
       <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/fastapi-convention/</guid>
-      <description>People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i&amp;#39;ll suggest class based fastapi best practice</description>
+      <description>People tend to say FastAPI has no best practice. As a software developer working mainly in object-oriented languages, I propose a class-based FastAPI best practice.</description>
     </item>
   </channel>
 </rss>

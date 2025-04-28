@@ -10,7 +10,7 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>ko</language>
+    <language>en</language>
     <lastBuildDate>Fri, 21 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -21,7 +21,7 @@
       <description>People often rely solely on basic Kafka metrics like Input/Output Bytes, missing crucial insights into their event-driven architecture. This post demonstrates how to set up comprehensive topic-level monitoring for Kafka (AWS MSK) using Burrow, Prometheus, and Thanos. By combining Burrow for accurate consumer lag tracking, Prometheus for metric collection, and Thanos for long-term data storage and high availability, you&amp;#39;ll achieve effective Kafka monitoring without the high costs and limitations of cloud-native solutions.</description>
     </item>
     <item>
-      <title>[LGTM] Elasticsearch to Loki 전환기</title>
+      <title>[LGTM] Elasticsearch to Loki Migration Story</title>
       <link>https://dingyu.dev/posts/es-to-loki/</link>
       <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/es-to-loki/</guid>

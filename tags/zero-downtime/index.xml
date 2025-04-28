@@ -10,11 +10,11 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>ko</language>
+    <language>en</language>
     <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/zero-downtime/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Infra] 쿠버네틱스 무중단 배포 설정하기</title>
+      <title>[Infra] Zero-Downtime Kubernetes Deployment Guide</title>
       <link>https://dingyu.dev/posts/k8s-zero-downtime/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/k8s-zero-downtime/</guid>

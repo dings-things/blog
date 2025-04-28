@@ -2,1277 +2,1307 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://dingyu.dev/posts/local-sasl-kafka/</loc>
+    <loc>https://dingyu.dev/ko/posts/local-sasl-kafka/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/local-sasl-kafka/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/local-sasl-kafka/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/local-sasl-kafka/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/bitnami/</loc>
+    <loc>https://dingyu.dev/ko/tags/bitnami/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/bitnami/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/bitnami/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/bitnami/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/</loc>
+    <loc>https://dingyu.dev/ko/categories/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/</loc>
+    <loc>https://dingyu.dev/ko/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/eda/</loc>
+    <loc>https://dingyu.dev/ko/categories/eda/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/eda/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/eda/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/eda/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/kafka/</loc>
+    <loc>https://dingyu.dev/ko/tags/kafka/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/kafka/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/kafka/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/kafka/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/kafka-ui/</loc>
+    <loc>https://dingyu.dev/ko/tags/kafka-ui/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/kafka-ui/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/kafka-ui/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/kafka-ui/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/local-test/</loc>
+    <loc>https://dingyu.dev/ko/tags/local-test/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/local-test/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/local-test/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/local-test/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/</loc>
+    <loc>https://dingyu.dev/ko/posts/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/sasl/</loc>
+    <loc>https://dingyu.dev/ko/tags/sasl/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/sasl/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/sasl/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/sasl/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/</loc>
+    <loc>https://dingyu.dev/ko/tags/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/dance-with-burrow/</loc>
+    <loc>https://dingyu.dev/ko/posts/dance-with-burrow/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/dance-with-burrow/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/dance-with-burrow/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/dance-with-burrow/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/burrow/</loc>
+    <loc>https://dingyu.dev/ko/tags/burrow/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/burrow/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/burrow/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/burrow/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/lag/</loc>
+    <loc>https://dingyu.dev/ko/tags/lag/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/lag/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/lag/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/lag/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/monitoring/</loc>
+    <loc>https://dingyu.dev/ko/tags/monitoring/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/monitoring/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/monitoring/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/monitoring/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/prometheus/</loc>
+    <loc>https://dingyu.dev/ko/tags/prometheus/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/prometheus/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/prometheus/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/prometheus/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/thanos/</loc>
+    <loc>https://dingyu.dev/ko/tags/thanos/</loc>
     <lastmod>2025-03-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/thanos/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/thanos/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/thanos/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/schema-registry/</loc>
+    <loc>https://dingyu.dev/ko/posts/schema-registry/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/schema-registry/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/schema-registry/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/schema-registry/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/avro/</loc>
+    <loc>https://dingyu.dev/ko/tags/avro/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/avro/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/avro/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/avro/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/json/</loc>
+    <loc>https://dingyu.dev/ko/tags/json/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/json/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/json/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/json/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/protobuf/</loc>
+    <loc>https://dingyu.dev/ko/tags/protobuf/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/protobuf/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/protobuf/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/protobuf/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/schema-registry/</loc>
+    <loc>https://dingyu.dev/ko/tags/schema-registry/</loc>
     <lastmod>2025-02-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/schema-registry/"
+                href="https://dingyu.dev/tags/schema-registry/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ko"
-                href="https://dingyu.dev/tags/schema-registry/"
+                href="https://dingyu.dev/ko/tags/schema-registry/"
                 />
   </url><url>
-    <loc>https://dingyu.dev/about/</loc>
+    <loc>https://dingyu.dev/ko/about/</loc>
     <lastmod>2025-02-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/about/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/grpc/</loc>
+    <loc>https://dingyu.dev/ko/posts/grpc/</loc>
     <lastmod>2025-02-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/grpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/grpc/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/grpc/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/grpc/</loc>
+    <loc>https://dingyu.dev/ko/tags/grpc/</loc>
     <lastmod>2025-02-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/grpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/grpc/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/grpc/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/http2.0/</loc>
+    <loc>https://dingyu.dev/ko/tags/http2.0/</loc>
     <lastmod>2025-02-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/http2.0/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/http2.0/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/http2.0/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/protocol/</loc>
+    <loc>https://dingyu.dev/ko/categories/protocol/</loc>
     <lastmod>2025-02-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/protocol/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/protocol/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/protocol/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/rpc/</loc>
+    <loc>https://dingyu.dev/ko/tags/rpc/</loc>
     <lastmod>2025-02-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/rpc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/rpc/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/rpc/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/go-convention/</loc>
+    <loc>https://dingyu.dev/ko/posts/go-convention/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/go-convention/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/go-convention/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/go-convention/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/convention/</loc>
+    <loc>https://dingyu.dev/ko/tags/convention/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/convention/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/convention/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/convention/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/convention/</loc>
+    <loc>https://dingyu.dev/ko/categories/convention/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/convention/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/convention/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/convention/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/go/</loc>
+    <loc>https://dingyu.dev/ko/tags/go/</loc>
     <lastmod>2025-01-12T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/go/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/go/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/go/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/es-to-loki/</loc>
+    <loc>https://dingyu.dev/ko/posts/es-to-loki/</loc>
     <lastmod>2025-01-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/es-to-loki/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/es-to-loki/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/es-to-loki/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/grafana/</loc>
+    <loc>https://dingyu.dev/ko/tags/grafana/</loc>
     <lastmod>2025-01-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/grafana/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/grafana/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/grafana/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/lgtm/</loc>
+    <loc>https://dingyu.dev/ko/tags/lgtm/</loc>
     <lastmod>2025-01-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/lgtm/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/lgtm/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/lgtm/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/lgtm/</loc>
+    <loc>https://dingyu.dev/ko/categories/lgtm/</loc>
     <lastmod>2025-01-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/lgtm/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/lgtm/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/lgtm/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/loki/</loc>
+    <loc>https://dingyu.dev/ko/tags/loki/</loc>
     <lastmod>2025-01-04T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/loki/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/loki/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/loki/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/flink-dynamic-job/</loc>
+    <loc>https://dingyu.dev/ko/posts/flink-dynamic-job/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/flink-dynamic-job/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/flink-dynamic-job/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/flink-dynamic-job/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/apache/</loc>
+    <loc>https://dingyu.dev/ko/tags/apache/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/apache/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/apache/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/apache/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/dynamic-job/</loc>
+    <loc>https://dingyu.dev/ko/tags/dynamic-job/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/dynamic-job/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/dynamic-job/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/dynamic-job/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/fds/</loc>
+    <loc>https://dingyu.dev/ko/tags/fds/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/fds/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/fds/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/fds/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/flink/</loc>
+    <loc>https://dingyu.dev/ko/tags/flink/</loc>
     <lastmod>2024-12-06T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/flink/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/flink/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/flink/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/</loc>
+    <loc>https://dingyu.dev/ko/posts/gopher-con-2024-minimalistic-go/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/gopher-con-2024-minimalistic-go/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/gopher-con-2024-minimalistic-go/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/gopher-con-2024-go-project-guide/</loc>
+    <loc>https://dingyu.dev/ko/posts/gopher-con-2024-go-project-guide/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/gopher-con-2024-go-project-guide/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/gopher-con-2024-go-project-guide/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/gopher-con-2024-go-project-guide/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</loc>
+    <loc>https://dingyu.dev/ko/posts/gopher-con-2024-kubernetes-programing/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/gopher-con-2024-kubernetes-programing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/gopher-con-2024-kubernetes-programing/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/conference/</loc>
+    <loc>https://dingyu.dev/ko/categories/conference/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/conference/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/conference/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/conference/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/good-practice/</loc>
+    <loc>https://dingyu.dev/ko/tags/good-practice/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/good-practice/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/good-practice/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/good-practice/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/kubernetes/</loc>
+    <loc>https://dingyu.dev/ko/tags/kubernetes/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/kubernetes/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/kubernetes/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/kubernetes/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/project-guide/</loc>
+    <loc>https://dingyu.dev/ko/tags/project-guide/</loc>
     <lastmod>2024-11-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/project-guide/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/project-guide/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/project-guide/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/worker-pool-async/</loc>
+    <loc>https://dingyu.dev/ko/posts/worker-pool-async/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/worker-pool-async/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/worker-pool-async/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/worker-pool-async/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/async/</loc>
+    <loc>https://dingyu.dev/ko/tags/async/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/async/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/async/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/async/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/optimization/</loc>
+    <loc>https://dingyu.dev/ko/categories/optimization/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/optimization/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/optimization/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/optimization/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/pprof/</loc>
+    <loc>https://dingyu.dev/ko/tags/pprof/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/pprof/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/pprof/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/pprof/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/sync/</loc>
+    <loc>https://dingyu.dev/ko/tags/sync/</loc>
     <lastmod>2024-10-27T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/sync/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/sync/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/sync/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/coffee-pal/</loc>
+    <loc>https://dingyu.dev/ko/posts/coffee-pal/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/coffee-pal/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/coffee-pal/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/coffee-pal/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/coffee-chat/</loc>
+    <loc>https://dingyu.dev/ko/tags/coffee-chat/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/coffee-chat/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/coffee-chat/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/coffee-chat/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/dx/</loc>
+    <loc>https://dingyu.dev/ko/categories/dx/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/dx/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/dx/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/dx/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/slack-bot/</loc>
+    <loc>https://dingyu.dev/ko/tags/slack-bot/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/slack-bot/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/slack-bot/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/slack-bot/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/go-pprof-gc/</loc>
+    <loc>https://dingyu.dev/ko/posts/go-pprof-gc/</loc>
     <lastmod>2024-09-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/go-pprof-gc/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/go-pprof-gc/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/go-pprof-gc/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/gc-tuning/</loc>
+    <loc>https://dingyu.dev/ko/tags/gc-tuning/</loc>
     <lastmod>2024-09-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/gc-tuning/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/gc-tuning/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/gc-tuning/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/profile/</loc>
+    <loc>https://dingyu.dev/ko/tags/profile/</loc>
     <lastmod>2024-09-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/profile/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/profile/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/profile/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/sentry/</loc>
+    <loc>https://dingyu.dev/ko/posts/sentry/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/sentry/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/sentry/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/sentry/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/sentry/</loc>
+    <loc>https://dingyu.dev/ko/tags/sentry/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/sentry/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/sentry/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/sentry/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/third-party/</loc>
+    <loc>https://dingyu.dev/ko/categories/third-party/</loc>
     <lastmod>2024-09-11T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/third-party/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/third-party/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/third-party/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/k8s-zero-downtime/</loc>
+    <loc>https://dingyu.dev/ko/posts/k8s-zero-downtime/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/k8s-zero-downtime/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/k8s-zero-downtime/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/k8s-zero-downtime/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/infra/</loc>
+    <loc>https://dingyu.dev/ko/categories/infra/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/infra/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/infra/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/infra/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/k8s/</loc>
+    <loc>https://dingyu.dev/ko/tags/k8s/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/k8s/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/k8s/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/k8s/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/zero-downtime/</loc>
+    <loc>https://dingyu.dev/ko/tags/zero-downtime/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/zero-downtime/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/zero-downtime/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/zero-downtime/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/aws-well-architected/</loc>
+    <loc>https://dingyu.dev/ko/posts/aws-well-architected/</loc>
     <lastmod>2024-03-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/aws-well-architected/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/aws-well-architected/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/aws-well-architected/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/aws/</loc>
+    <loc>https://dingyu.dev/ko/tags/aws/</loc>
     <lastmod>2024-03-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/aws/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/aws/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/aws/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/best-practice/</loc>
+    <loc>https://dingyu.dev/ko/tags/best-practice/</loc>
     <lastmod>2024-03-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/best-practice/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/best-practice/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/best-practice/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/well-architected/</loc>
+    <loc>https://dingyu.dev/ko/tags/well-architected/</loc>
     <lastmod>2024-03-19T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/well-architected/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/well-architected/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/well-architected/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/redis-transaction/</loc>
+    <loc>https://dingyu.dev/ko/posts/redis-transaction/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/redis-transaction/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/redis-transaction/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/redis-transaction/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/db/</loc>
+    <loc>https://dingyu.dev/ko/categories/db/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/db/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/db/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/db/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/redis/</loc>
+    <loc>https://dingyu.dev/ko/tags/redis/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/redis/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/redis/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/redis/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/transaction/</loc>
+    <loc>https://dingyu.dev/ko/tags/transaction/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/transaction/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/transaction/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/transaction/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/txpipeline/</loc>
+    <loc>https://dingyu.dev/ko/tags/txpipeline/</loc>
     <lastmod>2024-01-31T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/txpipeline/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/txpipeline/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/txpipeline/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/fastapi-convention/</loc>
+    <loc>https://dingyu.dev/ko/posts/fastapi-convention/</loc>
     <lastmod>2023-06-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/fastapi-convention/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/fastapi-convention/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/fastapi-convention/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/python/</loc>
+    <loc>https://dingyu.dev/ko/tags/python/</loc>
     <lastmod>2023-06-22T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/python/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/python/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/posts/crawling-selenium-solver/</loc>
+    <loc>https://dingyu.dev/ko/posts/crawling-selenium-solver/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/posts/crawling-selenium-solver/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/posts/crawling-selenium-solver/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/posts/crawling-selenium-solver/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/buster/</loc>
+    <loc>https://dingyu.dev/ko/tags/buster/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/buster/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/buster/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/buster/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/c%23/</loc>
+    <loc>https://dingyu.dev/ko/tags/c%23/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/c%23/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/c%23/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/c%23/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/categories/crawler/</loc>
+    <loc>https://dingyu.dev/ko/categories/crawler/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/categories/crawler/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/categories/crawler/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/categories/crawler/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/recaptcha/</loc>
+    <loc>https://dingyu.dev/ko/tags/recaptcha/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/recaptcha/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
                 href="https://dingyu.dev/tags/recaptcha/"
                 />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/tags/recaptcha/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/tags/selenium/</loc>
+    <loc>https://dingyu.dev/ko/tags/selenium/</loc>
     <lastmod>2022-06-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://dingyu.dev/en/tags/selenium/"
+                href="https://dingyu.dev/tags/selenium/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ko"
-                href="https://dingyu.dev/tags/selenium/"
+                href="https://dingyu.dev/ko/tags/selenium/"
                 />
   </url><url>
-    <loc>https://dingyu.dev/archives/</loc>
+    <loc>https://dingyu.dev/ko/archives/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/archives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/archives/"
+                />
   </url><url>
-    <loc>https://dingyu.dev/search/</loc>
+    <loc>https://dingyu.dev/ko/search/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/search/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/ko/search/"
+                />
   </url>
 </urlset>

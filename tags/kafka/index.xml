@@ -10,11 +10,11 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>ko</language>
+    <language>en</language>
     <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/kafka/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[EDA] Local SASL SCRAM Mechanism Kafka Docker compose 구성하기</title>
+      <title>[EDA] Running a Local Kafka Cluster with SASL SCRAM Authentication (Docker Compose)</title>
       <link>https://dingyu.dev/posts/local-sasl-kafka/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/local-sasl-kafka/</guid>

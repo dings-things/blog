@@ -10,11 +10,11 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>ko</language>
+    <language>en</language>
     <lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/coffee-chat/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
+      <title>[DX] Building a Slack Bot for Internal Coffee Chats</title>
       <link>https://dingyu.dev/posts/coffee-pal/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/coffee-pal/</guid>

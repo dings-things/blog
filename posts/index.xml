@@ -10,11 +10,11 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>ko</language>
+    <language>en</language>
     <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[EDA] Local SASL SCRAM Mechanism Kafka Docker compose 구성하기</title>
+      <title>[EDA] Running a Local Kafka Cluster with SASL SCRAM Authentication (Docker Compose)</title>
       <link>https://dingyu.dev/posts/local-sasl-kafka/</link>
       <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/local-sasl-kafka/</guid>
@@ -35,11 +35,11 @@
       <description>People often underestimate the importance of documenting schemas before starting to code, especially when working with stream processing. In this post, I’ll explain why using a schema registry is essential and why designing schemas upfront is crucial before diving into coding.</description>
     </item>
     <item>
-      <title>[Protocol] RPC... 그리고 GRPC 톺아보기</title>
+      <title>[Protocol] Exploring RPC... and GRPC in Depth</title>
       <link>https://dingyu.dev/posts/grpc/</link>
       <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/grpc/</guid>
-      <description>흔히들 (나만 그럴지도..?) rpc 통신을 한다 하면&amp;hellip; HTTP/2 기반의 protocol Buffer를 사용하겠구나~ (grpc 구나) 라고 생각하기 마련이다. rpc는 무엇이고 grpc는 어째서 빠를까? 그리고 왜 사용할까?</description>
+      <description>When we hear &amp;#34;RPC communication,&amp;#34; many (maybe just me?) might immediately think of Protocol Buffers over HTTP/2 — in other words, gRPC. But what is RPC really, and why is gRPC considered fast? And when should we use it?</description>
     </item>
     <item>
       <title>[Go] Go Convention</title>
@@ -49,7 +49,7 @@
       <description>There aren’t many Go developers in Korea, and major IT companies using Go are as rare as unicorns. At my company, we have accumulated our own know-how over the years while developing with Go. Here, I’d like to suggest some key conventions that I believe are useful for maintaining services in the long run.</description>
     </item>
     <item>
-      <title>[LGTM] Elasticsearch to Loki 전환기</title>
+      <title>[LGTM] Elasticsearch to Loki Migration Story</title>
       <link>https://dingyu.dev/posts/es-to-loki/</link>
       <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/es-to-loki/</guid>
@@ -67,52 +67,52 @@
       <link>https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/</guid>
-      <description>불필요한 프레임워크는 이제 그만&amp;hellip; 튜닝의 끝은 순정일세~ 바닐라 Go를 통해 미니멀리스틱 App 개발하는 법</description>
+      <description>Say goodbye to unnecessary frameworks—it&amp;#39;s time to go back to the basics. This post demonstrates how to build minimalistic backend applications using pure vanilla Go.</description>
     </item>
     <item>
-      <title>[Go] Gophercon 2024 - 고언어 프로젝트 가이드 A-Z</title>
+      <title>[Go] Gophercon 2024 - Go Project Guide from A to Z</title>
       <link>https://dingyu.dev/posts/gopher-con-2024-go-project-guide/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/gopher-con-2024-go-project-guide/</guid>
-      <description>Spring과 같이 규격화 되어 있지 않은 Go 언어에서 프로젝트를 구성하는 방법.. 피쳐 단위 개발 그리고 엔터프라이즈 App까지 설계에 대한 개략적인 사례를 소개함</description>
+      <description>How to structure projects in Go, a language without rigid frameworks like Spring. This post introduces practical patterns for feature-driven development and enterprise-level application design.</description>
     </item>
     <item>
-      <title>[Go] Gophercon 2024 - 쿠버네티스 플랫폼 프로그래밍</title>
+      <title>[Go] Gophercon 2024 - Kubernetes Platform Programming</title>
       <link>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</guid>
-      <description>go 기반으로 k8s API를 사용하는 법&amp;hellip; 오퍼레이터로 배포하는 애플리케이션</description>
+      <description>How to use the Kubernetes API with Go… and deploy applications using Operators</description>
     </item>
     <item>
-      <title>[Go] Worker Pool과 비동기 작업의 성능 프로파일링</title>
+      <title>[Go] Profiling Worker Pool vs. Async Processing</title>
       <link>https://dingyu.dev/posts/worker-pool-async/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/worker-pool-async/</guid>
       <description>This post explores profiling and optimizing worker pools vs. asynchronous execution in Go using pprof. It analyzes the performance impact of concurrent HTTP requests, comparing sync worker pools (10 vs. 100 workers) and a single async worker in terms of throughput, CPU overhead, and memory allocation. Profiling results reveal that worker pools suffer from high concurrency overhead, while asynchronous execution significantly improves throughput with minimal memory cost. Additionally, the post discusses when to use worker pools vs. async processing, highlighting key trade-offs for IO-bound vs. CPU-bound tasks.</description>
     </item>
     <item>
-      <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
+      <title>[DX] Building a Slack Bot for Internal Coffee Chats</title>
       <link>https://dingyu.dev/posts/coffee-pal/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/coffee-pal/</guid>
       <description>Developers often work alone, deeply diving into specific techniques. However, as members of a company, we need a space to discuss and brainstorm together. Inspired by the spirit of Ubuntu, I created my own Slack app Slack Bolt Coffee Chat, Coffee Pal</description>
     </item>
     <item>
-      <title>[Go] pprof로 GC 튜닝하기</title>
+      <title>[Go] Tuning GC with pprof</title>
       <link>https://dingyu.dev/posts/go-pprof-gc/</link>
       <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/go-pprof-gc/</guid>
       <description>This post explores how to use pprof for profiling and optimizing Go applications, focusing on heap allocation, GC tuning, and performance bottleneck identification. It covers profiling setup with Gin, analyzing Flame Graphs and heap dumps, and optimizing memory allocations by addressing inefficient context usage and logging overhead. Additionally, it discusses GC tuning strategies (GOMEMLIMIT, GOGC) and best practices like pointer usage, slice capacity preallocation, and benchmarking techniques to improve application efficiency and reduce Stop-The-World (STW) latency.</description>
     </item>
     <item>
-      <title>[Third-Party] Sentry 연동</title>
+      <title>[Third-Party] Integrating Sentry in Go</title>
       <link>https://dingyu.dev/posts/sentry/</link>
       <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/sentry/</guid>
       <description>This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go&amp;#39;s pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.</description>
     </item>
     <item>
-      <title>[Infra] 쿠버네틱스 무중단 배포 설정하기</title>
+      <title>[Infra] Zero-Downtime Kubernetes Deployment Guide</title>
       <link>https://dingyu.dev/posts/k8s-zero-downtime/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/k8s-zero-downtime/</guid>
@@ -137,7 +137,7 @@
       <link>https://dingyu.dev/posts/fastapi-convention/</link>
       <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/fastapi-convention/</guid>
-      <description>People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i&amp;#39;ll suggest class based fastapi best practice</description>
+      <description>People tend to say FastAPI has no best practice. As a software developer working mainly in object-oriented languages, I propose a class-based FastAPI best practice.</description>
     </item>
     <item>
       <title>[Crawler] Recaptcha Solver</title>

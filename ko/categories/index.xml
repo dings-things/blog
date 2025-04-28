@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Categories on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/ko/categories/</link>
+    <description>Recent content in Categories on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/ko/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eda</title>
+      <link>https://dingyu.dev/ko/categories/eda/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/eda/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Protocol</title>
+      <link>https://dingyu.dev/ko/categories/protocol/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/protocol/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Convention</title>
+      <link>https://dingyu.dev/ko/categories/convention/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/convention/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lgtm</title>
+      <link>https://dingyu.dev/ko/categories/lgtm/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/lgtm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Conference</title>
+      <link>https://dingyu.dev/ko/categories/conference/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/conference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Optimization</title>
+      <link>https://dingyu.dev/ko/categories/optimization/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/optimization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dx</title>
+      <link>https://dingyu.dev/ko/categories/dx/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/dx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Third-Party</title>
+      <link>https://dingyu.dev/ko/categories/third-party/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/third-party/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Infra</title>
+      <link>https://dingyu.dev/ko/categories/infra/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/infra/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Db</title>
+      <link>https://dingyu.dev/ko/categories/db/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/db/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crawler</title>
+      <link>https://dingyu.dev/ko/categories/crawler/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/categories/crawler/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

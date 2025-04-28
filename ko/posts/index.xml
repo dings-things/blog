@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/ko/posts/</link>
+    <description>Recent content in Posts on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/ko/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[EDA] Local SASL SCRAM Mechanism Kafka Docker compose 구성하기</title>
+      <link>https://dingyu.dev/ko/posts/local-sasl-kafka/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/local-sasl-kafka/</guid>
+      <description>This post documents how to build a local Kafka cluster using Docker Compose that supports both SCRAM-SHA-256 and SCRAM-SHA-512 SASL authentication mechanisms, enabling secure, production-like testing for applications like event dispatchers—all without modifying code or relying on external infrastructure.</description>
+    </item>
+    <item>
+      <title>[EDA] Kafka (MSK) Monitoring with Burrow Prometheus And Thanos</title>
+      <link>https://dingyu.dev/ko/posts/dance-with-burrow/</link>
+      <pubDate>Fri, 21 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/dance-with-burrow/</guid>
+      <description>People often rely solely on basic Kafka metrics like Input/Output Bytes, missing crucial insights into their event-driven architecture. This post demonstrates how to set up comprehensive topic-level monitoring for Kafka (AWS MSK) using Burrow, Prometheus, and Thanos. By combining Burrow for accurate consumer lag tracking, Prometheus for metric collection, and Thanos for long-term data storage and high availability, you&amp;#39;ll achieve effective Kafka monitoring without the high costs and limitations of cloud-native solutions.</description>
+    </item>
+    <item>
+      <title>[EDA] Schema Registry</title>
+      <link>https://dingyu.dev/ko/posts/schema-registry/</link>
+      <pubDate>Mon, 24 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/schema-registry/</guid>
+      <description>People often underestimate the importance of documenting schemas before starting to code, especially when working with stream processing. In this post, I’ll explain why using a schema registry is essential and why designing schemas upfront is crucial before diving into coding.</description>
+    </item>
+    <item>
+      <title>[Protocol] RPC... 그리고 GRPC 톺아보기</title>
+      <link>https://dingyu.dev/ko/posts/grpc/</link>
+      <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/grpc/</guid>
+      <description>흔히들 (나만 그럴지도..?) rpc 통신을 한다 하면&amp;hellip; HTTP/2 기반의 protocol Buffer를 사용하겠구나~ (grpc 구나) 라고 생각하기 마련이다. rpc는 무엇이고 grpc는 어째서 빠를까? 그리고 왜 사용할까?</description>
+    </item>
+    <item>
+      <title>[Go] Go Convention</title>
+      <link>https://dingyu.dev/ko/posts/go-convention/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/go-convention/</guid>
+      <description>There aren’t many Go developers in Korea, and major IT companies using Go are as rare as unicorns. At my company, we have accumulated our own know-how over the years while developing with Go. Here, I’d like to suggest some key conventions that I believe are useful for maintaining services in the long run.</description>
+    </item>
+    <item>
+      <title>[LGTM] Elasticsearch to Loki 전환기</title>
+      <link>https://dingyu.dev/ko/posts/es-to-loki/</link>
+      <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/es-to-loki/</guid>
+      <description>This article explores the transition from Elasticsearch to Loki for cost-efficient log management, highlighting key differences in storage, indexing, and query performance. It covers best practices for optimizing Loki&amp;#39;s labeling strategy, managing chunk storage, and handling high-cardinality data. Additionally, it provides a step-by-step guide to configuring Grafana dashboards for efficient log analysis, including Raw Logs, Error Logs, TPS (P50/P99), Log Distributions, and Table Views.</description>
+    </item>
+    <item>
+      <title>[EDA] Flink Dynamic Job Case Study</title>
+      <link>https://dingyu.dev/ko/posts/flink-dynamic-job/</link>
+      <pubDate>Fri, 06 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/flink-dynamic-job/</guid>
+      <description>This post explores dynamic rule-based stream processing using Apache Flink for real-time fraud detection. It covers key topics such as dynamic key partitioning, broadcast state for rule updates, and custom window processing to efficiently evaluate transactions without redeploying jobs. The implementation ensures low-latency fraud detection by minimizing shuffle overhead, dynamically applying grouping keys, and leveraging stateful processing. Additionally, it discusses event retention strategies, performance considerations, and architecture trade-offs for building a scalable, high-performance fraud detection system.</description>
+    </item>
+    <item>
+      <title>[Go] Gophercon 2024 - Building Minimalistic Backend Microservice in Go</title>
+      <link>https://dingyu.dev/ko/posts/gopher-con-2024-minimalistic-go/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/gopher-con-2024-minimalistic-go/</guid>
+      <description>불필요한 프레임워크는 이제 그만&amp;hellip; 튜닝의 끝은 순정일세~ 바닐라 Go를 통해 미니멀리스틱 App 개발하는 법</description>
+    </item>
+    <item>
+      <title>[Go] Gophercon 2024 - 고언어 프로젝트 가이드 A-Z</title>
+      <link>https://dingyu.dev/ko/posts/gopher-con-2024-go-project-guide/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/gopher-con-2024-go-project-guide/</guid>
+      <description>Spring과 같이 규격화 되어 있지 않은 Go 언어에서 프로젝트를 구성하는 방법.. 피쳐 단위 개발 그리고 엔터프라이즈 App까지 설계에 대한 개략적인 사례를 소개함</description>
+    </item>
+    <item>
+      <title>[Go] Gophercon 2024 - 쿠버네티스 플랫폼 프로그래밍</title>
+      <link>https://dingyu.dev/ko/posts/gopher-con-2024-kubernetes-programing/</link>
+      <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/gopher-con-2024-kubernetes-programing/</guid>
+      <description>go 기반으로 k8s API를 사용하는 법&amp;hellip; 오퍼레이터로 배포하는 애플리케이션</description>
+    </item>
+    <item>
+      <title>[Go] Worker Pool과 비동기 작업의 성능 프로파일링</title>
+      <link>https://dingyu.dev/ko/posts/worker-pool-async/</link>
+      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/worker-pool-async/</guid>
+      <description>This post explores profiling and optimizing worker pools vs. asynchronous execution in Go using pprof. It analyzes the performance impact of concurrent HTTP requests, comparing sync worker pools (10 vs. 100 workers) and a single async worker in terms of throughput, CPU overhead, and memory allocation. Profiling results reveal that worker pools suffer from high concurrency overhead, while asynchronous execution significantly improves throughput with minimal memory cost. Additionally, the post discusses when to use worker pools vs. async processing, highlighting key trade-offs for IO-bound vs. CPU-bound tasks.</description>
+    </item>
+    <item>
+      <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
+      <link>https://dingyu.dev/ko/posts/coffee-pal/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/coffee-pal/</guid>
+      <description>Developers often work alone, deeply diving into specific techniques. However, as members of a company, we need a space to discuss and brainstorm together. Inspired by the spirit of Ubuntu, I created my own Slack app Slack Bolt Coffee Chat, Coffee Pal</description>
+    </item>
+    <item>
+      <title>[Go] pprof로 GC 튜닝하기</title>
+      <link>https://dingyu.dev/ko/posts/go-pprof-gc/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/go-pprof-gc/</guid>
+      <description>This post explores how to use pprof for profiling and optimizing Go applications, focusing on heap allocation, GC tuning, and performance bottleneck identification. It covers profiling setup with Gin, analyzing Flame Graphs and heap dumps, and optimizing memory allocations by addressing inefficient context usage and logging overhead. Additionally, it discusses GC tuning strategies (GOMEMLIMIT, GOGC) and best practices like pointer usage, slice capacity preallocation, and benchmarking techniques to improve application efficiency and reduce Stop-The-World (STW) latency.</description>
+    </item>
+    <item>
+      <title>[Third-Party] Sentry 연동</title>
+      <link>https://dingyu.dev/ko/posts/sentry/</link>
+      <pubDate>Wed, 11 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/sentry/</guid>
+      <description>This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go&amp;#39;s pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.</description>
+    </item>
+    <item>
+      <title>[Infra] 쿠버네틱스 무중단 배포 설정하기</title>
+      <link>https://dingyu.dev/ko/posts/k8s-zero-downtime/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/k8s-zero-downtime/</guid>
+      <description>During our migration from IDC to EKS, we encountered numerous challenges—including security configurations, network settings, databases, and ultimately, application deployments. After each deployment, we frequently faced 502 and 504 errors without a clear solution. Since minimizing downtime was critical, I’ll share how we overcame these 502 and 504 issues.</description>
+    </item>
+    <item>
+      <title>[Infra] AWS Well Architected</title>
+      <link>https://dingyu.dev/ko/posts/aws-well-architected/</link>
+      <pubDate>Tue, 19 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/aws-well-architected/</guid>
+      <description>This post explores AWS Well-Architected Best Practices, covering key aspects such as operational excellence, security, reliability, performance efficiency, cost optimization, and sustainability. It provides insights into scalability strategies (scale-up vs. scale-out), infrastructure as code (IaC), database replication, and high availability architectures. Additionally, it discusses security best practices, monitoring strategies, and cost management techniques to build a resilient, efficient, and cost-effective AWS infrastructure.</description>
+    </item>
+    <item>
+      <title>[DB] Redis Transaction</title>
+      <link>https://dingyu.dev/ko/posts/redis-transaction/</link>
+      <pubDate>Wed, 31 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/redis-transaction/</guid>
+      <description>Unlike RDBMS, Redis doesn’t have a traditional transaction mechanism. It primarily operates as a single-threaded cache, but transactions can still be made atomic using TX pipelines or Lua scripts. This post focuses on comparing the pros and cons of Lua scripts vs. TX pipelines.</description>
+    </item>
+    <item>
+      <title>[Python] FastAPI Convention</title>
+      <link>https://dingyu.dev/ko/posts/fastapi-convention/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/fastapi-convention/</guid>
+      <description>People tend to say fastapi has no best practice.. As a Software Developer, main in Object Oriented Language i&amp;#39;ll suggest class based fastapi best practice</description>
+    </item>
+    <item>
+      <title>[Crawler] Recaptcha Solver</title>
+      <link>https://dingyu.dev/ko/posts/crawling-selenium-solver/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/crawling-selenium-solver/</guid>
+      <description>This post explores bypassing Google Recaptcha using Selenium and Chrome Extensions for automated web scraping and login automation. It covers setting up ChromeDriver, integrating the Buster Recaptcha Solver extension, and analyzing Recaptcha behavior using browser DevTools and network monitoring. The post also walks through developing a Recaptcha-solving bot in C# using Selenium, handling iframe navigation, token extraction, and retry mechanisms. Additionally, it discusses the limitations of automated Recaptcha solving, Google’s detection mechanisms, and the challenges of scaling such solutions.</description>
+    </item>
+  </channel>
+</rss>

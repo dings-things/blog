@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dx on Ding&#39;s Coding Forge</title>
+    <link>https://dingyu.dev/ko/categories/dx/</link>
+    <description>Recent content in Dx on Ding&#39;s Coding Forge</description>
+    <image>
+      <title>Ding&#39;s Coding Forge</title>
+      <url>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.144.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dingyu.dev/ko/categories/dx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
+      <link>https://dingyu.dev/ko/posts/coffee-pal/</link>
+      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/ko/posts/coffee-pal/</guid>
+      <description>Developers often work alone, deeply diving into specific techniques. However, as members of a company, we need a space to discuss and brainstorm together. Inspired by the spirit of Ubuntu, I created my own Slack app Slack Bolt Coffee Chat, Coffee Pal</description>
+    </item>
+  </channel>
+</rss>
