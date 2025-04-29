@@ -10,15 +10,15 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>en</language>
+    <language>ko</language>
     <lastBuildDate>Thu, 06 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/categories/protocol/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Protocol] Exploring RPC... and GRPC in Depth</title>
+      <title>[Protocol] RPC... 그리고 GRPC 톺아보기</title>
       <link>https://dingyu.dev/posts/grpc/</link>
       <pubDate>Thu, 06 Feb 2025 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/grpc/</guid>
-      <description>When we hear &amp;#34;RPC communication,&amp;#34; many (maybe just me?) might immediately think of Protocol Buffers over HTTP/2 — in other words, gRPC. But what is RPC really, and why is gRPC considered fast? And when should we use it?</description>
+      <description>흔히들 (나만 그럴지도..?) rpc 통신을 한다 하면&amp;hellip; HTTP/2 기반의 protocol Buffer를 사용하겠구나~ (grpc 구나) 라고 생각하기 마련이다. rpc는 무엇이고 grpc는 어째서 빠를까? 그리고 왜 사용할까?</description>
     </item>
   </channel>
 </rss>

@@ -10,15 +10,15 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>en</language>
+    <language>ko</language>
     <lastBuildDate>Tue, 05 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Go] Gophercon 2024 - Kubernetes Platform Programming</title>
+      <title>[Go] Gophercon 2024 - 쿠버네티스 플랫폼 프로그래밍</title>
       <link>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</guid>
-      <description>How to use the Kubernetes API with Go… and deploy applications using Operators</description>
+      <description>go 기반으로 k8s API를 사용하는 법&amp;hellip; 오퍼레이터로 배포하는 애플리케이션</description>
     </item>
   </channel>
 </rss>

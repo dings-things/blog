@@ -10,7 +10,7 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>en</language>
+    <language>ko</language>
     <lastBuildDate>Tue, 05 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/categories/conference/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -18,21 +18,21 @@
       <link>https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/gopher-con-2024-minimalistic-go/</guid>
-      <description>Say goodbye to unnecessary frameworks—it&amp;#39;s time to go back to the basics. This post demonstrates how to build minimalistic backend applications using pure vanilla Go.</description>
+      <description>불필요한 프레임워크는 이제 그만&amp;hellip; 튜닝의 끝은 순정일세~ 바닐라 Go를 통해 미니멀리스틱 App 개발하는 법</description>
     </item>
     <item>
-      <title>[Go] Gophercon 2024 - Go Project Guide from A to Z</title>
+      <title>[Go] Gophercon 2024 - 고언어 프로젝트 가이드 A-Z</title>
       <link>https://dingyu.dev/posts/gopher-con-2024-go-project-guide/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/gopher-con-2024-go-project-guide/</guid>
-      <description>How to structure projects in Go, a language without rigid frameworks like Spring. This post introduces practical patterns for feature-driven development and enterprise-level application design.</description>
+      <description>Spring과 같이 규격화 되어 있지 않은 Go 언어에서 프로젝트를 구성하는 방법.. 피쳐 단위 개발 그리고 엔터프라이즈 App까지 설계에 대한 개략적인 사례를 소개함</description>
     </item>
     <item>
-      <title>[Go] Gophercon 2024 - Kubernetes Platform Programming</title>
+      <title>[Go] Gophercon 2024 - 쿠버네티스 플랫폼 프로그래밍</title>
       <link>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/posts/gopher-con-2024-kubernetes-programing/</guid>
-      <description>How to use the Kubernetes API with Go… and deploy applications using Operators</description>
+      <description>go 기반으로 k8s API를 사용하는 법&amp;hellip; 오퍼레이터로 배포하는 애플리케이션</description>
     </item>
   </channel>
 </rss>

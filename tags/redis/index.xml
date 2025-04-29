@@ -10,9 +10,16 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 31 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <language>ko</language>
+    <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[DB] 분산 환경에서의 Redlock과 Lease</title>
+      <link>https://dingyu.dev/posts/distributed-locking/</link>
+      <pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/distributed-locking/</guid>
+      <description>비동기 환경에서 분산 락과 소유권을 안전하게 관리하기 위한 Redlock과 Lease 메커니즘을 깊이 있게 탐구합니다.</description>
+    </item>
     <item>
       <title>[DB] Redis Transaction</title>
       <link>https://dingyu.dev/posts/redis-transaction/</link>

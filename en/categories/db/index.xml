@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 31 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/en/categories/db/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[DB] Redlock and Lease in Distributed Systems</title>
+      <link>https://dingyu.dev/en/posts/distributed-locking/</link>
+      <pubDate>Tue, 29 Apr 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/posts/distributed-locking/</guid>
+      <description>A deep dive into Redlock and Lease mechanisms for managing distributed locks and ownership safely in asynchronous environments.</description>
+    </item>
     <item>
       <title>[DB] Redis Transaction</title>
       <link>https://dingyu.dev/en/posts/redis-transaction/</link>
