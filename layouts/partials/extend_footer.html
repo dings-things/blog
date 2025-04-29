@@ -4,7 +4,12 @@
   document.addEventListener('DOMContentLoaded', function () {
     const loadMermaid = function (theme) {
       mermaid.initialize({ startOnLoad: false, theme });
-      mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+      requestAnimationFrame(() => {
+        const mermaidElements = document.querySelectorAll('.mermaid');
+        if (mermaidElements.length > 0) {
+          mermaid.init(undefined, mermaidElements);
+        }
+      });
     };
 
     let theme = localStorage.getItem('pref-theme');
@@ -19,7 +24,12 @@
       toggle.addEventListener('click', () => {
         let newTheme = mermaid.mermaidAPI.getConfig().theme === 'dark' ? 'neutral' : 'dark';
         mermaid.initialize({ startOnLoad: false, theme: newTheme });
-        mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        requestAnimationFrame(() => {
+          const mermaidElements = document.querySelectorAll('.mermaid');
+          if (mermaidElements.length > 0) {
+            mermaid.init(undefined, mermaidElements);
+          }
+        });
       });
     }
   });
