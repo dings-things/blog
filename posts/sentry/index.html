@@ -1,5 +1,5 @@
 <!doctype html><html lang=ko dir=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>[Third-Party] Sentry 연동 | Ding's Coding Forge</title>
-<meta name=keywords content="go,sentry"><meta name=description content="This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations."><meta name=author content="dingyu"><link rel=canonical href=https://dingyu.dev/posts/sentry/><meta name=google-site-verification content="8XY1hI6NVxQIrN7bQbnX-9TG9HHFw5HOQmlb6vcsFdQ"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.678f9035c217c5346e0b3de5bdc9ebac02c53b0502219858f8653d8d181c97b3.css integrity="sha256-Z4+QNcIXxTRuCz3lvcnrrALFOwUCIZhY+GU9jRgcl7M=" rel="preload stylesheet" as=style><link rel=icon href=https://dingyu.dev/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://dingyu.dev/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://dingyu.dev/favicon-32x32.png><link rel=apple-touch-icon href=https://dingyu.dev/apple-touch-icon.png><link rel=mask-icon href=https://dingyu.dev/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=ko href=https://dingyu.dev/posts/sentry/><link rel=alternate hreflang=en href=https://dingyu.dev/en/posts/sentry/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-XH8830R9KK"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XH8830R9KK")}</script><meta property="og:url" content="https://dingyu.dev/posts/sentry/"><meta property="og:site_name" content="Ding's Coding Forge"><meta property="og:title" content="[Third-Party] Sentry 연동"><meta property="og:description" content="This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations."><meta property="og:locale" content="ko"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-09-11T00:00:00+00:00"><meta property="article:modified_time" content="2024-09-11T00:00:00+00:00"><meta property="article:tag" content="Go"><meta property="article:tag" content="Sentry"><meta property="og:image" content="https://dingyu.dev/posts/sentry/img/sentry.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://dingyu.dev/posts/sentry/img/sentry.png"><meta name=twitter:title content="[Third-Party] Sentry 연동"><meta name=twitter:description content="This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://dingyu.dev/posts/"},{"@type":"ListItem","position":2,"name":"[Third-Party] Sentry 연동","item":"https://dingyu.dev/posts/sentry/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Third-Party] Sentry 연동","name":"[Third-Party] Sentry 연동","description":"This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.","keywords":["go","sentry"],"articleBody":"배경 개발자가 직접 로그 모니터링을 통하여 장애 대응 아래와 같은 이유로 로그 모니터링에도 제약 사항이 존재 Field Type의 불일치로 인한 Elasticsearch field mapping Error 발생 → 로그 이벤트의 DROP 시스템 로그로 기록되는 경우, 스택 트레이스를 위하여 별도로 SE에게 시스템 로그를 요구하는 공수가 필요 목표 Go를 사용하는 프로젝트에서 공통적으로 표준이 될 수 있는 센트리 구조 확립 센트리에 대한 기능 명세 / 가이드라인 제공 센트리 적용 이후, 빠른 장애 대응을 통한 안정적인 서비스 구축 본 글은 센트리 계정이 있으며, 센트리 프로젝트를 이미 생성하였다 가정하고 진행됩니다.\nSentry에 대하여 Capture Exception 에러 추적(Capture Exception): 애플리케이션에서 발생하는 예외와 에러를 자동으로 감지하고 기록합니다. 센트리는 스택 트레이스(stack trace)와 함께 에러 발생 시점의 환경 정보를 제공하여, 에러의 원인을 쉽게 파악할 수 있도록 도와줍니다.\nTransaction 성능 모니터링(Transactions): 애플리케이션의 성능을 모니터링하며, 웹 요청이나 API 호출 등의 트랜잭션을 추적합니다. 각 트랜잭션의 응답 시간, 성공 및 실패 비율과 같은 세부 정보를 제공하여 성능 병목 현상을 식별하고 개선할 수 있도록 도와줍니다.\nTrace 트레이싱(Trace): 애플리케이션의 트랜잭션을 세부적으로 추적하여, 서비스 간 호출, 데이터베이스 쿼리 등의 작업에 걸리는 시간을 분석합니다. 이를 통해 애플리케이션 전체의 성능을 이해하고, 문제가 되는 부분을 파악할 수 있습니다.\nAlert 이슈 관리 및 알림: 센트리는 에러와 성능 문제를 이슈로 관리하며, 발생 시 지정된 이메일이나 슬랙(Slack) 등의 통지 채널을 통해 알림을 보냅니다. 개발자는 이슈를 할당받고, 처리 상태를 업데이트하며, 문제 해결을 위해 협업할 수 있습니다.\nRelease Tracking 릴리즈 추적(Release Tracking): 애플리케이션의 버전을 추적하여, 새로운 릴리즈가 에러 비율에 미치는 영향을 분석할 수 있습니다. 이를 통해 최근 배포된 변경사항이 문제를 일으키고 있는지 파악할 수 있습니다.\nSentry Alerts 센트리 알람을 통해 협업 툴과 연동하여 개발자가 쉽게 대응할 수 있도록 합니다.\n설정 STEP BY STEP 대시보드 - Alert - Create Alert 트리거 설정\nIssues : 에러의 stacktrace를 기반으로 이슈가 생성되는데, 에러의 유형 별로 센트리 알람 트리거 에러 유형 별로 처리가 필요할 때 사용 ex. API를 기준으로 HTTP status 코드를 기반으로 설정 ex. Service의 유형 기반으로 설정 Number of Errors : 에러의 횟수 기반으로 센트리 알람 트리거 동일한 유형의 에러이며, 횟수 기반 처리가 필요할 때 사용 Users Experiencing Errors : 정의된 User 기반 임계치 설정으로 센트리 알람 트리거 특정 Page 내에서 사용자 경험 최적화 또는 이슈 발생을 확인이 필요할 때 사용 ex. 100 명의 유저가 로그인 페이지에서 에러가 발생 세부 조건 설정\nWHEN : 알람이 트리거 되는 시점 정의\nany (아래 조건 중 하나라도 만족할 경우) / all (모든 조건을 만족하는 경우) 선택 이슈의 상태 / 이슈의 횟수를 기준으로 선정 IF : 이벤트의 세부 조건\n태그 기반 / 발생 빈도 기반 / 카테고리 기반 THEN : 액션 선정\n메일 / 슬랙 / 팀즈 등으로 액션 지정 개발하기 Client Options Dsn: _Data Source Name_의 약자로, Sentry 프로젝트를 식별하는 고유한 문자열입니다. 이 값을 설정함으로써 에러와 이벤트가 보고될 정확한 Sentry 프로젝트를 지정할 수 있습니다. [Projects - Settings - Client Keys] Environment: 애플리케이션의 실행 환경(예: production, staging, development)을 지정합니다. 이 정보는 에러 필터링과 분석 시 중요한 차원으로 사용됩니다. 각 실행 환경 별로 필터링하여 알림 설정을 하거나, 모니터링 가능 Issue Filtering Release: 애플리케이션의 릴리즈 버전을 지정합니다. 이 값을 통해 에러가 발생한 애플리케이션의 구체적인 버전을 추적하고, 릴리즈 간 에러 비율을 비교할 수 있습니다. SampleRate: 0에서 1 사이의 값을 설정하여, 보고될 이벤트의 샘플링 비율을 결정합니다. 예를 들어, 0.1로 설정하면 10%의 이벤트만이 실제로 보고됩니다. 이는 대량의 트래픽이 발생하는 애플리케이션에서 유용하게 사용될 수 있습니다. API 트래픽 량이 많을 수록 0에 가깝게 지정 네트워크 트래픽 감소 / 성능 최적화 / 비용 절감을 위해 적절히 지정 TracesSampleRate: 성능 모니터링에 사용되며, SampleRate와 비슷하게 트랜잭션 데이터의 샘플링 비율을 결정합니다. 이를 통해 성능 데이터의 양을 조절할 수 있습니다. BeforeSend: 보고되기 전에 이벤트를 수정하거나 필터링할 수 있는 콜백 함수를 설정합니다. 예를 들어, 특정 조건을 만족하는 이벤트만을 보고하거나, 민감한 정보를 제거하는 데 사용될 수 있습니다. AttachStacktrace: 자동으로 스택 트레이스를 이벤트에 첨부할지 여부를 결정합니다. 이 옵션을 활성화하면 에러가 아닌 로그 메시지에도 스택 트레이스 정보가 포함됩니다. ServerName: 이벤트가 보고될 때 서버 이름을 명시적으로 설정할 수 있습니다. 이 정보는 에러 분석 시 서버 구분에 도움을 줄 수 있습니다. Integrations: Sentry와 함께 사용할 추가적인 통합 기능들을 설정합니다. Sentry는 다양한 플랫폼과 프레임워크에 대한 통합을 제공하여, 보다 쉽게 에러 추적 및 성능 모니터링을 구현할 수 있도록 돕습니다. Transport는 Sentry 서버로 이벤트를 전송하는 메커니즘을 정의합니다. 이 옵션을 사용하여 개발자는 기본 HTTP 전송 방식 대신 커스텀 전송 방식을 구현할 수 있습니다 timeout 값은 네트워크 지연이나 서버 응답 시간의 변동성을 고려하여 설정되어야 합니다 Initialize Go-Sentry SDK 사용 시, 최초 초기화 당시에 HTTP Client의 TCP 커넥션을 자동으로 처리 합니다.\nApplicaiton 의 main.go 에서 최초로 Init() 설정하는 것이 Best Practice로 소개됩니다.\nerr := sentry.Init( sentry.ClientOptions{ Dsn: si.conf.Sentry.DSN, SampleRate: si.conf.Sentry.SampleRate, EnableTracing: si.conf.Sentry.EnableTrace, Debug: si.conf.Sentry.Debug, TracesSampleRate: si.conf.Sentry.TracesSampleRate, Environment: si.conf.Sentry.Environment, AttachStacktrace: true, Transport: \u0026sentry.HTTPSyncTransport{ Timeout: si.conf.Sentry.Timeout, }, }, ) Capture Exception 발생한 예외(에러)와 관련된 스택 트레이스를 자동으로 캡처하고 추적합니다.\n// 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기 hub := sentry.GetHubFromContext(ctx) if hub == nil { hub = sentry.CurrentHub().Clone() // 현재 컨텍스트에 Sentry Hub을 설정 ctx = sentry.SetHubOnContext(ctx, hub) } // 에러 캡처 hub.CaptureException(err) Go Error 사용에 따른 스택 트레이스 차이점 정확한 에러의 발생처를 알기 위해서는 pkg/errors 라이브러리를 사용하자!\nerrors 패키지: 기본적으로 스택 트레이스 정보를 제공하지 않습니다. 에러는 단순히 메시지를 포함하는 값이며, 디버깅을 위한 추가적인 컨텍스트나 위치 정보는 포함되어 있지 않습니다.\ngithub.com/pkg/errors 패키지: 에러에 자동으로 스택 트레이스를 포함합니다. 이를 통해 에러가 어디서 발생했는지, 에러의 원인을 추적하는 데 필요한 상세한 호출 스택 정보를 얻을 수 있습니다.\ntest. errors 패키지와 pkg/errors 에 따른 스택 트레이스\npackage main import ( \"context\" stdErr \"errors\" \"fmt\" \"time\" sentry \"github.com/getsentry/sentry-go\" pkgErr \"github.com/pkg/errors\" ) var ( PkgErr1 = pkgErr.New(\"pkg error 1\") PkgErr2 = pkgErr.New(\"pkg error 2\") StdErr1 = stdErr.New(\"standard error1\") StdErr2 = stdErr.New(\"standard error2\") ) func main() { err := sentry.Init( sentry.ClientOptions{ Dsn: \"\", Debug: true, AttachStacktrace: true, }, ) if err != nil { // sentry 초기화 실패 시, panic 시스템 os exit panic(err) } ctx := context.Background() hub := sentry.GetHubFromContext(ctx) if hub == nil { hub = sentry.CurrentHub().Clone() // 현재 컨텍스트에 Sentry Hub을 설정 ctx = sentry.SetHubOnContext(ctx, hub) } err = errPkgNested() go hub.CaptureException(err) fmt.Println(\"Standard error nested\") time.Sleep(5 * time.Second) } func errStdNested() error { return stdErr.Join(PkgErr1, PkgErr2) } func errPkgNested() error { return pkgErr.Wrap(PkgErr1, PkgErr2.Error()) } Scope() Sentry에서 Scope는 특정 에러 또는 이벤트에 추가적인 컨텍스트 정보를 제공하는 메커니즘입니다. 에러의 재현을 위해서 요청 파라미터 등을 Scope에 저장하여 애플리케이션의 고도화가 가능합니다.\nSentry 클라이언트를 통해 생성되는 허브는 Context 단위로 싱글턴 패턴을 유지하며, go context.Context 와 함께 메타데이터를 저장하여, 추적에 용이하도록 돕습니다.\nfunc (rm *sentryScopeMiddleware) Register(originalHandler http.Handler) http.Handler { if !rm.initializer.Enabled() { // sentry가 비활성화 되어 있는 경우, 센트리 활성화 rm.initializer.Init() } return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { hub := sentry.GetHubFromContext(r.Context()) if hub == nil { hub = sentry.CurrentHub().Clone() r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub)) } hub.Scope().SetRequest(r) }) } Sentry Advancement SentryInitializer 하나의 애플리케이션에서 싱글턴을 유지하기 위해 설정을 통한 초기화 여부를 확인하는 클래스\npackage core import ( \"sync\" \"github.com/getsentry/sentry-go\" ) type ( // SentryInitializer : Sentry 설정 초기화를 담당하는 구현체 SentryInitializer struct { conf *Config enabled bool mutex sync.RWMutex // enabled 필드에 대한 읽기/쓰기 동기화를 위한 RWMutex } ) // NewSentryInitializer : SentryInitializer 생성자 func NewSentryInitializer(conf *Config) SentryInitializer { return SentryInitializer{ conf: conf, } } // Init : SentryInitializer 초기화 // // - sentry 패키지 변수를 통해 싱글턴 처리하므로 최초 설정만 요구됨 func (si *SentryInitializer) Init() error { si.mutex.Lock() // enabled lock for writing defer si.mutex.Unlock() err := sentry.Init( sentry.ClientOptions{ Dsn: si.conf.Sentry.DSN, SampleRate: si.conf.Sentry.SampleRate, EnableTracing: si.conf.Sentry.EnableTrace, Debug: si.conf.Sentry.Debug, TracesSampleRate: si.conf.Sentry.TracesSampleRate, Environment: si.conf.Sentry.Environment, AttachStacktrace: true, Transport: \u0026sentry.HTTPSyncTransport{ Timeout: si.conf.Sentry.Timeout, }, }, ) if err != nil { // sentry 초기화 실패 시, panic 시스템 os exit panic(err) } // 활성화 상태로 변경 si.enabled = true return nil } // Enabled : Sentry 활성화 여부 // // - Init()이 호출된 경우, 활성화 상태로 변경 func (si *SentryInitializer) Enabled() bool { si.mutex.RLock() // read lock defer si.mutex.RUnlock() return si.enabled } 동시성 문제로 **Enabled()**의 동기화를 위해 락으로 관리\nErrorCapturer SentryInitializer를 임베딩하여, 센트리를 통한 센트리 허브에서 에러를 캡쳐링하는 클래스 package core import ( \"context\" \"github.com/getsentry/sentry-go\" ) type ( // ErrorCapturer : 에러 캡처 인터페이스 ErrorCapturer interface { CaptureError(ctx context.Context, err error) } sentryErrorCapturer struct { SentryInitializer } ) // NewSentryErrorCapturer : SentryErrorCapturer 생성자 func NewSentryErrorCapturer(initializer SentryInitializer) ErrorCapturer { return \u0026sentryErrorCapturer{ initializer: initializer, } } // CaptureError : Sentry로 에러 캡처 func (sec *sentryErrorCapturer) CaptureError(ctx context.Context, err error) { // 에러가 없는 경우, 무시 if err == nil { return } if !sec.SentryInitializer.Enabled() { // sentry 초기화를 통해 활성화 sec.SentryInitializer.Init() } // 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기 hub := sentry.GetHubFromContext(ctx) if hub == nil { hub = sentry.CurrentHub().Clone() // 현재 컨텍스트에 Sentry Hub을 설정 ctx = sentry.SetHubOnContext(ctx, hub) } // 에러 캡처 hub.CaptureException(err) } RecoverMiddleware 핸들러에서 Panic 발생 시, Recover(), 요청을 허브의 메타데이터로 저장하는 클래스 // Register panic() 발생 시 스택 스레이스를 로깅하며 센트리를 통해 남기는 메서드 // // - http handler에 내부적으로 등록 // - API 고루틴 내부적으로 defer()를 통하여 panic 상황에서도 로깅이 가능하도록 한다 // // Parameters: // - originalHandler: 원래의 http handler func (rm *sentryRecoverMiddleware) Register(originalHandler http.Handler) http.Handler { if !rm.initializer.Enabled() { // sentry가 비활성화 되어 있는 경우, 센트리 활성화 rm.initializer.Init() } return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { hub := sentry.GetHubFromContext(r.Context()) if hub == nil { hub = sentry.CurrentHub().Clone() r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub)) } hub.Scope().SetRequest(r) defer func() { if err := recover(); err != nil { hub.RecoverWithContext(r.Context(), err) stackList := strings.Split(string(debug.Stack()), \"\\n\") rm.Logger.Error(). Any(\"error\", err). Any(\"stack_list\", stackList).Send() resp := dto.ACSErrorResponse{ Code: http.StatusInternalServerError, ErrMessage: \"서버에서 예기치 못한 에러가 발생하였습니다\", Success: false, } jsonResp := resp.ToJSON() w.Header().Set(\"Content-Type\", \"application/json\") w.WriteHeader(http.StatusInternalServerError) _, err = w.Write(jsonResp) if err != nil { rm.Logger.Error(). Any(\"error\", err).Send() } return } }() originalHandler.ServeHTTP(w, r) }) } 비용적인 문제가 있지만 APM과 Error Capture측면에서는 관리적인 편의성을 제공해주는 Sentry!\n","wordCount":"1525","inLanguage":"ko","image":"https://dingyu.dev/posts/sentry/img/sentry.png","datePublished":"2024-09-11T00:00:00Z","dateModified":"2024-09-11T00:00:00Z","author":{"@type":"Person","name":"dingyu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dingyu.dev/posts/sentry/"},"publisher":{"@type":"Organization","name":"Ding's Coding Forge","logo":{"@type":"ImageObject","url":"https://dingyu.dev/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://dingyu.dev/ accesskey=h title="Ding's Coding Forge (Alt + H)"><img src=https://dingyu.dev/apple-touch-icon.png alt aria-label=logo height=35>Ding's Coding Forge</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)">
+<meta name=keywords content="go,sentry"><meta name=description content="This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations."><meta name=author content="dingyu"><link rel=canonical href=https://dingyu.dev/posts/sentry/><meta name=google-site-verification content="8XY1hI6NVxQIrN7bQbnX-9TG9HHFw5HOQmlb6vcsFdQ"><meta name=yandex-verification content="XYZabc"><meta name=msvalidate.01 content="XYZabc"><link crossorigin=anonymous href=/assets/css/stylesheet.678f9035c217c5346e0b3de5bdc9ebac02c53b0502219858f8653d8d181c97b3.css integrity="sha256-Z4+QNcIXxTRuCz3lvcnrrALFOwUCIZhY+GU9jRgcl7M=" rel="preload stylesheet" as=style><link rel=icon href=https://dingyu.dev/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://dingyu.dev/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://dingyu.dev/favicon-32x32.png><link rel=apple-touch-icon href=https://dingyu.dev/apple-touch-icon.png><link rel=mask-icon href=https://dingyu.dev/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=ko href=https://dingyu.dev/posts/sentry/><link rel=alternate hreflang=en href=https://dingyu.dev/en/posts/sentry/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><script async src="https://www.googletagmanager.com/gtag/js?id=G-XH8830R9KK"></script><script>var dnt,doNotTrack=!1;if(!1&&(dnt=navigator.doNotTrack||window.doNotTrack||navigator.msDoNotTrack,doNotTrack=dnt=="1"||dnt=="yes"),!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-XH8830R9KK")}</script><meta property="og:url" content="https://dingyu.dev/posts/sentry/"><meta property="og:site_name" content="Ding's Coding Forge"><meta property="og:title" content="[Third-Party] Sentry 연동"><meta property="og:description" content="This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations."><meta property="og:locale" content="ko"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-09-11T00:00:00+00:00"><meta property="article:modified_time" content="2024-09-11T00:00:00+00:00"><meta property="article:tag" content="Go"><meta property="article:tag" content="Sentry"><meta property="og:image" content="https://dingyu.dev/posts/sentry/img/sentry.png"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://dingyu.dev/posts/sentry/img/sentry.png"><meta name=twitter:title content="[Third-Party] Sentry 연동"><meta name=twitter:description content="This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://dingyu.dev/posts/"},{"@type":"ListItem","position":2,"name":"[Third-Party] Sentry 연동","item":"https://dingyu.dev/posts/sentry/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"[Third-Party] Sentry 연동","name":"[Third-Party] Sentry 연동","description":"This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.","keywords":["go","sentry"],"articleBody":"배경 개발자가 직접 로그 모니터링을 통하여 장애 대응 아래와 같은 이유로 로그 모니터링에도 제약 사항이 존재 Field Type의 불일치로 인한 Elasticsearch field mapping Error 발생 → 로그 이벤트의 DROP 시스템 로그로 기록되는 경우, 스택 트레이스를 위하여 별도로 SE에게 시스템 로그를 요구하는 공수가 필요 목표 Go를 사용하는 프로젝트에서 공통적으로 표준이 될 수 있는 센트리 구조 확립 센트리에 대한 기능 명세 / 가이드라인 제공 센트리 적용 이후, 빠른 장애 대응을 통한 안정적인 서비스 구축 본 글은 센트리 계정이 있으며, 센트리 프로젝트를 이미 생성하였다 가정하고 진행됩니다.\nSentry에 대하여 Capture Exception 에러 추적(Capture Exception): 애플리케이션에서 발생하는 예외와 에러를 자동으로 감지하고 기록합니다. 센트리는 스택 트레이스(stack trace)와 함께 에러 발생 시점의 환경 정보를 제공하여, 에러의 원인을 쉽게 파악할 수 있도록 도와줍니다.\nTransaction 성능 모니터링(Transactions): 애플리케이션의 성능을 모니터링하며, 웹 요청이나 API 호출 등의 트랜잭션을 추적합니다. 각 트랜잭션의 응답 시간, 성공 및 실패 비율과 같은 세부 정보를 제공하여 성능 병목 현상을 식별하고 개선할 수 있도록 도와줍니다.\nTrace 트레이싱(Trace): 애플리케이션의 트랜잭션을 세부적으로 추적하여, 서비스 간 호출, 데이터베이스 쿼리 등의 작업에 걸리는 시간을 분석합니다. 이를 통해 애플리케이션 전체의 성능을 이해하고, 문제가 되는 부분을 파악할 수 있습니다.\nAlert 이슈 관리 및 알림: 센트리는 에러와 성능 문제를 이슈로 관리하며, 발생 시 지정된 이메일이나 슬랙(Slack) 등의 통지 채널을 통해 알림을 보냅니다. 개발자는 이슈를 할당받고, 처리 상태를 업데이트하며, 문제 해결을 위해 협업할 수 있습니다.\nRelease Tracking 릴리즈 추적(Release Tracking): 애플리케이션의 버전을 추적하여, 새로운 릴리즈가 에러 비율에 미치는 영향을 분석할 수 있습니다. 이를 통해 최근 배포된 변경사항이 문제를 일으키고 있는지 파악할 수 있습니다.\nSentry Alerts 센트리 알람을 통해 협업 툴과 연동하여 개발자가 쉽게 대응할 수 있도록 합니다.\n설정 STEP BY STEP 대시보드 - Alert - Create Alert 트리거 설정\nIssues : 에러의 stacktrace를 기반으로 이슈가 생성되는데, 에러의 유형 별로 센트리 알람 트리거 에러 유형 별로 처리가 필요할 때 사용 ex. API를 기준으로 HTTP status 코드를 기반으로 설정 ex. Service의 유형 기반으로 설정 Number of Errors : 에러의 횟수 기반으로 센트리 알람 트리거 동일한 유형의 에러이며, 횟수 기반 처리가 필요할 때 사용 Users Experiencing Errors : 정의된 User 기반 임계치 설정으로 센트리 알람 트리거 특정 Page 내에서 사용자 경험 최적화 또는 이슈 발생을 확인이 필요할 때 사용 ex. 100 명의 유저가 로그인 페이지에서 에러가 발생 세부 조건 설정\nWHEN : 알람이 트리거 되는 시점 정의\nany (아래 조건 중 하나라도 만족할 경우) / all (모든 조건을 만족하는 경우) 선택 이슈의 상태 / 이슈의 횟수를 기준으로 선정 IF : 이벤트의 세부 조건\n태그 기반 / 발생 빈도 기반 / 카테고리 기반 THEN : 액션 선정\n메일 / 슬랙 / 팀즈 등으로 액션 지정 개발하기 Client Options Dsn: _Data Source Name_의 약자로, Sentry 프로젝트를 식별하는 고유한 문자열입니다. 이 값을 설정함으로써 에러와 이벤트가 보고될 정확한 Sentry 프로젝트를 지정할 수 있습니다. [Projects - Settings - Client Keys] Environment: 애플리케이션의 실행 환경(예: production, staging, development)을 지정합니다. 이 정보는 에러 필터링과 분석 시 중요한 차원으로 사용됩니다. 각 실행 환경 별로 필터링하여 알림 설정을 하거나, 모니터링 가능 Issue Filtering Release: 애플리케이션의 릴리즈 버전을 지정합니다. 이 값을 통해 에러가 발생한 애플리케이션의 구체적인 버전을 추적하고, 릴리즈 간 에러 비율을 비교할 수 있습니다. SampleRate: 0에서 1 사이의 값을 설정하여, 보고될 이벤트의 샘플링 비율을 결정합니다. 예를 들어, 0.1로 설정하면 10%의 이벤트만이 실제로 보고됩니다. 이는 대량의 트래픽이 발생하는 애플리케이션에서 유용하게 사용될 수 있습니다. API 트래픽 량이 많을 수록 0에 가깝게 지정 네트워크 트래픽 감소 / 성능 최적화 / 비용 절감을 위해 적절히 지정 TracesSampleRate: 성능 모니터링에 사용되며, SampleRate와 비슷하게 트랜잭션 데이터의 샘플링 비율을 결정합니다. 이를 통해 성능 데이터의 양을 조절할 수 있습니다. BeforeSend: 보고되기 전에 이벤트를 수정하거나 필터링할 수 있는 콜백 함수를 설정합니다. 예를 들어, 특정 조건을 만족하는 이벤트만을 보고하거나, 민감한 정보를 제거하는 데 사용될 수 있습니다. AttachStacktrace: 자동으로 스택 트레이스를 이벤트에 첨부할지 여부를 결정합니다. 이 옵션을 활성화하면 에러가 아닌 로그 메시지에도 스택 트레이스 정보가 포함됩니다. ServerName: 이벤트가 보고될 때 서버 이름을 명시적으로 설정할 수 있습니다. 이 정보는 에러 분석 시 서버 구분에 도움을 줄 수 있습니다. Integrations: Sentry와 함께 사용할 추가적인 통합 기능들을 설정합니다. Sentry는 다양한 플랫폼과 프레임워크에 대한 통합을 제공하여, 보다 쉽게 에러 추적 및 성능 모니터링을 구현할 수 있도록 돕습니다. Transport는 Sentry 서버로 이벤트를 전송하는 메커니즘을 정의합니다. 이 옵션을 사용하여 개발자는 기본 HTTP 전송 방식 대신 커스텀 전송 방식을 구현할 수 있습니다 timeout 값은 네트워크 지연이나 서버 응답 시간의 변동성을 고려하여 설정되어야 합니다 Initialize Go-Sentry SDK 사용 시, 최초 초기화 당시에 HTTP Client의 TCP 커넥션을 자동으로 처리 합니다.\nApplicaiton 의 main.go 에서 최초로 Init() 설정하는 것이 Best Practice로 소개됩니다.\nerr := sentry.Init( sentry.ClientOptions{ Dsn: si.conf.Sentry.DSN, SampleRate: si.conf.Sentry.SampleRate, EnableTracing: si.conf.Sentry.EnableTrace, Debug: si.conf.Sentry.Debug, TracesSampleRate: si.conf.Sentry.TracesSampleRate, Environment: si.conf.Sentry.Environment, AttachStacktrace: true, Transport: \u0026amp;sentry.HTTPSyncTransport{ Timeout: si.conf.Sentry.Timeout, }, }, ) Capture Exception 발생한 예외(에러)와 관련된 스택 트레이스를 자동으로 캡처하고 추적합니다.\n// 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기 hub := sentry.GetHubFromContext(ctx) if hub == nil { hub = sentry.CurrentHub().Clone() // 현재 컨텍스트에 Sentry Hub을 설정 ctx = sentry.SetHubOnContext(ctx, hub) } // 에러 캡처 hub.CaptureException(err) Go Error 사용에 따른 스택 트레이스 차이점 정확한 에러의 발생처를 알기 위해서는 pkg/errors 라이브러리를 사용하자!\nerrors 패키지: 기본적으로 스택 트레이스 정보를 제공하지 않습니다. 에러는 단순히 메시지를 포함하는 값이며, 디버깅을 위한 추가적인 컨텍스트나 위치 정보는 포함되어 있지 않습니다.\ngithub.com/pkg/errors 패키지: 에러에 자동으로 스택 트레이스를 포함합니다. 이를 통해 에러가 어디서 발생했는지, 에러의 원인을 추적하는 데 필요한 상세한 호출 스택 정보를 얻을 수 있습니다.\ntest. errors 패키지와 pkg/errors 에 따른 스택 트레이스\npackage main import ( \u0026#34;context\u0026#34; stdErr \u0026#34;errors\u0026#34; \u0026#34;fmt\u0026#34; \u0026#34;time\u0026#34; sentry \u0026#34;github.com/getsentry/sentry-go\u0026#34; pkgErr \u0026#34;github.com/pkg/errors\u0026#34; ) var ( PkgErr1 = pkgErr.New(\u0026#34;pkg error 1\u0026#34;) PkgErr2 = pkgErr.New(\u0026#34;pkg error 2\u0026#34;) StdErr1 = stdErr.New(\u0026#34;standard error1\u0026#34;) StdErr2 = stdErr.New(\u0026#34;standard error2\u0026#34;) ) func main() { err := sentry.Init( sentry.ClientOptions{ Dsn: \u0026#34;\u0026#34;, Debug: true, AttachStacktrace: true, }, ) if err != nil { // sentry 초기화 실패 시, panic 시스템 os exit panic(err) } ctx := context.Background() hub := sentry.GetHubFromContext(ctx) if hub == nil { hub = sentry.CurrentHub().Clone() // 현재 컨텍스트에 Sentry Hub을 설정 ctx = sentry.SetHubOnContext(ctx, hub) } err = errPkgNested() go hub.CaptureException(err) fmt.Println(\u0026#34;Standard error nested\u0026#34;) time.Sleep(5 * time.Second) } func errStdNested() error { return stdErr.Join(PkgErr1, PkgErr2) } func errPkgNested() error { return pkgErr.Wrap(PkgErr1, PkgErr2.Error()) } Scope() Sentry에서 Scope는 특정 에러 또는 이벤트에 추가적인 컨텍스트 정보를 제공하는 메커니즘입니다. 에러의 재현을 위해서 요청 파라미터 등을 Scope에 저장하여 애플리케이션의 고도화가 가능합니다.\nSentry 클라이언트를 통해 생성되는 허브는 Context 단위로 싱글턴 패턴을 유지하며, go context.Context 와 함께 메타데이터를 저장하여, 추적에 용이하도록 돕습니다.\nfunc (rm *sentryScopeMiddleware) Register(originalHandler http.Handler) http.Handler { if !rm.initializer.Enabled() { // sentry가 비활성화 되어 있는 경우, 센트리 활성화 rm.initializer.Init() } return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { hub := sentry.GetHubFromContext(r.Context()) if hub == nil { hub = sentry.CurrentHub().Clone() r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub)) } hub.Scope().SetRequest(r) }) } Sentry Advancement SentryInitializer 하나의 애플리케이션에서 싱글턴을 유지하기 위해 설정을 통한 초기화 여부를 확인하는 클래스\npackage core import ( \u0026#34;sync\u0026#34; \u0026#34;github.com/getsentry/sentry-go\u0026#34; ) type ( // SentryInitializer : Sentry 설정 초기화를 담당하는 구현체 SentryInitializer struct { conf *Config enabled bool mutex sync.RWMutex // enabled 필드에 대한 읽기/쓰기 동기화를 위한 RWMutex } ) // NewSentryInitializer : SentryInitializer 생성자 func NewSentryInitializer(conf *Config) SentryInitializer { return SentryInitializer{ conf: conf, } } // Init : SentryInitializer 초기화 // // - sentry 패키지 변수를 통해 싱글턴 처리하므로 최초 설정만 요구됨 func (si *SentryInitializer) Init() error { si.mutex.Lock() // enabled lock for writing defer si.mutex.Unlock() err := sentry.Init( sentry.ClientOptions{ Dsn: si.conf.Sentry.DSN, SampleRate: si.conf.Sentry.SampleRate, EnableTracing: si.conf.Sentry.EnableTrace, Debug: si.conf.Sentry.Debug, TracesSampleRate: si.conf.Sentry.TracesSampleRate, Environment: si.conf.Sentry.Environment, AttachStacktrace: true, Transport: \u0026amp;sentry.HTTPSyncTransport{ Timeout: si.conf.Sentry.Timeout, }, }, ) if err != nil { // sentry 초기화 실패 시, panic 시스템 os exit panic(err) } // 활성화 상태로 변경 si.enabled = true return nil } // Enabled : Sentry 활성화 여부 // // - Init()이 호출된 경우, 활성화 상태로 변경 func (si *SentryInitializer) Enabled() bool { si.mutex.RLock() // read lock defer si.mutex.RUnlock() return si.enabled } 동시성 문제로 **Enabled()**의 동기화를 위해 락으로 관리\nErrorCapturer SentryInitializer를 임베딩하여, 센트리를 통한 센트리 허브에서 에러를 캡쳐링하는 클래스 package core import ( \u0026#34;context\u0026#34; \u0026#34;github.com/getsentry/sentry-go\u0026#34; ) type ( // ErrorCapturer : 에러 캡처 인터페이스 ErrorCapturer interface { CaptureError(ctx context.Context, err error) } sentryErrorCapturer struct { SentryInitializer } ) // NewSentryErrorCapturer : SentryErrorCapturer 생성자 func NewSentryErrorCapturer(initializer SentryInitializer) ErrorCapturer { return \u0026amp;sentryErrorCapturer{ initializer: initializer, } } // CaptureError : Sentry로 에러 캡처 func (sec *sentryErrorCapturer) CaptureError(ctx context.Context, err error) { // 에러가 없는 경우, 무시 if err == nil { return } if !sec.SentryInitializer.Enabled() { // sentry 초기화를 통해 활성화 sec.SentryInitializer.Init() } // 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기 hub := sentry.GetHubFromContext(ctx) if hub == nil { hub = sentry.CurrentHub().Clone() // 현재 컨텍스트에 Sentry Hub을 설정 ctx = sentry.SetHubOnContext(ctx, hub) } // 에러 캡처 hub.CaptureException(err) } RecoverMiddleware 핸들러에서 Panic 발생 시, Recover(), 요청을 허브의 메타데이터로 저장하는 클래스 // Register panic() 발생 시 스택 스레이스를 로깅하며 센트리를 통해 남기는 메서드 // // - http handler에 내부적으로 등록 // - API 고루틴 내부적으로 defer()를 통하여 panic 상황에서도 로깅이 가능하도록 한다 // // Parameters: // - originalHandler: 원래의 http handler func (rm *sentryRecoverMiddleware) Register(originalHandler http.Handler) http.Handler { if !rm.initializer.Enabled() { // sentry가 비활성화 되어 있는 경우, 센트리 활성화 rm.initializer.Init() } return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) { hub := sentry.GetHubFromContext(r.Context()) if hub == nil { hub = sentry.CurrentHub().Clone() r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub)) } hub.Scope().SetRequest(r) defer func() { if err := recover(); err != nil { hub.RecoverWithContext(r.Context(), err) stackList := strings.Split(string(debug.Stack()), \u0026#34;\\n\u0026#34;) rm.Logger.Error(). Any(\u0026#34;error\u0026#34;, err). Any(\u0026#34;stack_list\u0026#34;, stackList).Send() resp := dto.ACSErrorResponse{ Code: http.StatusInternalServerError, ErrMessage: \u0026#34;서버에서 예기치 못한 에러가 발생하였습니다\u0026#34;, Success: false, } jsonResp := resp.ToJSON() w.Header().Set(\u0026#34;Content-Type\u0026#34;, \u0026#34;application/json\u0026#34;) w.WriteHeader(http.StatusInternalServerError) _, err = w.Write(jsonResp) if err != nil { rm.Logger.Error(). Any(\u0026#34;error\u0026#34;, err).Send() } return } }() originalHandler.ServeHTTP(w, r) }) } 비용적인 문제가 있지만 APM과 Error Capture측면에서는 관리적인 편의성을 제공해주는 Sentry!\n","wordCount":"1525","inLanguage":"ko","image":"https://dingyu.dev/posts/sentry/img/sentry.png","datePublished":"2024-09-11T00:00:00Z","dateModified":"2024-09-11T00:00:00Z","author":{"@type":"Person","name":"dingyu"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://dingyu.dev/posts/sentry/"},"publisher":{"@type":"Organization","name":"Ding's Coding Forge","logo":{"@type":"ImageObject","url":"https://dingyu.dev/favicon.ico"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://dingyu.dev/ accesskey=h title="Ding's Coding Forge (Alt + H)"><img src=https://dingyu.dev/apple-touch-icon.png alt aria-label=logo height=35>Ding's Coding Forge</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)">
 <svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
 <svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
 </button><span class=nav-separator>|</span><div class=lang-select-dropdown><button class=lang-select-dropdown-trigger aria-label=번역 type=button><svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" width="24" height="18"><path d="M478.33 433.6l-90-218a22 22 0 00-40.67.0l-90 218a22 22 0 1040.67 16.79L316.66 406h102.67l18.33 44.39A22 22 0 00458 464a22 22 0 0020.32-30.4zM334.83 362 368 281.65 401.17 362z" fill="currentcolor"/><path d="M267.84 342.92a22 22 0 00-4.89-30.7c-.2-.15-15-11.13-36.49-34.73 39.65-53.68 62.11-114.75 71.27-143.49H330a22 22 0 000-44H214V70a22 22 0 00-44 0v20H54a22 22 0 000 44h197.25c-9.52 26.95-27.05 69.5-53.79 108.36-31.41-41.68-43.08-68.65-43.17-68.87a22 22 0 00-40.58 17c.58 1.38 14.55 34.23 52.86 83.93.92 1.19 1.83 2.35 2.74 3.51-39.24 44.35-77.74 71.86-93.85 80.74a22 22 0 1021.07 38.63c2.16-1.18 48.6-26.89 101.63-85.59 22.52 24.08 38 35.44 38.93 36.1a22 22 0 0030.75-4.9z" fill="currentcolor"/></svg></button><div class=lang-select-dropdown-content><a lang=en href=https://dingyu.dev/en/ title=English aria-label=English>English</a></div></div></div></div><ul id=menu><li><a href=https://dingyu.dev/about/ title=소개><span>소개</span></a></li><li><a href=https://dingyu.dev/categories/ title=카테고리><span>카테고리</span></a></li><li><a href=https://dingyu.dev/tags/ title=태그><span>태그</span></a></li><li><a href=https://dingyu.dev/archives/ title=아카이브><span>아카이브</span></a></li><li><a href=https://dingyu.dev/search/ title="검색 (Alt + /)" accesskey=/><span>검색</span></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://dingyu.dev/>홈</a>&nbsp;»&nbsp;<a href=https://dingyu.dev/posts/>Posts</a></div><h1 class="post-title entry-hint-parent">[Third-Party] Sentry 연동</h1><div class=post-description>This post explores how to effectively integrate Sentry into Go projects to enhance error tracking, performance monitoring, and issue management. It covers the importance of structured logging, setting up Sentry alerts, and implementing error capturing using Go's pkg/errors for better stack trace visibility. Additionally, it introduces best practices such as singleton-based initialization, contextual error handling, and panic recovery middleware, ensuring stable and efficient service operations.</div><div class=post-meta><span title='2024-09-11 00:00:00 +0000 UTC'>9월 11, 2024</span>&nbsp;·&nbsp;8 분&nbsp;·&nbsp;1525 단어&nbsp;·&nbsp;dingyu&nbsp;|&nbsp;번역:<ul class=i18n_list><li><a href=https://dingyu.dev/en/posts/sentry/>En</a></li></ul>&nbsp;|&nbsp;<a href=https://github.com/dings-things/blog/tree/main/content/posts/sentry/index.ko.md rel="noopener noreferrer" target=_blank>Suggest Changes</a></div></header><figure class=entry-cover><img loading=eager src=https://dingyu.dev/img/sentry.png alt></figure><aside id=toc-container class="toc-container wide"><div class=toc><details open><summary accesskey=c title="(Alt + C)"><span class=details>목차</span></summary><div class=inner><ul><li><a href=#%eb%b0%b0%ea%b2%bd aria-label=배경>배경</a></li><li><a href=#%eb%aa%a9%ed%91%9c aria-label=목표>목표</a></li><li><a href=#sentry%ec%97%90-%eb%8c%80%ed%95%98%ec%97%ac aria-label="Sentry에 대하여">Sentry에 대하여</a><ul><ul><li><a href=#sentry-alerts aria-label="Sentry Alerts">Sentry Alerts</a><ul><li><a href=#%ec%84%a4%ec%a0%95-step-by-step aria-label="설정 STEP BY STEP">설정 STEP BY STEP</a></li></ul></li></ul><li><a href=#%ea%b0%9c%eb%b0%9c%ed%95%98%ea%b8%b0 aria-label=개발하기>개발하기</a><ul><li><a href=#client-options aria-label="Client Options">Client Options</a></li><li><a href=#initialize aria-label=Initialize>Initialize</a></li><li><a href=#capture-exception aria-label="Capture Exception">Capture Exception</a><ul><li><a href=#go-error-%ec%82%ac%ec%9a%a9%ec%97%90-%eb%94%b0%eb%a5%b8-%ec%8a%a4%ed%83%9d-%ed%8a%b8%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%b0%a8%ec%9d%b4%ec%a0%90 aria-label="Go Error 사용에 따른 스택 트레이스 차이점">Go Error 사용에 따른 스택 트레이스 차이점</a></li></ul></li><li><a href=#scope aria-label=Scope()>Scope()</a></li></ul></li><li><a href=#sentry-advancement aria-label="Sentry Advancement">Sentry Advancement</a><ul><li><a href=#sentryinitializer aria-label=SentryInitializer>SentryInitializer</a></li><li><a href=#errorcapturer aria-label=ErrorCapturer>ErrorCapturer</a></li><li><a href=#recovermiddleware aria-label=RecoverMiddleware>RecoverMiddleware</a></li></ul></li></ul></li></ul></div></details></div></aside><script>let activeElement,elements;window.addEventListener("DOMContentLoaded",function(){checkTocPosition(),elements=document.querySelectorAll("h1[id],h2[id],h3[id],h4[id],h5[id],h6[id]"),activeElement=elements[0];const t=encodeURI(activeElement.getAttribute("id")).toLowerCase();document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active")},!1),window.addEventListener("resize",function(){checkTocPosition()},!1),window.addEventListener("scroll",()=>{activeElement=Array.from(elements).find(e=>{if(getOffsetTop(e)-window.pageYOffset>0&&getOffsetTop(e)-window.pageYOffset<window.innerHeight/2)return e})||activeElement,elements.forEach(e=>{const t=encodeURI(e.getAttribute("id")).toLowerCase();e===activeElement?document.querySelector(`.inner ul li a[href="#${t}"]`).classList.add("active"):document.querySelector(`.inner ul li a[href="#${t}"]`).classList.remove("active")})},!1);const main=parseInt(getComputedStyle(document.body).getPropertyValue("--article-width"),10),toc=parseInt(getComputedStyle(document.body).getPropertyValue("--toc-width"),10),gap=parseInt(getComputedStyle(document.body).getPropertyValue("--gap"),10);function checkTocPosition(){const e=document.body.scrollWidth;e-main-toc*2-gap*4>0?document.getElementById("toc-container").classList.add("wide"):document.getElementById("toc-container").classList.remove("wide")}function getOffsetTop(e){if(!e.getClientRects().length)return 0;let t=e.getBoundingClientRect(),n=e.ownerDocument.defaultView;return t.top+n.pageYOffset}</script><div class=post-content><h1 id=배경>배경<a hidden class=anchor aria-hidden=true href=#배경>#</a></h1><hr><ul><li>개발자가 직접 로그 모니터링을 통하여 장애 대응</li><li>아래와 같은 이유로 로그 모니터링에도 제약 사항이 존재<ul><li><strong>Field Type의 불일치</strong>로 인한 <strong>Elasticsearch field mapping Error</strong> 발생 → 로그 이벤트의 DROP</li><li>시스템 로그로 기록되는 경우, 스택 트레이스를 위하여 별도로 SE에게 시스템 로그를 요구하는 공수가 필요</li></ul></li></ul><h1 id=목표>목표<a hidden class=anchor aria-hidden=true href=#목표>#</a></h1><hr><ul><li>Go를 사용하는 프로젝트에서 공통적으로 표준이 될 수 있는 센트리 구조 확립</li><li>센트리에 대한 기능 명세 / 가이드라인 제공</li><li>센트리 적용 이후, 빠른 장애 대응을 통한 안정적인 서비스 구축</li></ul><blockquote><p>본 글은 센트리 계정이 있으며, 센트리 프로젝트를 이미 생성하였다 가정하고 진행됩니다.</p></blockquote><h1 id=sentry에-대하여>Sentry에 대하여<a hidden class=anchor aria-hidden=true href=#sentry에-대하여>#</a></h1><ol><li>Capture Exception</li></ol><p><code>에러 추적(Capture Exception)</code>: 애플리케이션에서 발생하는 예외와 에러를 자동으로 감지하고 기록합니다. 센트리는 스택 트레이스(stack trace)와 함께 에러 발생 시점의 환경 정보를 제공하여, 에러의 원인을 쉽게 파악할 수 있도록 도와줍니다.</p><ol start=2><li>Transaction</li></ol><p><code>성능 모니터링(Transactions)</code>: 애플리케이션의 성능을 모니터링하며, 웹 요청이나 API 호출 등의 트랜잭션을 추적합니다. 각 트랜잭션의 응답 시간, 성공 및 실패 비율과 같은 세부 정보를 제공하여 성능 병목 현상을 식별하고 개선할 수 있도록 도와줍니다.</p><ol start=3><li>Trace</li></ol><p><code>트레이싱(Trace)</code>: 애플리케이션의 트랜잭션을 세부적으로 추적하여, 서비스 간 호출, 데이터베이스 쿼리 등의 작업에 걸리는 시간을 분석합니다. 이를 통해 애플리케이션 전체의 성능을 이해하고, 문제가 되는 부분을 파악할 수 있습니다.</p><ol start=4><li>Alert</li></ol><p><code>이슈 관리 및 알림</code>: 센트리는 에러와 성능 문제를 이슈로 관리하며, 발생 시 지정된 이메일이나 슬랙(Slack) 등의 통지 채널을 통해 알림을 보냅니다. 개발자는 이슈를 할당받고, 처리 상태를 업데이트하며, 문제 해결을 위해 협업할 수 있습니다.</p><ol start=5><li>Release Tracking</li></ol><p><code>릴리즈 추적(Release Tracking)</code>: 애플리케이션의 버전을 추적하여, 새로운 릴리즈가 에러 비율에 미치는 영향을 분석할 수 있습니다. 이를 통해 최근 배포된 변경사항이 문제를 일으키고 있는지 파악할 수 있습니다.</p><h3 id=sentry-alerts>Sentry Alerts<a hidden class=anchor aria-hidden=true href=#sentry-alerts>#</a></h3><p>센트리 알람을 통해 협업 툴과 연동하여 개발자가 쉽게 대응할 수 있도록 합니다.</p><h4 id=설정-step-by-step>설정 STEP BY STEP<a hidden class=anchor aria-hidden=true href=#설정-step-by-step>#</a></h4><p>대시보드 - Alert - Create Alert
@@ -7,260 +7,253 @@
 <img loading=lazy src=/posts/sentry/3.png></li></ul><p>IF : 이벤트의 세부 조건</p><ul><li>태그 기반 / 발생 빈도 기반 / 카테고리 기반
 <img loading=lazy src=/posts/sentry/4.png></li></ul><p>THEN : 액션 선정</p><ul><li>메일 / 슬랙 / 팀즈 등으로 액션 지정
 <img loading=lazy src=/posts/sentry/5.png></li></ul><h2 id=개발하기>개발하기<a hidden class=anchor aria-hidden=true href=#개발하기>#</a></h2><h3 id=client-options>Client Options<a hidden class=anchor aria-hidden=true href=#client-options>#</a></h3><ul><li>Dsn: _Data Source Name_의 약자로, Sentry 프로젝트를 식별하는 고유한 문자열입니다. 이 값을 설정함으로써 에러와 이벤트가 보고될 정확한 Sentry 프로젝트를 지정할 수 있습니다.</li></ul><p>[Projects - Settings - Client Keys]
-<img loading=lazy src=/posts/sentry/6.png></p><ul><li>Environment: 애플리케이션의 실행 환경(예: production, staging, development)을 지정합니다. 이 정보는 에러 필터링과 분석 시 중요한 차원으로 사용됩니다.<ul><li>각 실행 환경 별로 필터링하여 알림 설정을 하거나, 모니터링 가능</li><li>Issue Filtering</li></ul></li><li>Release: 애플리케이션의 릴리즈 버전을 지정합니다. 이 값을 통해 에러가 발생한 애플리케이션의 구체적인 버전을 추적하고, 릴리즈 간 에러 비율을 비교할 수 있습니다.</li><li>SampleRate: 0에서 1 사이의 값을 설정하여, 보고될 이벤트의 샘플링 비율을 결정합니다. 예를 들어, <strong>0.1</strong>로 설정하면 10%의 이벤트만이 실제로 보고됩니다. 이는 대량의 트래픽이 발생하는 애플리케이션에서 유용하게 사용될 수 있습니다.<ul><li>API 트래픽 량이 많을 수록 0에 가깝게 지정</li><li>네트워크 트래픽 감소 / 성능 최적화 / 비용 절감을 위해 적절히 지정</li></ul></li><li>TracesSampleRate: 성능 모니터링에 사용되며, <strong>SampleRate</strong>와 비슷하게 트랜잭션 데이터의 샘플링 비율을 결정합니다. 이를 통해 성능 데이터의 양을 조절할 수 있습니다.</li><li>BeforeSend: 보고되기 전에 이벤트를 수정하거나 필터링할 수 있는 콜백 함수를 설정합니다. 예를 들어, 특정 조건을 만족하는 이벤트만을 보고하거나, 민감한 정보를 제거하는 데 사용될 수 있습니다.</li><li>AttachStacktrace: 자동으로 스택 트레이스를 이벤트에 첨부할지 여부를 결정합니다. 이 옵션을 활성화하면 에러가 아닌 로그 메시지에도 스택 트레이스 정보가 포함됩니다.</li><li>ServerName: 이벤트가 보고될 때 서버 이름을 명시적으로 설정할 수 있습니다. 이 정보는 에러 분석 시 서버 구분에 도움을 줄 수 있습니다.</li><li>Integrations: Sentry와 함께 사용할 추가적인 통합 기능들을 설정합니다. Sentry는 다양한 플랫폼과 프레임워크에 대한 통합을 제공하여, 보다 쉽게 에러 추적 및 성능 모니터링을 구현할 수 있도록 돕습니다.</li><li>Transport는 Sentry 서버로 이벤트를 전송하는 메커니즘을 정의합니다. 이 옵션을 사용하여 개발자는 기본 HTTP 전송 방식 대신 커스텀 전송 방식을 구현할 수 있습니다<ul><li>timeout 값은 네트워크 지연이나 서버 응답 시간의 변동성을 고려하여 설정되어야 합니다</li></ul></li></ul><h3 id=initialize>Initialize<a hidden class=anchor aria-hidden=true href=#initialize>#</a></h3><p>Go-Sentry SDK 사용 시, 최초 초기화 당시에 HTTP Client의 TCP 커넥션을 자동으로 처리 합니다.</p><p>Applicaiton 의 main.go 에서 최초로 Init() 설정하는 것이 Best Practice로 소개됩니다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>err</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>Init</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=nx>sentry</span><span class=p>.</span><span class=nx>ClientOptions</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>Dsn</span><span class=p>:</span>              <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>DSN</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>SampleRate</span><span class=p>:</span>       <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>SampleRate</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>EnableTracing</span><span class=p>:</span>    <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>EnableTrace</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>Debug</span><span class=p>:</span>            <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>Debug</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>TracesSampleRate</span><span class=p>:</span> <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>TracesSampleRate</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>Environment</span><span class=p>:</span>      <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>Environment</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>AttachStacktrace</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=nx>Transport</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>sentry</span><span class=p>.</span><span class=nx>HTTPSyncTransport</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=nx>Timeout</span><span class=p>:</span> <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>Timeout</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=p>},</span>
-</span></span><span class=line><span class=cl>    <span class=p>},</span>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span></code></pre></div><h3 id=capture-exception>Capture Exception<a hidden class=anchor aria-hidden=true href=#capture-exception>#</a></h3><p>발생한 예외(에러)와 관련된 스택 트레이스를 자동으로 캡처하고 추적합니다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기</span>
-</span></span><span class=line><span class=cl><span class=nx>hub</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>GetHubFromContext</span><span class=p>(</span><span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=k>if</span> <span class=nx>hub</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nx>hub</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>CurrentHub</span><span class=p>().</span><span class=nf>Clone</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=c1>// 현재 컨텍스트에 Sentry Hub을 설정</span>
-</span></span><span class=line><span class=cl>    <span class=nx>ctx</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>SetHubOnContext</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>hub</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=c1>// 에러 캡처</span>
-</span></span><span class=line><span class=cl><span class=nx>hub</span><span class=p>.</span><span class=nf>CaptureException</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
-</span></span></code></pre></div><h4 id=go-error-사용에-따른-스택-트레이스-차이점>Go Error 사용에 따른 스택 트레이스 차이점<a hidden class=anchor aria-hidden=true href=#go-error-사용에-따른-스택-트레이스-차이점>#</a></h4><blockquote><p>정확한 에러의 발생처를 알기 위해서는 pkg/errors 라이브러리를 사용하자!</p></blockquote><p><strong>errors 패키지</strong>: 기본적으로 스택 트레이스 정보를 제공하지 않습니다. 에러는 단순히 메시지를 포함하는 값이며, 디버깅을 위한 추가적인 컨텍스트나 위치 정보는 포함되어 있지 않습니다.</p><blockquote></blockquote><p><strong>github.com/pkg/errors 패키지</strong>: 에러에 자동으로 <code>스택 트레이스</code>를 포함합니다. 이를 통해 에러가 어디서 발생했는지, 에러의 원인을 추적하는 데 필요한 상세한 호출 스택 정보를 얻을 수 있습니다.</p><p>test. errors 패키지와 pkg/errors 에 따른 스택 트레이스</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>main</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=s>&#34;context&#34;</span>
-</span></span><span class=line><span class=cl>    <span class=nx>stdErr</span> <span class=s>&#34;errors&#34;</span>
-</span></span><span class=line><span class=cl>    <span class=s>&#34;fmt&#34;</span>
-</span></span><span class=line><span class=cl>    <span class=s>&#34;time&#34;</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=nx>sentry</span> <span class=s>&#34;github.com/getsentry/sentry-go&#34;</span>
-</span></span><span class=line><span class=cl>    <span class=nx>pkgErr</span> <span class=s>&#34;github.com/pkg/errors&#34;</span>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=kd>var</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=nx>PkgErr1</span> <span class=p>=</span> <span class=nx>pkgErr</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=s>&#34;pkg error 1&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=nx>PkgErr2</span> <span class=p>=</span> <span class=nx>pkgErr</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=s>&#34;pkg error 2&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=nx>StdErr1</span> <span class=p>=</span> <span class=nx>stdErr</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=s>&#34;standard error1&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=nx>StdErr2</span> <span class=p>=</span> <span class=nx>stdErr</span><span class=p>.</span><span class=nf>New</span><span class=p>(</span><span class=s>&#34;standard error2&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nx>err</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>Init</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>        <span class=nx>sentry</span><span class=p>.</span><span class=nx>ClientOptions</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=nx>Dsn</span><span class=p>:</span>              <span class=s>&#34;&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>Debug</span><span class=p>:</span>            <span class=kc>true</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>AttachStacktrace</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>        <span class=p>},</span>
-</span></span><span class=line><span class=cl>    <span class=p>)</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// sentry 초기화 실패 시, panic 시스템 os exit</span>
-</span></span><span class=line><span class=cl>        <span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>ctx</span> <span class=o>:=</span> <span class=nx>context</span><span class=p>.</span><span class=nf>Background</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=nx>hub</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>GetHubFromContext</span><span class=p>(</span><span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>hub</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>hub</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>CurrentHub</span><span class=p>().</span><span class=nf>Clone</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// 현재 컨텍스트에 Sentry Hub을 설정</span>
-</span></span><span class=line><span class=cl>        <span class=nx>ctx</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>SetHubOnContext</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>hub</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=nx>err</span> <span class=p>=</span> <span class=nf>errPkgNested</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=k>go</span> <span class=nx>hub</span><span class=p>.</span><span class=nf>CaptureException</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Standard error nested&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=mi>5</span> <span class=o>*</span> <span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>errStdNested</span><span class=p>()</span> <span class=kt>error</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>stdErr</span><span class=p>.</span><span class=nf>Join</span><span class=p>(</span><span class=nx>PkgErr1</span><span class=p>,</span> <span class=nx>PkgErr2</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>errPkgNested</span><span class=p>()</span> <span class=kt>error</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>pkgErr</span><span class=p>.</span><span class=nf>Wrap</span><span class=p>(</span><span class=nx>PkgErr1</span><span class=p>,</span> <span class=nx>PkgErr2</span><span class=p>.</span><span class=nf>Error</span><span class=p>())</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><h3 id=scope>Scope()<a hidden class=anchor aria-hidden=true href=#scope>#</a></h3><p>Sentry에서 Scope는 특정 에러 또는 이벤트에 추가적인 컨텍스트 정보를 제공하는 메커니즘입니다. 에러의 재현을 위해서 요청 파라미터 등을 Scope에 저장하여 애플리케이션의 고도화가 가능합니다.</p><p>Sentry 클라이언트를 통해 생성되는 허브는 Context 단위로 싱글턴 패턴을 유지하며, go context.Context 와 함께 메타데이터를 저장하여, 추적에 용이하도록 돕습니다.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>rm</span> <span class=o>*</span><span class=nx>sentryScopeMiddleware</span><span class=p>)</span> <span class=nf>Register</span><span class=p>(</span><span class=nx>originalHandler</span> <span class=nx>http</span><span class=p>.</span><span class=nx>Handler</span><span class=p>)</span> <span class=nx>http</span><span class=p>.</span><span class=nx>Handler</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>!</span><span class=nx>rm</span><span class=p>.</span><span class=nx>initializer</span><span class=p>.</span><span class=nf>Enabled</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// sentry가 비활성화 되어 있는 경우, 센트리 활성화</span>
-</span></span><span class=line><span class=cl>        <span class=nx>rm</span><span class=p>.</span><span class=nx>initializer</span><span class=p>.</span><span class=nf>Init</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>http</span><span class=p>.</span><span class=nf>HandlerFunc</span><span class=p>(</span><span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>r</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>hub</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>GetHubFromContext</span><span class=p>(</span><span class=nx>r</span><span class=p>.</span><span class=nf>Context</span><span class=p>())</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nx>hub</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=nx>hub</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>CurrentHub</span><span class=p>().</span><span class=nf>Clone</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>            <span class=nx>r</span> <span class=p>=</span> <span class=nx>r</span><span class=p>.</span><span class=nf>WithContext</span><span class=p>(</span><span class=nx>sentry</span><span class=p>.</span><span class=nf>SetHubOnContext</span><span class=p>(</span><span class=nx>r</span><span class=p>.</span><span class=nf>Context</span><span class=p>(),</span> <span class=nx>hub</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>        <span class=p>}</span>
-</span></span><span class=line><span class=cl>        <span class=nx>hub</span><span class=p>.</span><span class=nf>Scope</span><span class=p>().</span><span class=nf>SetRequest</span><span class=p>(</span><span class=nx>r</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>})</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><hr><h2 id=sentry-advancement>Sentry Advancement<a hidden class=anchor aria-hidden=true href=#sentry-advancement>#</a></h2><h3 id=sentryinitializer>SentryInitializer<a hidden class=anchor aria-hidden=true href=#sentryinitializer>#</a></h3><p>하나의 애플리케이션에서 싱글턴을 유지하기 위해 설정을 통한 초기화 여부를 확인하는 클래스</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>core</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=s>&#34;sync&#34;</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=s>&#34;github.com/getsentry/sentry-go&#34;</span>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=kd>type</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=c1>// SentryInitializer : Sentry 설정 초기화를 담당하는 구현체</span>
-</span></span><span class=line><span class=cl>    <span class=nx>SentryInitializer</span> <span class=kd>struct</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>conf</span>    <span class=o>*</span><span class=nx>Config</span>
-</span></span><span class=line><span class=cl>        <span class=nx>enabled</span> <span class=kt>bool</span>
-</span></span><span class=line><span class=cl>        <span class=nx>mutex</span>   <span class=nx>sync</span><span class=p>.</span><span class=nx>RWMutex</span> <span class=c1>// enabled 필드에 대한 읽기/쓰기 동기화를 위한 RWMutex</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>// NewSentryInitializer : SentryInitializer 생성자</span>
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>NewSentryInitializer</span><span class=p>(</span><span class=nx>conf</span> <span class=o>*</span><span class=nx>Config</span><span class=p>)</span> <span class=nx>SentryInitializer</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>SentryInitializer</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>conf</span><span class=p>:</span> <span class=nx>conf</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>// Init : SentryInitializer 초기화</span>
-</span></span><span class=line><span class=cl><span class=c1>//</span>
-</span></span><span class=line><span class=cl><span class=c1>//   - sentry 패키지 변수를 통해 싱글턴 처리하므로 최초 설정만 요구됨</span>
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>si</span> <span class=o>*</span><span class=nx>SentryInitializer</span><span class=p>)</span> <span class=nf>Init</span><span class=p>()</span> <span class=kt>error</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nx>si</span><span class=p>.</span><span class=nx>mutex</span><span class=p>.</span><span class=nf>Lock</span><span class=p>()</span> <span class=c1>// enabled lock for writing</span>
-</span></span><span class=line><span class=cl>    <span class=k>defer</span> <span class=nx>si</span><span class=p>.</span><span class=nx>mutex</span><span class=p>.</span><span class=nf>Unlock</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=nx>err</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>Init</span><span class=p>(</span>
-</span></span><span class=line><span class=cl>        <span class=nx>sentry</span><span class=p>.</span><span class=nx>ClientOptions</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=nx>Dsn</span><span class=p>:</span>              <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>DSN</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>SampleRate</span><span class=p>:</span>       <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>SampleRate</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>EnableTracing</span><span class=p>:</span>    <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>EnableTrace</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>Debug</span><span class=p>:</span>            <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>Debug</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>TracesSampleRate</span><span class=p>:</span> <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>TracesSampleRate</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>Environment</span><span class=p>:</span>      <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>Environment</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>AttachStacktrace</span><span class=p>:</span> <span class=kc>true</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=nx>Transport</span><span class=p>:</span> <span class=o>&amp;</span><span class=nx>sentry</span><span class=p>.</span><span class=nx>HTTPSyncTransport</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>                <span class=nx>Timeout</span><span class=p>:</span> <span class=nx>si</span><span class=p>.</span><span class=nx>conf</span><span class=p>.</span><span class=nx>Sentry</span><span class=p>.</span><span class=nx>Timeout</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>            <span class=p>},</span>
-</span></span><span class=line><span class=cl>        <span class=p>},</span>
-</span></span><span class=line><span class=cl>    <span class=p>)</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// sentry 초기화 실패 시, panic 시스템 os exit</span>
-</span></span><span class=line><span class=cl>        <span class=nb>panic</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl>    <span class=c1>// 활성화 상태로 변경</span>
-</span></span><span class=line><span class=cl>    <span class=nx>si</span><span class=p>.</span><span class=nx>enabled</span> <span class=p>=</span> <span class=kc>true</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>nil</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl><span class=c1>// Enabled : Sentry 활성화 여부</span>
-</span></span><span class=line><span class=cl><span class=c1>//</span>
-</span></span><span class=line><span class=cl><span class=c1>//   - Init()이 호출된 경우, 활성화 상태로 변경</span>
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>si</span> <span class=o>*</span><span class=nx>SentryInitializer</span><span class=p>)</span> <span class=nf>Enabled</span><span class=p>()</span> <span class=kt>bool</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=nx>si</span><span class=p>.</span><span class=nx>mutex</span><span class=p>.</span><span class=nf>RLock</span><span class=p>()</span> <span class=c1>// read lock</span>
-</span></span><span class=line><span class=cl>    <span class=k>defer</span> <span class=nx>si</span><span class=p>.</span><span class=nx>mutex</span><span class=p>.</span><span class=nf>RUnlock</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>si</span><span class=p>.</span><span class=nx>enabled</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><p>동시성 문제로 **Enabled()**의 동기화를 위해 락으로 관리</p><h3 id=errorcapturer>ErrorCapturer<a hidden class=anchor aria-hidden=true href=#errorcapturer>#</a></h3><p>SentryInitializer를 임베딩하여, 센트리를 통한 센트리 허브에서 에러를 캡쳐링하는 클래스
-<img loading=lazy src=/posts/sentry/7.png></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span> <span class=nx>core</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=s>&#34;context&#34;</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=s>&#34;github.com/getsentry/sentry-go&#34;</span>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=kd>type</span> <span class=p>(</span>
-</span></span><span class=line><span class=cl>    <span class=c1>// ErrorCapturer : 에러 캡처 인터페이스</span>
-</span></span><span class=line><span class=cl>    <span class=nx>ErrorCapturer</span> <span class=kd>interface</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nf>CaptureError</span><span class=p>(</span><span class=nx>ctx</span> <span class=nx>context</span><span class=p>.</span><span class=nx>Context</span><span class=p>,</span> <span class=nx>err</span> <span class=kt>error</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=nx>sentryErrorCapturer</span> <span class=kd>struct</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>SentryInitializer</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=c1>// NewSentryErrorCapturer : SentryErrorCapturer 생성자</span>
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=nf>NewSentryErrorCapturer</span><span class=p>(</span><span class=nx>initializer</span> <span class=nx>SentryInitializer</span><span class=p>)</span> <span class=nx>ErrorCapturer</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=o>&amp;</span><span class=nx>sentryErrorCapturer</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>initializer</span><span class=p>:</span> <span class=nx>initializer</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl><span class=c1>// CaptureError : Sentry로 에러 캡처</span>
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>sec</span> <span class=o>*</span><span class=nx>sentryErrorCapturer</span><span class=p>)</span> <span class=nf>CaptureError</span><span class=p>(</span><span class=nx>ctx</span> <span class=nx>context</span><span class=p>.</span><span class=nx>Context</span><span class=p>,</span> <span class=nx>err</span> <span class=kt>error</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=c1>// 에러가 없는 경우, 무시</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>err</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=k>return</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>!</span><span class=nx>sec</span><span class=p>.</span><span class=nx>SentryInitializer</span><span class=p>.</span><span class=nf>Enabled</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// sentry 초기화를 통해 활성화</span>
-</span></span><span class=line><span class=cl>        <span class=nx>sec</span><span class=p>.</span><span class=nx>SentryInitializer</span><span class=p>.</span><span class=nf>Init</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=c1>// 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기</span>
-</span></span><span class=line><span class=cl>    <span class=nx>hub</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>GetHubFromContext</span><span class=p>(</span><span class=nx>ctx</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=nx>hub</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>hub</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>CurrentHub</span><span class=p>().</span><span class=nf>Clone</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// 현재 컨텍스트에 Sentry Hub을 설정</span>
-</span></span><span class=line><span class=cl>        <span class=nx>ctx</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>SetHubOnContext</span><span class=p>(</span><span class=nx>ctx</span><span class=p>,</span> <span class=nx>hub</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=c1>// 에러 캡처</span>
-</span></span><span class=line><span class=cl>    <span class=nx>hub</span><span class=p>.</span><span class=nf>CaptureException</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><h3 id=recovermiddleware>RecoverMiddleware<a hidden class=anchor aria-hidden=true href=#recovermiddleware>#</a></h3><p>핸들러에서 Panic 발생 시, Recover(), 요청을 허브의 메타데이터로 저장하는 클래스
-<img loading=lazy src=/posts/sentry/8.png></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// Register panic() 발생 시 스택 스레이스를 로깅하며 센트리를 통해 남기는 메서드</span>
-</span></span><span class=line><span class=cl><span class=c1>//</span>
-</span></span><span class=line><span class=cl><span class=c1>//   - http handler에 내부적으로 등록</span>
-</span></span><span class=line><span class=cl><span class=c1>//   - API 고루틴 내부적으로 defer()를 통하여 panic 상황에서도 로깅이 가능하도록 한다</span>
-</span></span><span class=line><span class=cl><span class=c1>//</span>
-</span></span><span class=line><span class=cl><span class=c1>// Parameters:</span>
-</span></span><span class=line><span class=cl><span class=c1>//   - originalHandler: 원래의 http handler</span>
-</span></span><span class=line><span class=cl><span class=kd>func</span> <span class=p>(</span><span class=nx>rm</span> <span class=o>*</span><span class=nx>sentryRecoverMiddleware</span><span class=p>)</span> <span class=nf>Register</span><span class=p>(</span><span class=nx>originalHandler</span> <span class=nx>http</span><span class=p>.</span><span class=nx>Handler</span><span class=p>)</span> <span class=nx>http</span><span class=p>.</span><span class=nx>Handler</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>!</span><span class=nx>rm</span><span class=p>.</span><span class=nx>initializer</span><span class=p>.</span><span class=nf>Enabled</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// sentry가 비활성화 되어 있는 경우, 센트리 활성화</span>
-</span></span><span class=line><span class=cl>        <span class=nx>rm</span><span class=p>.</span><span class=nx>initializer</span><span class=p>.</span><span class=nf>Init</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>    <span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>http</span><span class=p>.</span><span class=nf>HandlerFunc</span><span class=p>(</span><span class=kd>func</span><span class=p>(</span><span class=nx>w</span> <span class=nx>http</span><span class=p>.</span><span class=nx>ResponseWriter</span><span class=p>,</span> <span class=nx>r</span> <span class=o>*</span><span class=nx>http</span><span class=p>.</span><span class=nx>Request</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>        <span class=nx>hub</span> <span class=o>:=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>GetHubFromContext</span><span class=p>(</span><span class=nx>r</span><span class=p>.</span><span class=nf>Context</span><span class=p>())</span>
-</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=nx>hub</span> <span class=o>==</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=nx>hub</span> <span class=p>=</span> <span class=nx>sentry</span><span class=p>.</span><span class=nf>CurrentHub</span><span class=p>().</span><span class=nf>Clone</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>            <span class=nx>r</span> <span class=p>=</span> <span class=nx>r</span><span class=p>.</span><span class=nf>WithContext</span><span class=p>(</span><span class=nx>sentry</span><span class=p>.</span><span class=nf>SetHubOnContext</span><span class=p>(</span><span class=nx>r</span><span class=p>.</span><span class=nf>Context</span><span class=p>(),</span> <span class=nx>hub</span><span class=p>))</span>
-</span></span><span class=line><span class=cl>        <span class=p>}</span>
-</span></span><span class=line><span class=cl>        <span class=nx>hub</span><span class=p>.</span><span class=nf>Scope</span><span class=p>().</span><span class=nf>SetRequest</span><span class=p>(</span><span class=nx>r</span><span class=p>)</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>        <span class=k>defer</span> <span class=kd>func</span><span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=nx>err</span> <span class=o>:=</span> <span class=nb>recover</span><span class=p>();</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>                <span class=nx>hub</span><span class=p>.</span><span class=nf>RecoverWithContext</span><span class=p>(</span><span class=nx>r</span><span class=p>.</span><span class=nf>Context</span><span class=p>(),</span> <span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>                <span class=nx>stackList</span> <span class=o>:=</span> <span class=nx>strings</span><span class=p>.</span><span class=nf>Split</span><span class=p>(</span><span class=nb>string</span><span class=p>(</span><span class=nx>debug</span><span class=p>.</span><span class=nf>Stack</span><span class=p>()),</span> <span class=s>&#34;\n&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>                <span class=nx>rm</span><span class=p>.</span><span class=nx>Logger</span><span class=p>.</span><span class=nf>Error</span><span class=p>().</span>
-</span></span><span class=line><span class=cl>                    <span class=nf>Any</span><span class=p>(</span><span class=s>&#34;error&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>).</span>
-</span></span><span class=line><span class=cl>                    <span class=nf>Any</span><span class=p>(</span><span class=s>&#34;stack_list&#34;</span><span class=p>,</span> <span class=nx>stackList</span><span class=p>).</span><span class=nf>Send</span><span class=p>()</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>                <span class=nx>resp</span> <span class=o>:=</span> <span class=nx>dto</span><span class=p>.</span><span class=nx>ACSErrorResponse</span><span class=p>{</span>
-</span></span><span class=line><span class=cl>                    <span class=nx>Code</span><span class=p>:</span>       <span class=nx>http</span><span class=p>.</span><span class=nx>StatusInternalServerError</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>                    <span class=nx>ErrMessage</span><span class=p>:</span> <span class=s>&#34;서버에서 예기치 못한 에러가 발생하였습니다&#34;</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>                    <span class=nx>Success</span><span class=p>:</span>    <span class=kc>false</span><span class=p>,</span>
-</span></span><span class=line><span class=cl>                <span class=p>}</span>
-</span></span><span class=line><span class=cl> 
-</span></span><span class=line><span class=cl>                <span class=nx>jsonResp</span> <span class=o>:=</span> <span class=nx>resp</span><span class=p>.</span><span class=nf>ToJSON</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>                <span class=nx>w</span><span class=p>.</span><span class=nf>Header</span><span class=p>().</span><span class=nf>Set</span><span class=p>(</span><span class=s>&#34;Content-Type&#34;</span><span class=p>,</span> <span class=s>&#34;application/json&#34;</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>                <span class=nx>w</span><span class=p>.</span><span class=nf>WriteHeader</span><span class=p>(</span><span class=nx>http</span><span class=p>.</span><span class=nx>StatusInternalServerError</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>                <span class=nx>_</span><span class=p>,</span> <span class=nx>err</span> <span class=p>=</span> <span class=nx>w</span><span class=p>.</span><span class=nf>Write</span><span class=p>(</span><span class=nx>jsonResp</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=nx>err</span> <span class=o>!=</span> <span class=kc>nil</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>                    <span class=nx>rm</span><span class=p>.</span><span class=nx>Logger</span><span class=p>.</span><span class=nf>Error</span><span class=p>().</span>
-</span></span><span class=line><span class=cl>                        <span class=nf>Any</span><span class=p>(</span><span class=s>&#34;error&#34;</span><span class=p>,</span> <span class=nx>err</span><span class=p>).</span><span class=nf>Send</span><span class=p>()</span>
-</span></span><span class=line><span class=cl>                <span class=p>}</span>
-</span></span><span class=line><span class=cl>                <span class=k>return</span>
-</span></span><span class=line><span class=cl>            <span class=p>}</span>
-</span></span><span class=line><span class=cl>        <span class=p>}()</span>
-</span></span><span class=line><span class=cl>        <span class=nx>originalHandler</span><span class=p>.</span><span class=nf>ServeHTTP</span><span class=p>(</span><span class=nx>w</span><span class=p>,</span> <span class=nx>r</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>    <span class=p>})</span>
-</span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><p>비용적인 문제가 있지만 <code>APM</code>과 <code>Error Capture</code>측면에서는 관리적인 편의성을 제공해주는 Sentry!</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://dingyu.dev/tags/go/>Go</a></li><li><a href=https://dingyu.dev/tags/sentry/>Sentry</a></li></ul><nav class=paginav><a class=prev href=https://dingyu.dev/posts/go-pprof-gc/><span class=title>« 이전 페이지</span><br><span>[Go] pprof로 GC 튜닝하기</span>
+<img loading=lazy src=/posts/sentry/6.png></p><ul><li>Environment: 애플리케이션의 실행 환경(예: production, staging, development)을 지정합니다. 이 정보는 에러 필터링과 분석 시 중요한 차원으로 사용됩니다.<ul><li>각 실행 환경 별로 필터링하여 알림 설정을 하거나, 모니터링 가능</li><li>Issue Filtering</li></ul></li><li>Release: 애플리케이션의 릴리즈 버전을 지정합니다. 이 값을 통해 에러가 발생한 애플리케이션의 구체적인 버전을 추적하고, 릴리즈 간 에러 비율을 비교할 수 있습니다.</li><li>SampleRate: 0에서 1 사이의 값을 설정하여, 보고될 이벤트의 샘플링 비율을 결정합니다. 예를 들어, <strong>0.1</strong>로 설정하면 10%의 이벤트만이 실제로 보고됩니다. 이는 대량의 트래픽이 발생하는 애플리케이션에서 유용하게 사용될 수 있습니다.<ul><li>API 트래픽 량이 많을 수록 0에 가깝게 지정</li><li>네트워크 트래픽 감소 / 성능 최적화 / 비용 절감을 위해 적절히 지정</li></ul></li><li>TracesSampleRate: 성능 모니터링에 사용되며, <strong>SampleRate</strong>와 비슷하게 트랜잭션 데이터의 샘플링 비율을 결정합니다. 이를 통해 성능 데이터의 양을 조절할 수 있습니다.</li><li>BeforeSend: 보고되기 전에 이벤트를 수정하거나 필터링할 수 있는 콜백 함수를 설정합니다. 예를 들어, 특정 조건을 만족하는 이벤트만을 보고하거나, 민감한 정보를 제거하는 데 사용될 수 있습니다.</li><li>AttachStacktrace: 자동으로 스택 트레이스를 이벤트에 첨부할지 여부를 결정합니다. 이 옵션을 활성화하면 에러가 아닌 로그 메시지에도 스택 트레이스 정보가 포함됩니다.</li><li>ServerName: 이벤트가 보고될 때 서버 이름을 명시적으로 설정할 수 있습니다. 이 정보는 에러 분석 시 서버 구분에 도움을 줄 수 있습니다.</li><li>Integrations: Sentry와 함께 사용할 추가적인 통합 기능들을 설정합니다. Sentry는 다양한 플랫폼과 프레임워크에 대한 통합을 제공하여, 보다 쉽게 에러 추적 및 성능 모니터링을 구현할 수 있도록 돕습니다.</li><li>Transport는 Sentry 서버로 이벤트를 전송하는 메커니즘을 정의합니다. 이 옵션을 사용하여 개발자는 기본 HTTP 전송 방식 대신 커스텀 전송 방식을 구현할 수 있습니다<ul><li>timeout 값은 네트워크 지연이나 서버 응답 시간의 변동성을 고려하여 설정되어야 합니다</li></ul></li></ul><h3 id=initialize>Initialize<a hidden class=anchor aria-hidden=true href=#initialize>#</a></h3><p>Go-Sentry SDK 사용 시, 최초 초기화 당시에 HTTP Client의 TCP 커넥션을 자동으로 처리 합니다.</p><p>Applicaiton 의 main.go 에서 최초로 Init() 설정하는 것이 Best Practice로 소개됩니다.</p><pre tabindex=0><code class=language-go>err := sentry.Init(
+    sentry.ClientOptions{
+        Dsn:              si.conf.Sentry.DSN,
+        SampleRate:       si.conf.Sentry.SampleRate,
+        EnableTracing:    si.conf.Sentry.EnableTrace,
+        Debug:            si.conf.Sentry.Debug,
+        TracesSampleRate: si.conf.Sentry.TracesSampleRate,
+        Environment:      si.conf.Sentry.Environment,
+        AttachStacktrace: true,
+        Transport: &amp;amp;sentry.HTTPSyncTransport{
+            Timeout: si.conf.Sentry.Timeout,
+        },
+    },
+)</code></pre><h3 id=capture-exception>Capture Exception<a hidden class=anchor aria-hidden=true href=#capture-exception>#</a></h3><p>발생한 예외(에러)와 관련된 스택 트레이스를 자동으로 캡처하고 추적합니다.</p><pre tabindex=0><code class=language-go>// 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기
+hub := sentry.GetHubFromContext(ctx)
+if hub == nil {
+    hub = sentry.CurrentHub().Clone()
+    // 현재 컨텍스트에 Sentry Hub을 설정
+    ctx = sentry.SetHubOnContext(ctx, hub)
+}
+// 에러 캡처
+hub.CaptureException(err)</code></pre><h4 id=go-error-사용에-따른-스택-트레이스-차이점>Go Error 사용에 따른 스택 트레이스 차이점<a hidden class=anchor aria-hidden=true href=#go-error-사용에-따른-스택-트레이스-차이점>#</a></h4><blockquote><p>정확한 에러의 발생처를 알기 위해서는 pkg/errors 라이브러리를 사용하자!</p></blockquote><p><strong>errors 패키지</strong>: 기본적으로 스택 트레이스 정보를 제공하지 않습니다. 에러는 단순히 메시지를 포함하는 값이며, 디버깅을 위한 추가적인 컨텍스트나 위치 정보는 포함되어 있지 않습니다.</p><blockquote></blockquote><p><strong>github.com/pkg/errors 패키지</strong>: 에러에 자동으로 <code>스택 트레이스</code>를 포함합니다. 이를 통해 에러가 어디서 발생했는지, 에러의 원인을 추적하는 데 필요한 상세한 호출 스택 정보를 얻을 수 있습니다.</p><p>test. errors 패키지와 pkg/errors 에 따른 스택 트레이스</p><pre tabindex=0><code class=language-go>package main
+ 
+import (
+    &amp;#34;context&amp;#34;
+    stdErr &amp;#34;errors&amp;#34;
+    &amp;#34;fmt&amp;#34;
+    &amp;#34;time&amp;#34;
+ 
+    sentry &amp;#34;github.com/getsentry/sentry-go&amp;#34;
+    pkgErr &amp;#34;github.com/pkg/errors&amp;#34;
+)
+ 
+var (
+    PkgErr1 = pkgErr.New(&amp;#34;pkg error 1&amp;#34;)
+    PkgErr2 = pkgErr.New(&amp;#34;pkg error 2&amp;#34;)
+    StdErr1 = stdErr.New(&amp;#34;standard error1&amp;#34;)
+    StdErr2 = stdErr.New(&amp;#34;standard error2&amp;#34;)
+)
+ 
+func main() {
+    err := sentry.Init(
+        sentry.ClientOptions{
+            Dsn:              &amp;#34;&amp;#34;,
+            Debug:            true,
+            AttachStacktrace: true,
+        },
+    )
+ 
+    if err != nil {
+        // sentry 초기화 실패 시, panic 시스템 os exit
+        panic(err)
+    }
+    ctx := context.Background()
+    hub := sentry.GetHubFromContext(ctx)
+    if hub == nil {
+        hub = sentry.CurrentHub().Clone()
+        // 현재 컨텍스트에 Sentry Hub을 설정
+        ctx = sentry.SetHubOnContext(ctx, hub)
+    }
+    err = errPkgNested()
+    go hub.CaptureException(err)
+    fmt.Println(&amp;#34;Standard error nested&amp;#34;)
+ 
+    time.Sleep(5 * time.Second)
+}
+ 
+func errStdNested() error {
+    return stdErr.Join(PkgErr1, PkgErr2)
+}
+ 
+func errPkgNested() error {
+    return pkgErr.Wrap(PkgErr1, PkgErr2.Error())
+}</code></pre><h3 id=scope>Scope()<a hidden class=anchor aria-hidden=true href=#scope>#</a></h3><p>Sentry에서 Scope는 특정 에러 또는 이벤트에 추가적인 컨텍스트 정보를 제공하는 메커니즘입니다. 에러의 재현을 위해서 요청 파라미터 등을 Scope에 저장하여 애플리케이션의 고도화가 가능합니다.</p><p>Sentry 클라이언트를 통해 생성되는 허브는 Context 단위로 싱글턴 패턴을 유지하며, go context.Context 와 함께 메타데이터를 저장하여, 추적에 용이하도록 돕습니다.</p><pre tabindex=0><code class=language-go>func (rm *sentryScopeMiddleware) Register(originalHandler http.Handler) http.Handler {
+    if !rm.initializer.Enabled() {
+        // sentry가 비활성화 되어 있는 경우, 센트리 활성화
+        rm.initializer.Init()
+    }
+ 
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        hub := sentry.GetHubFromContext(r.Context())
+        if hub == nil {
+            hub = sentry.CurrentHub().Clone()
+            r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub))
+        }
+        hub.Scope().SetRequest(r)
+    })
+}</code></pre><hr><h2 id=sentry-advancement>Sentry Advancement<a hidden class=anchor aria-hidden=true href=#sentry-advancement>#</a></h2><h3 id=sentryinitializer>SentryInitializer<a hidden class=anchor aria-hidden=true href=#sentryinitializer>#</a></h3><p>하나의 애플리케이션에서 싱글턴을 유지하기 위해 설정을 통한 초기화 여부를 확인하는 클래스</p><pre tabindex=0><code class=language-go>package core
+
+import (
+    &amp;#34;sync&amp;#34;
+
+    &amp;#34;github.com/getsentry/sentry-go&amp;#34;
+)
+
+type (
+    // SentryInitializer : Sentry 설정 초기화를 담당하는 구현체
+    SentryInitializer struct {
+        conf    *Config
+        enabled bool
+        mutex   sync.RWMutex // enabled 필드에 대한 읽기/쓰기 동기화를 위한 RWMutex
+    }
+)
+
+// NewSentryInitializer : SentryInitializer 생성자
+func NewSentryInitializer(conf *Config) SentryInitializer {
+    return SentryInitializer{
+        conf: conf,
+    }
+}
+
+// Init : SentryInitializer 초기화
+//
+//   - sentry 패키지 변수를 통해 싱글턴 처리하므로 최초 설정만 요구됨
+func (si *SentryInitializer) Init() error {
+    si.mutex.Lock() // enabled lock for writing
+    defer si.mutex.Unlock()
+    err := sentry.Init(
+        sentry.ClientOptions{
+            Dsn:              si.conf.Sentry.DSN,
+            SampleRate:       si.conf.Sentry.SampleRate,
+            EnableTracing:    si.conf.Sentry.EnableTrace,
+            Debug:            si.conf.Sentry.Debug,
+            TracesSampleRate: si.conf.Sentry.TracesSampleRate,
+            Environment:      si.conf.Sentry.Environment,
+            AttachStacktrace: true,
+            Transport: &amp;amp;sentry.HTTPSyncTransport{
+                Timeout: si.conf.Sentry.Timeout,
+            },
+        },
+    )
+
+    if err != nil {
+        // sentry 초기화 실패 시, panic 시스템 os exit
+        panic(err)
+    }
+    // 활성화 상태로 변경
+    si.enabled = true
+    return nil
+}
+
+// Enabled : Sentry 활성화 여부
+//
+//   - Init()이 호출된 경우, 활성화 상태로 변경
+func (si *SentryInitializer) Enabled() bool {
+    si.mutex.RLock() // read lock
+    defer si.mutex.RUnlock()
+    return si.enabled
+}</code></pre><p>동시성 문제로 **Enabled()**의 동기화를 위해 락으로 관리</p><h3 id=errorcapturer>ErrorCapturer<a hidden class=anchor aria-hidden=true href=#errorcapturer>#</a></h3><p>SentryInitializer를 임베딩하여, 센트리를 통한 센트리 허브에서 에러를 캡쳐링하는 클래스
+<img loading=lazy src=/posts/sentry/7.png></p><pre tabindex=0><code class=language-go>package core
+ 
+import (
+    &amp;#34;context&amp;#34;
+ 
+    &amp;#34;github.com/getsentry/sentry-go&amp;#34;
+)
+ 
+type (
+    // ErrorCapturer : 에러 캡처 인터페이스
+    ErrorCapturer interface {
+        CaptureError(ctx context.Context, err error)
+    }
+ 
+    sentryErrorCapturer struct {
+        SentryInitializer
+    }
+)
+ 
+// NewSentryErrorCapturer : SentryErrorCapturer 생성자
+func NewSentryErrorCapturer(initializer SentryInitializer) ErrorCapturer {
+    return &amp;amp;sentryErrorCapturer{
+        initializer: initializer,
+    }
+}
+ 
+// CaptureError : Sentry로 에러 캡처
+func (sec *sentryErrorCapturer) CaptureError(ctx context.Context, err error) {
+    // 에러가 없는 경우, 무시
+    if err == nil {
+        return
+    }
+ 
+    if !sec.SentryInitializer.Enabled() {
+        // sentry 초기화를 통해 활성화
+        sec.SentryInitializer.Init()
+    }
+ 
+    // 현재 컨텍스트와 연관된 Hub 생성 또는 가져오기
+    hub := sentry.GetHubFromContext(ctx)
+    if hub == nil {
+        hub = sentry.CurrentHub().Clone()
+        // 현재 컨텍스트에 Sentry Hub을 설정
+        ctx = sentry.SetHubOnContext(ctx, hub)
+    }
+ 
+    // 에러 캡처
+    hub.CaptureException(err)
+}</code></pre><h3 id=recovermiddleware>RecoverMiddleware<a hidden class=anchor aria-hidden=true href=#recovermiddleware>#</a></h3><p>핸들러에서 Panic 발생 시, Recover(), 요청을 허브의 메타데이터로 저장하는 클래스
+<img loading=lazy src=/posts/sentry/8.png></p><pre tabindex=0><code class=language-go>// Register panic() 발생 시 스택 스레이스를 로깅하며 센트리를 통해 남기는 메서드
+//
+//   - http handler에 내부적으로 등록
+//   - API 고루틴 내부적으로 defer()를 통하여 panic 상황에서도 로깅이 가능하도록 한다
+//
+// Parameters:
+//   - originalHandler: 원래의 http handler
+func (rm *sentryRecoverMiddleware) Register(originalHandler http.Handler) http.Handler {
+    if !rm.initializer.Enabled() {
+        // sentry가 비활성화 되어 있는 경우, 센트리 활성화
+        rm.initializer.Init()
+    }
+ 
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        hub := sentry.GetHubFromContext(r.Context())
+        if hub == nil {
+            hub = sentry.CurrentHub().Clone()
+            r = r.WithContext(sentry.SetHubOnContext(r.Context(), hub))
+        }
+        hub.Scope().SetRequest(r)
+ 
+        defer func() {
+            if err := recover(); err != nil {
+                hub.RecoverWithContext(r.Context(), err)
+                stackList := strings.Split(string(debug.Stack()), &amp;#34;\n&amp;#34;)
+                rm.Logger.Error().
+                    Any(&amp;#34;error&amp;#34;, err).
+                    Any(&amp;#34;stack_list&amp;#34;, stackList).Send()
+ 
+                resp := dto.ACSErrorResponse{
+                    Code:       http.StatusInternalServerError,
+                    ErrMessage: &amp;#34;서버에서 예기치 못한 에러가 발생하였습니다&amp;#34;,
+                    Success:    false,
+                }
+ 
+                jsonResp := resp.ToJSON()
+                w.Header().Set(&amp;#34;Content-Type&amp;#34;, &amp;#34;application/json&amp;#34;)
+                w.WriteHeader(http.StatusInternalServerError)
+                _, err = w.Write(jsonResp)
+                if err != nil {
+                    rm.Logger.Error().
+                        Any(&amp;#34;error&amp;#34;, err).Send()
+                }
+                return
+            }
+        }()
+        originalHandler.ServeHTTP(w, r)
+    })
+}</code></pre><p>비용적인 문제가 있지만 <code>APM</code>과 <code>Error Capture</code>측면에서는 관리적인 편의성을 제공해주는 Sentry!</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://dingyu.dev/tags/go/>Go</a></li><li><a href=https://dingyu.dev/tags/sentry/>Sentry</a></li></ul><nav class=paginav><a class=prev href=https://dingyu.dev/posts/go-pprof-gc/><span class=title>« 이전 페이지</span><br><span>[Go] pprof로 GC 튜닝하기</span>
 </a><a class=next href=https://dingyu.dev/posts/k8s-zero-downtime/><span class=title>다음 페이지 »</span><br><span>[Infra] 쿠버네틱스 무중단 배포 설정하기</span></a></nav></footer><div id=giscus_thread><script src=https://giscus.app/client.js data-repo=dings-things/blog data-repo-id=R_kgDON9IuAw data-category=Announcements data-category-id=DIC_kwDON9IuA84CnTai data-mapping=og:title data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=bottom data-theme=preferred_color_scheme data-lang=ko data-loading=lazy crossorigin=anonymous async></script></div></article></main><footer class=footer><span>&copy; 2025 <a href=https://dingyu.dev/>Ding's Coding Forge</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
