@@ -73,30 +73,7 @@ description: 비동기 환경에서 분산 락과 소유권을 안전하게 관�
 
 ### SPoF 해결 : Master - Slave 구조
 Failover 되는 동안 TTL이 만료 → Unlock으로 인한 데이터 오염
-```mermaid
-sequenceDiagram
-    participant A as Client A
-    participant Lock as Lock Service
-    participant B as Client B
-    participant Storage as Shared Storage
-
-    A->>Lock: Acquire Lock on filename
-    Lock-->>A: Lock Granted (with TTL)
-
-    A->>Storage: Read File
-    Note over A: Redis failover (longer than TTL)
-
-    Lock-->>B: Lock expired, available again
-    B->>Lock: Acquire Lock on filename
-    Lock-->>B: Lock Granted
-
-    B->>Storage: Read File
-    B->>Storage: Update and Write File
-
-    A->>Storage: Update and Write File (After GC pause)
-
-    Note over Storage: Data corruption!
-```
+![](image-1.png)
 
 ### 안정성 해결 : Fencing으로 안전한 lock 사용
 **MVCC**에서 `first commit wins`와 같이, version에 기반하여 storage에서 트랜잭션을 처리하도록 한다. (애초에 그러면 lock을 안써도 되지 않나?)
@@ -125,51 +102,7 @@ sequenceDiagram
 | 문제점               | 클럭이 갑자기 변하거나(GC, NTP, 네트워크 지연), 프로세스가 일시 정지되면, 락 만료 시점 계산이 잘못돼서 **락이 깨질 수 있음**                                      |
 | 결과                | 성능 문제(liveness degradation)가 아니라, 아예 **데이터 손상이나 중복 실행(safety violation)** 이 일어날 수 있음                                |
 
-```mermaid
-sequenceDiagram
-    participant C1 as Client 1
-    participant C2 as Client 2
-    participant A as Redis Node A
-    participant B as Redis Node B
-    participant C as Redis Node C
-    participant D as Redis Node D
-    participant E as Redis Node E
-
-    %% First Scenario: Clock Jump
-    C1->>A: Acquire lock
-    C1->>B: Acquire lock
-    C1->>C: Acquire lock
-    Note over C: Clock jumps forward -> lock expires prematurely
-    C1->>D: (Network issue, cannot reach)
-    C1->>E: (Network issue, cannot reach)
-
-    C2->>C: Acquire lock (C believes no lock exists)
-    C2->>D: Acquire lock
-    C2->>E: Acquire lock
-    Note over C1,C2: Both clients believe they hold the lock
-
-    %% Second Scenario: Process Pause (e.g., GC) or Long Network Delay
-    C1->>A: Lock request sent (in-flight)
-    C1->>B: Lock request sent (in-flight)
-    C1->>C: Lock request sent (in-flight)
-    C1->>D: Lock request sent (in-flight)
-    C1->>E: Lock request sent (in-flight)
-
-    Note over C1: Client 1 stops (GC pause or process pause)
-
-    Note over A: Locks expire during Client 1 pause
-
-    C2->>A: Acquire new lock
-    C2->>B: Acquire new lock
-    C2->>C: Acquire new lock
-    C2->>D: Acquire new lock
-    C2->>E: Acquire new lock
-
-    C1->>C1: Client 1 resumes after GC pause
-    C1->>C1: Receives "lock acquired" responses from Redis (stale responses)
-
-    Note over C1,C2: Both clients now believe they hold the lock
-```
+![](image-2.png)
 
 | 시나리오              | 설명                                                                                                                  |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------- |

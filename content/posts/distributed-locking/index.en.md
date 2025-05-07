@@ -73,30 +73,7 @@ Using a single Redis node cannot guarantee `high availability` and `stability` d
 
 ### SPoF Solution: Master - Slave Structure
 During failover, TTL expiration may lead to unlock, causing data corruption.
-```mermaid
-sequenceDiagram
-    participant A as Client A
-    participant Lock as Lock Service
-    participant B as Client B
-    participant Storage as Shared Storage
-
-    A->>Lock: Acquire Lock on filename
-    Lock-->>A: Lock Granted (with TTL)
-
-    A->>Storage: Read File
-    Note over A: Redis failover (longer than TTL)
-
-    Lock-->>B: Lock expired, available again
-    B->>Lock: Acquire Lock on filename
-    Lock-->>B: Lock Granted
-
-    B->>Storage: Read File
-    B->>Storage: Update and Write File
-
-    A->>Storage: Update and Write File (After GC pause)
-
-    Note over Storage: Data corruption!
-```
+![](image-1.png)
 
 ### Stability Solution: Safe Lock with Fencing
 Similar to `first commit wins` in **MVCC**, transaction handling at the storage level is based on version (token).
@@ -125,51 +102,7 @@ The biggest problem is: **who generates the fencing token?** In a distributed en
 | Problem | If clocks jump forward/backward (GC, NTP, network delay), lock expiration calculations may fail and **lock can be broken** |
 | Result | Not just liveness degradation — **safety violations** (e.g., data corruption, duplicate execution) can occur |
 
-```mermaid
-sequenceDiagram
-    participant C1 as Client 1
-    participant C2 as Client 2
-    participant A as Redis Node A
-    participant B as Redis Node B
-    participant C as Redis Node C
-    participant D as Redis Node D
-    participant E as Redis Node E
-
-    %% First Scenario: Clock Jump
-    C1->>A: Acquire lock
-    C1->>B: Acquire lock
-    C1->>C: Acquire lock
-    Note over C: Clock jumps forward -> lock expires prematurely
-    C1->>D: (Network issue, cannot reach)
-    C1->>E: (Network issue, cannot reach)
-
-    C2->>C: Acquire lock (C believes no lock exists)
-    C2->>D: Acquire lock
-    C2->>E: Acquire lock
-    Note over C1,C2: Both clients believe they hold the lock
-
-    %% Second Scenario: Process Pause (e.g., GC) or Long Network Delay
-    C1->>A: Lock request sent (in-flight)
-    C1->>B: Lock request sent (in-flight)
-    C1->>C: Lock request sent (in-flight)
-    C1->>D: Lock request sent (in-flight)
-    C1->>E: Lock request sent (in-flight)
-
-    Note over C1: Client 1 stops (GC pause or process pause)
-
-    Note over A: Locks expire during Client 1 pause
-
-    C2->>A: Acquire new lock
-    C2->>B: Acquire new lock
-    C2->>C: Acquire new lock
-    C2->>D: Acquire new lock
-    C2->>E: Acquire new lock
-
-    C1->>C1: Client 1 resumes after GC pause
-    C1->>C1: Receives "lock acquired" responses from Redis (stale responses)
-
-    Note over C1,C2: Both clients now believe they hold the lock
-```
+![](image-2.png)
 
 | Scenario | Description |
 |:---|:---|
