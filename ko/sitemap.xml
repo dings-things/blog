@@ -2,6 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://dingyu.dev/</loc>
+    <lastmod>2025-05-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/"
+                />
+  </url><url>
+    <loc>https://dingyu.dev/posts/</loc>
+    <lastmod>2025-05-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/posts/"
+                />
+  </url><url>
     <loc>https://dingyu.dev/posts/distributed-locking/</loc>
     <lastmod>2025-04-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -77,21 +107,6 @@
                 href="https://dingyu.dev/categories/db/"
                 />
   </url><url>
-    <loc>https://dingyu.dev/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/"
-                />
-  </url><url>
     <loc>https://dingyu.dev/tags/distributed/</loc>
     <lastmod>2025-04-29T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -150,21 +165,6 @@
                 rel="alternate"
                 hreflang="ko"
                 href="https://dingyu.dev/tags/lock/"
-                />
-  </url><url>
-    <loc>https://dingyu.dev/posts/</loc>
-    <lastmod>2025-04-29T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/posts/"
                 />
   </url><url>
     <loc>https://dingyu.dev/tags/redis/</loc>
