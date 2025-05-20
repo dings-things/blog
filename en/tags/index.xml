@@ -11,8 +11,57 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/en/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Async</title>
+      <link>https://dingyu.dev/en/tags/async/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/async/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Channel</title>
+      <link>https://dingyu.dev/en/tags/channel/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/channel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gmp</title>
+      <link>https://dingyu.dev/en/tags/gmp/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/gmp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Go</title>
+      <link>https://dingyu.dev/en/tags/go/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/go/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Goroutine</title>
+      <link>https://dingyu.dev/en/tags/goroutine/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/goroutine/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Pprof</title>
+      <link>https://dingyu.dev/en/tags/pprof/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/pprof/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Thread</title>
+      <link>https://dingyu.dev/en/tags/thread/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/tags/thread/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Availability</title>
       <link>https://dingyu.dev/en/tags/availability/</link>
@@ -189,13 +238,6 @@
       <description></description>
     </item>
     <item>
-      <title>Go</title>
-      <link>https://dingyu.dev/en/tags/go/</link>
-      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/en/tags/go/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Grafana</title>
       <link>https://dingyu.dev/en/tags/grafana/</link>
       <pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate>
@@ -263,20 +305,6 @@
       <link>https://dingyu.dev/en/tags/project-guide/</link>
       <pubDate>Tue, 05 Nov 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/en/tags/project-guide/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Async</title>
-      <link>https://dingyu.dev/en/tags/async/</link>
-      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/en/tags/async/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Pprof</title>
-      <link>https://dingyu.dev/en/tags/pprof/</link>
-      <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/en/tags/pprof/</guid>
       <description></description>
     </item>
     <item>

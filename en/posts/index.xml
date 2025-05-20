@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Go] Is It Okay to Run 100 Million Goroutines?</title>
+      <link>https://dingyu.dev/en/posts/gmp/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/posts/gmp/</guid>
+      <description>Based on Go&amp;#39;s runtime scheduling model (GMP), this article provides an in-depth analysis of how goroutine parking (`gopark`) and wake-up (`goready`) actually work. It examines various blocking scenarios—such as channels, mutexes, and I/O—and explains how goroutines are parked, when new Ms (OS threads) are spawned, and what performance issues may arise when too many goroutines accumulate in a parked state.</description>
+    </item>
     <item>
       <title>[DB] Redlock and Lease in Distributed Systems</title>
       <link>https://dingyu.dev/en/posts/distributed-locking/</link>

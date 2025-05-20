@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 29 Apr 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/en/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Go</title>
+      <link>https://dingyu.dev/en/categories/go/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/en/categories/go/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Db</title>
       <link>https://dingyu.dev/en/categories/db/</link>

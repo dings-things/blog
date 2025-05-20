@@ -10,15 +10,15 @@
       <link>https://dingyu.dev/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.144.0</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <language>ko</language>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/categories/go/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>[Go] pprof로 GC 튜닝하기</title>
-      <link>https://dingyu.dev/posts/go-pprof-gc/</link>
-      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/posts/go-pprof-gc/</guid>
-      <description>This post explores how to use pprof for profiling and optimizing Go applications, focusing on heap allocation, GC tuning, and performance bottleneck identification. It covers profiling setup with Gin, analyzing Flame Graphs and heap dumps, and optimizing memory allocations by addressing inefficient context usage and logging overhead. Additionally, it discusses GC tuning strategies (GOMEMLIMIT, GOGC) and best practices like pointer usage, slice capacity preallocation, and benchmarking techniques to improve application efficiency and reduce Stop-The-World (STW) latency.</description>
+      <title>[Go] 고루틴 1억 개 돌려도 괜찮을까?</title>
+      <link>https://dingyu.dev/posts/gmp/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/gmp/</guid>
+      <description>Go의 런타임 스케줄링 모델(GMP)을 기반으로, 고루틴의 파킹(gopark) 및 웨이크업(goready) 동작이 실제로 어떻게 이루어지는지 상세히 분석. 채널, 뮤텍스, I/O 등 다양한 블로킹 상황에서 고루틴이 어떻게 파킹되고, M이 언제 새로 생성되며, 파킹된 고루틴이 너무 많아질 경우 어떤 성능 문제가 발생하는지 알아보자</description>
     </item>
   </channel>
 </rss>

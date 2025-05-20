@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>ko</language>
-    <lastBuildDate>Sun, 27 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/tags/pprof/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[Go] 고루틴 1억 개 돌려도 괜찮을까?</title>
+      <link>https://dingyu.dev/posts/gmp/</link>
+      <pubDate>Tue, 20 May 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/gmp/</guid>
+      <description>Go의 런타임 스케줄링 모델(GMP)을 기반으로, 고루틴의 파킹(gopark) 및 웨이크업(goready) 동작이 실제로 어떻게 이루어지는지 상세히 분석. 채널, 뮤텍스, I/O 등 다양한 블로킹 상황에서 고루틴이 어떻게 파킹되고, M이 언제 새로 생성되며, 파킹된 고루틴이 너무 많아질 경우 어떤 성능 문제가 발생하는지 알아보자</description>
+    </item>
     <item>
       <title>[Go] Worker Pool과 비동기 작업의 성능 프로파일링</title>
       <link>https://dingyu.dev/posts/worker-pool-async/</link>
