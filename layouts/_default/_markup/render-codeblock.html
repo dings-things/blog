@@ -1,8 +1,0 @@
-{{ if eq .Type "mermaid" }}
-  <div class="mermaid">
-    {{- .Inner | replaceRE "\\r?\\n" "\n" | safeHTML }}
-  </div>
-  {{ .Page.Store.Set "hasMermaid" true }}
-{{ else }}
-  <pre tabindex="0"><code class="language-{{ .Type | htmlEscape }}">{{ .Inner | htmlEscape }}</code></pre>
-{{ end }}
