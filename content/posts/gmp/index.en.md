@@ -30,8 +30,8 @@ Goroutines are often called lightweight threads... So is it just a thread with l
 
 ## Advantages of Goroutines
 ### Low Context Switching Cost
-As hardware has advanced, the concepts of *_multithreading_* and *_multitasking_* have emerged to utilize it efficiently.
-> Multithreading: Multiple threads running within a single process  
+As hardware has advanced, the concepts of *_multithreading_ and *_multitasking_ have emerged to utilize it efficiently.
+> Multithreading: Multiple threads running within a single process (In a single-core environment, multithreading might be multitasking)
 >
 > Multitasking: Simultaneously executing multiple tasks (appearing so)
 
@@ -49,6 +49,8 @@ Creating and destroying an `OS Thread` after use requires high cost. To avoid pa
 What about in Go?
 
 The M in Go’s GMP model corresponds to the `OS Thread`. While a goroutine runs through the connection of a P(processor) and an M, the M can be created or destroyed as needed.
+
+※ G refers to a user-level thread, and M refers to an OS thread. These are mapped in an m:n relationship.
 
 However, this is optimized by the Go runtime scheduler, allowing it to be managed with much lower cost compared to general programming languages.
 
@@ -395,6 +397,14 @@ However, if the external API response is slow (e.g., 10 seconds), and tens of mi
 - Linux ulimit -n typically limits open files to thousands or tens of thousands
 - New requests eventually fail due to fd exhaustion
 
+#### Reference – Default FD Limits by OS
+| Operating System     | Soft Limit (Default) | Hard Limit   | Notes                                                         |
+| -------------------- | -------------------- | ------------ | ------------------------------------------------------------- |
+| **Ubuntu (20.04\~)** | 1024                 | 1048576      | Can be adjusted in `/etc/security/limits.conf`                |
+| **Debian**           | 1024                 | 4096         | May vary depending on the system                              |
+| **CentOS 7**         | 1024                 | 4096 or 1024 | Can be configured via systemd or `limits.conf`                |
+| **macOS**            | 256                  | 10240        | As of Ventura: soft=256, hard=10240 (varies per app/terminal) |
+
 ## Test: Is running 100M goroutines okay?
 
 ```go
@@ -463,6 +473,23 @@ func main() {
 - `runtime.(*timers).adjust`: Too many timers from `time.Sleep` increase min-heap ops
 
 ![](image-10.png)
+
+> **Reason for Connection Timeout**
+> 
+> After the default HTTP client's `MaxConnectionPool` is fully consumed, a new connection must be created, which involves the 3-way TCP handshake process.
+>
+> ```text
+> Client Request         Server Handling
+> --------------         ----------------------------
+> SYN  ───────────▶      [Waiting in the SYN queue]
+>                            (Before `accept()` is called)
+>                            `accept()` is called → connection accepted
+>                                  ⇩
+> SYN-ACK ◀──────────     Connection accepted
+> ACK     ───────────▶     Connection established (3-way handshake complete)
+>
+> If the server's SYN queue is full, the connection cannot be established and remains blocked, eventually leading to a timeout.
+
 - Unbounded goroutines waiting = heap bloat = OOM = crash
 
 Even with connection pooling:
