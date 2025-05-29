@@ -1,5 +1,5 @@
 baseURL: "https://dingyu.dev/"
-languageCode: "en-us"
+languageCode: "ko"
 title: "Ding's Coding Forge"
 theme: "PaperMod"
 enableRobotsTXT: true
@@ -23,6 +23,10 @@ outputs:
 services:
   googleAnalytics:
     id: G-XH8830R9KK
+
+taxonomies:
+  category: categories
+  tag: tags
 
 params:
   TocSide: "left"
@@ -59,7 +63,7 @@ params:
     emitMetadata: "0"
     inputPosition: "bottom"
     theme: "preferred_color_scheme"
-    lang: "ko"
+    lang: "en"
     loading: "lazy"
 
   assets:
@@ -67,19 +71,11 @@ params:
     favicon16x16: "favicon-16x16.png"
     favicon32x32: "favicon-32x32.png"
     apple_touch_icon: "apple-touch-icon.png"
-    safari_pinned_tab: "<link / abs url>"
 
   label:
     text: "Ding's Coding Forge"
     icon: "apple-touch-icon.png"
     iconHeight: 35
-
-  profileMode:
-    buttons:
-      - name: "Posts"
-        url: "posts"
-      - name: "Tags"
-        url: "tags"
 
   homeInfoParams:
     Title: "Problem Solver"
@@ -120,29 +116,6 @@ params:
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content", "tags"]
 
-menu:
-  main:
-    - identifier: "about"
-      name: "소개"
-      url: "/about/"
-      weight: 10
-    - identifier: "categories"
-      name: "카테고리"
-      url: "/categories/"
-      weight: 20
-    - identifier: "tags"
-      name: "태그"
-      url: "/tags/"
-      weight: 30
-    - identifier: "archives"
-      name: "아카이브"
-      url: "/archives/"
-      weight: 40
-    - identifier: "search"
-      name: "검색"
-      url: "/search/"
-      weight: 50
-
 defaultContentLanguage: "ko"
 
 languages:
@@ -156,7 +129,7 @@ languages:
       main:
         - identifier: "about"
           name: "소개"
-          url: "/about/"
+          url: "/ko/about/"
           weight: 10
         - identifier: "categories"
           name: "카테고리"
@@ -168,11 +141,11 @@ languages:
           weight: 30
         - identifier: "archives"
           name: "아카이브"
-          url: "/archives/"
+          url: "/ko/archives/"
           weight: 40
         - identifier: "search"
           name: "검색"
-          url: "/search/"
+          url: "/ko/search/"
           weight: 50
 
   en:
@@ -189,11 +162,11 @@ languages:
           weight: 10
         - identifier: "categories"
           name: "Categories"
-          url: "/en/categories/"
+          url: "/categories/"
           weight: 20
         - identifier: "tags"
           name: "Tags"
-          url: "/en/tags/"
+          url: "/tags/"
           weight: 30
         - identifier: "archives"
           name: "Archives"
@@ -207,5 +180,3 @@ languages:
 markup:
   highlight:
     noClasses: false
-
-mainSections: ["posts"]
