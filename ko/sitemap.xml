@@ -2,6 +2,121 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://dingyu.dev/posts/confluence-automation/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/agile/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/categories/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/categories/"
+                />
+  </url><url>
+    <loc>https://dingyu.dev/tags/confluence/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/"
+                />
+  </url><url>
+    <loc>https://dingyu.dev/categories/dx/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/categories/dx/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/categories/dx/"
+                />
+  </url><url>
+    <loc>https://dingyu.dev/posts/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/posts/"
+                />
+  </url><url>
+    <loc>https://dingyu.dev/tags/python/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/tags/python/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/tags/python/"
+                />
+  </url><url>
+    <loc>https://dingyu.dev/tags/scrum/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/sprint/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>https://dingyu.dev/tags/</loc>
+    <lastmod>2025-06-11T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://dingyu.dev/en/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="ko"
+                href="https://dingyu.dev/tags/"
+                />
+  </url><url>
     <loc>https://dingyu.dev/posts/gmp/</loc>
     <lastmod>2025-05-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -32,21 +147,6 @@
                 href="https://dingyu.dev/tags/async/"
                 />
   </url><url>
-    <loc>https://dingyu.dev/categories/</loc>
-    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/categories/"
-                />
-  </url><url>
     <loc>https://dingyu.dev/tags/channel/</loc>
     <lastmod>2025-05-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -60,21 +160,6 @@
                 rel="alternate"
                 hreflang="ko"
                 href="https://dingyu.dev/tags/channel/"
-                />
-  </url><url>
-    <loc>https://dingyu.dev/</loc>
-    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/"
                 />
   </url><url>
     <loc>https://dingyu.dev/tags/gmp/</loc>
@@ -137,21 +222,6 @@
                 href="https://dingyu.dev/tags/goroutine/"
                 />
   </url><url>
-    <loc>https://dingyu.dev/posts/</loc>
-    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/posts/"
-                />
-  </url><url>
     <loc>https://dingyu.dev/tags/pprof/</loc>
     <lastmod>2025-05-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -165,21 +235,6 @@
                 rel="alternate"
                 hreflang="ko"
                 href="https://dingyu.dev/tags/pprof/"
-                />
-  </url><url>
-    <loc>https://dingyu.dev/tags/</loc>
-    <lastmod>2025-05-20T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/tags/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/tags/"
                 />
   </url><url>
     <loc>https://dingyu.dev/tags/thread/</loc>
@@ -1067,21 +1122,6 @@
                 href="https://dingyu.dev/tags/coffee-chat/"
                 />
   </url><url>
-    <loc>https://dingyu.dev/categories/dx/</loc>
-    <lastmod>2024-10-26T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/categories/dx/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/categories/dx/"
-                />
-  </url><url>
     <loc>https://dingyu.dev/tags/slack-bot/</loc>
     <lastmod>2024-10-26T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
@@ -1365,21 +1405,6 @@
                 rel="alternate"
                 hreflang="ko"
                 href="https://dingyu.dev/posts/fastapi-convention/"
-                />
-  </url><url>
-    <loc>https://dingyu.dev/tags/python/</loc>
-    <lastmod>2023-06-22T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://dingyu.dev/en/tags/python/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="ko"
-                href="https://dingyu.dev/tags/python/"
                 />
   </url><url>
     <loc>https://dingyu.dev/posts/crawling-selenium-solver/</loc>

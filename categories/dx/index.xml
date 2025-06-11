@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>ko</language>
-    <lastBuildDate>Sat, 26 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/categories/dx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[DX] 컨플루언스 자동화로 반복 작업 취소화하기</title>
+      <link>https://dingyu.dev/posts/confluence-automation/</link>
+      <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/posts/confluence-automation/</guid>
+      <description>조직에서 주간/월간 회의를 통해 성과를 정리하고 그 다음 스프린트에서 해야할 일을 정의하는 시간을 갖는다. 매번 눈치껏 누군가가 이전 주/달의 보고서를 복사하여 이번 주/달 제목으로 작성하여 본인의 테스크 진행상태를 정리한다. 누군가가 담당하는 작업이 아니었기에 자동화의 책임을 갖지 않았다. 비록 몇분의 시간이지만 우리의 시간은 소중하기에 팀을 위해 반복적인 배치로 수행되는 작업을 위한 스케쥴러 프로젝트를 사이드로 개발해보았다.</description>
+    </item>
     <item>
       <title>[DX] 사내 커피 챗 슬랙 봇 개발기</title>
       <link>https://dingyu.dev/posts/coffee-pal/</link>

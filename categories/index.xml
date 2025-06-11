@@ -11,8 +11,15 @@
     </image>
     <generator>Hugo -- 0.144.0</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 20 May 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://dingyu.dev/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dx</title>
+      <link>https://dingyu.dev/categories/dx/</link>
+      <pubDate>Wed, 11 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>https://dingyu.dev/categories/dx/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Go</title>
       <link>https://dingyu.dev/categories/go/</link>
@@ -67,13 +74,6 @@
       <link>https://dingyu.dev/categories/optimization/</link>
       <pubDate>Sun, 27 Oct 2024 00:00:00 +0000</pubDate>
       <guid>https://dingyu.dev/categories/optimization/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dx</title>
-      <link>https://dingyu.dev/categories/dx/</link>
-      <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
-      <guid>https://dingyu.dev/categories/dx/</guid>
       <description></description>
     </item>
     <item>
